@@ -13,56 +13,54 @@
     <!-- نافذة تسجيل الدخول -->
     <div id="loginModal" class="modal-overlay">
         <div class="modal-content glass-panel">
-            <button id="closeModal" class="btn-close">&times;</button>
+            <button id="closeModal" class="btn-close" type="button">&times;</button>
             <h2 id="modalTitle">تسجيل الدخول</h2>
-            <p id="modalSubtitle">مرحباً بك مجدداً في TechGear</p>
+            <p id="modalSubtitle">مرحباً بك في متجر TechGear</p>
             <form class="login-form" id="authForm">
                 <input type="text" id="regName" placeholder="الاسم الكامل" style="display: none;">
-                <input type="email" placeholder="البريد الإلكتروني" required>
-                <input type="password" placeholder="كلمة المرور" required>
-                <button type="submit" id="modalBtn" class="btn btn-primary">دخول</button>
+                <input type="email" id="authEmail" placeholder="البريد الإلكتروني" required>
+                <input type="password" id="authPassword" placeholder="كلمة المرور" required>
+                <button type="submit" id="modalBtn" class="btn btn-primary" style="width: 100%; justify-content: center; margin-top: 10px;">دخول</button>
             </form>
             <p class="register-link"><span id="toggleText">ليس لديك حساب؟</span> <a href="#" id="toggleLink">سجل الآن</a></p>
         </div>
     </div>
 
-    <!-- نافذة السلة المتقدمة -->
+    <!-- نافذة سلة المشتريات -->
     <div id="cartModal" class="modal-overlay">
         <div class="modal-content glass-panel cart-modal-content">
             <div class="cart-header">
                 <h2><i class="fa-solid fa-cart-shopping"></i> سلة المشتريات</h2>
-                <button id="closeCartModal" class="btn-close">&times;</button>
+                <button id="closeCartModal" class="btn-close" type="button">&times;</button>
             </div>
             
-            <!-- في حال كانت السلة فارغة -->
             <div id="emptyCartState" class="empty-cart-container">
                 <div class="empty-cart-icon">
                     <i class="fa-solid fa-cart-arrow-down"></i>
                 </div>
                 <h3>سلتك فارغة حالياً</h3>
                 <p>استفد من خصومات اليوم الوطني واستخدم كود <span class="coupon-tag">KSA96</span></p>
-                <button class="btn btn-primary" id="startShoppingBtn">تصفح المنتجات الآن</button>
+                <button class="btn btn-primary" id="startShoppingBtn" type="button">ابدأ التسوق الآن</button>
             </div>
 
-            <!-- محتويات السلة -->
             <div id="filledCartState" style="display: none;">
                 <div class="cart-items-list" id="cartItemsList"></div>
                 
                 <div class="coupon-box">
-                    <input type="text" id="couponInput" placeholder="أدخل كود الخصم (مثال: KSA96)">
-                    <button id="applyCouponBtn" class="btn">تطبيق</button>
+                    <input type="text" id="couponInput" placeholder="كود الخصم: KSA96">
+                    <button id="applyCouponBtn" class="btn" type="button">تطبيق</button>
                 </div>
                 <p id="couponMsg" class="coupon-message"></p>
 
                 <div class="cart-summary-box">
                     <div class="summary-row"><span>المجموع الفرعي:</span><span id="subTotal">0 ر.س</span></div>
                     <div class="summary-row" id="discountRow" style="display: none; color: #00e676;">
-                        <span>الخصم (15%):</span><span id="discountVal">- 0 ر.س</span>
+                        <span>الخصم المطبق (15%):</span><span id="discountVal">- 0 ر.س</span>
                     </div>
                     <div class="summary-row total-row"><span>الإجمالي النهائي:</span><span id="finalTotal">0 ر.س</span></div>
                 </div>
 
-                <button class="btn btn-checkout" id="checkoutBtn"><i class="fa-solid fa-check-circle"></i> تأكيد وإتمام الطلب</button>
+                <button class="btn btn-checkout" id="checkoutBtn" type="button"><i class="fa-solid fa-check-circle"></i> إتمام وتأكيد الطلب</button>
             </div>
         </div>
     </div>
@@ -77,7 +75,7 @@
 
             <div class="search-bar-box">
                 <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" id="searchInput" placeholder="ابحث عن المنتجات (سوني، آيفون، طاولة...)">
+                <input type="text" id="searchInput" placeholder="ابحث عن أي منتج (آيفون، سوني، طاولة...)">
             </div>
 
             <nav>
@@ -85,12 +83,12 @@
                     <li><a href="#" class="active-link">الرئيسية</a></li>
                     <li><a href="#national-day" class="text-green"><i class="fa-solid fa-flag"></i> عروض KSA96</a></li>
                     <li>
-                        <button class="sign-in-btn" id="openLoginBtn">
-                            <i class="fa-solid fa-user"></i> <span>حسابي</span>
+                        <button class="sign-in-btn" id="openLoginBtn" type="button">
+                            <i class="fa-solid fa-user"></i> <span id="userBtnText">تسجيل الدخول</span>
                         </button>
                     </li>
                     <li>
-                        <button class="cart-btn" id="cartLink">
+                        <button class="cart-btn" id="cartLink" type="button">
                             <i class="fa-solid fa-cart-shopping"></i>
                             <span id="cartBadge" class="cart-badge">0</span>
                         </button>
@@ -100,28 +98,28 @@
         </div>
     </header>
 
-    <!-- الهيرو سيكشن (البانر الرئيسي) -->
+    <!-- الهيرو سيكشن -->
     <section class="hero green-hero">
         <div class="hero-content glass-panel">
             <span class="badge-tag">عروض محدودة 🇸🇦</span>
-            <h2>عروض اليوم الوطني السعودي 96</h2>
-            <p>خصومات حصرية على أجهزة الألعاب وأحدث الهواتف الذكية مع شحن سريع لجميع المدن.</p>
+            <h2>احتفل بيوم الوطن مع TechGear</h2>
+            <p>أفضل وأحدث أجهزة الألعاب والهواتف الذكية مع خصم إضافي 15% عبر كود <strong>KSA96</strong></p>
             <div class="hero-btns">
-                <a href="#national-day" class="btn btn-national"><i class="fa-solid fa-bolt"></i> عروض KSA96</a>
-                <a href="#categories" class="btn btn-secondary">تصفح الفئات</a>
+                <a href="#national-day" class="btn btn-national"><i class="fa-solid fa-tag"></i> تصفح عروض اليوم الوطني</a>
+                <a href="#categories" class="btn btn-secondary">كل الفئات</a>
             </div>
         </div>
     </section>
 
-    <!-- تبويبات الأقسام -->
+    <!-- التبويبات -->
     <section id="categories" class="categories-tabs-section">
         <nav class="categories-nav">
             <ul>
-                <li><button class="cat-tab active-tab" data-target="all">الكل</button></li>
-                <li><button class="cat-tab" data-target="smart-devices">الهواتف الذكية</button></li>
-                <li><button class="cat-tab" data-target="sony">سوني وبلايستيشن</button></li>
-                <li><button class="cat-tab" data-target="gaming">بكجات القيمنق</button></li>
-                <li><button class="cat-tab" data-target="tables">طاولات السيت أب</button></li>
+                <li><button class="cat-tab active-tab" data-target="all" type="button">الكل</button></li>
+                <li><button class="cat-tab" data-target="smart-devices" type="button">الأجهزة الذكية</button></li>
+                <li><button class="cat-tab" data-target="sony" type="button">السوني</button></li>
+                <li><button class="cat-tab" data-target="gaming" type="button">القيمنق</button></li>
+                <li><button class="cat-tab" data-target="tables" type="button">الطاولات</button></li>
             </ul>
         </nav>
     </section>
@@ -132,19 +130,19 @@
         <div class="products-grid">
             <div class="product-card" data-title="آيفون 17 برو">
                 <span class="discount-badge">-10%</span>
-                <img src="iphone17.png" alt="آيفون 17 برو" onerror="this.src='https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=300&q=80'">
+                <img src="./iphone17.png" alt="آيفون 17 برو" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=300&q=80'">
                 <h4>آيفون 17 برو</h4>
                 <div class="rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> <span>(120)</span></div>
                 <p class="price"><span class="current-price">4500</span> ر.س <del>5000 ر.س</del></p>
-                <button class="btn btn-add" data-id="1" data-name="آيفون 17 برو" data-price="4500" data-img="iphone17.png"><i class="fa-solid fa-cart-plus"></i> أضف للسلة</button>
+                <button class="btn btn-add" data-id="1" data-name="آيفون 17 برو" data-price="4500" data-img="./iphone17.png"><i class="fa-solid fa-cart-plus"></i> أضف للسلة</button>
             </div>
             <div class="product-card" data-title="بلايستيشن 5 برو">
                 <span class="discount-badge">-16%</span>
-                <img src="ps5_digital_new.png" alt="بلايستيشن 5 برو">
+                <img src="./ps5_digital_new.png" alt="بلايستيشن 5 برو" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=300&q=80'">
                 <h4>بلايستيشن 5 برو</h4>
                 <div class="rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i> <span>(85)</span></div>
                 <p class="price"><span class="current-price">2100</span> ر.س <del>2500 ر.س</del></p>
-                <button class="btn btn-add" data-id="2" data-name="بلايستيشن 5 برو" data-price="2100" data-img="ps5_digital_new.png"><i class="fa-solid fa-cart-plus"></i> أضف للسلة</button>
+                <button class="btn btn-add" data-id="2" data-name="بلايستيشن 5 برو" data-price="2100" data-img="./ps5_digital_new.png"><i class="fa-solid fa-cart-plus"></i> أضف للسلة</button>
             </div>
         </div>
     </section>
@@ -154,11 +152,11 @@
         <h3 class="section-title">الهواتف الذكية</h3>
         <div class="products-grid">
             <div class="product-card" data-title="آيفون 17 العادي">
-                <img src="iphone17.png" alt="آيفون 17">
+                <img src="./iphone17.png" alt="آيفون 17" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=300&q=80'">
                 <h4>آيفون 17</h4>
                 <div class="rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> <span>(40)</span></div>
                 <p class="price"><span class="current-price">4100</span> ر.س</p>
-                <button class="btn btn-add" data-id="3" data-name="آيفون 17" data-price="4100" data-img="iphone17.png"><i class="fa-solid fa-cart-plus"></i> أضف للسلة</button>
+                <button class="btn btn-add" data-id="3" data-name="آيفون 17" data-price="4100" data-img="./iphone17.png"><i class="fa-solid fa-cart-plus"></i> أضف للسلة</button>
             </div>
             <div class="product-card" data-title="آيفون 16 برو ماكس">
                 <img src="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=300&q=80" alt="آيفون 16 برو">
@@ -179,56 +177,56 @@
 
     <!-- سوني -->
     <section id="sony" class="products-section category-group">
-        <h3 class="section-title">السوني وأجهزة بلايستيشن</h3>
+        <h3 class="section-title">السوني وبلايستيشن</h3>
         <div class="products-grid">
-            <div class="product-card" data-title="بلايستيشن 5 إصدار رقمي">
-                <img src="ps5_digital_new.png" alt="بلايستيشن 5 ديجيتال">
-                <h4>بلايستيشن 5 إصدار ديجيتال</h4>
+            <div class="product-card" data-title="بلايستيشن 5 إصدار ديجيتال">
+                <img src="./ps5_digital_new.png" alt="بلايستيشن 5 ديجيتال" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=300&q=80'">
+                <h4>بلايستيشن 5 ديجيتال</h4>
                 <div class="rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> <span>(32)</span></div>
                 <p class="price"><span class="current-price">2599</span> ر.س <del>2899 ر.س</del></p>
-                <button class="btn btn-add" data-id="6" data-name="بلايستيشن 5 ديجيتال" data-price="2599" data-img="ps5_digital_new.png"><i class="fa-solid fa-cart-plus"></i> أضف للسلة</button>
+                <button class="btn btn-add" data-id="6" data-name="بلايستيشن 5 ديجيتال" data-price="2599" data-img="./ps5_digital_new.png"><i class="fa-solid fa-cart-plus"></i> أضف للسلة</button>
             </div>
-            <div class="product-card" data-title="بلايستيشن 5 نسخة الأقراص">
-                <img src="ps5_standard_new.png" alt="بلايستيشن 5 إصدار الأقراص">
-                <h4>بلايستيشن 5 نسخة الأقراص</h4>
+            <div class="product-card" data-title="بلايستيشن 5 إصدار أقراص">
+                <img src="./ps5_standard_new.png" alt="بلايستيشن 5 إصدار أقراص" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=300&q=80'">
+                <h4>بلايستيشن 5 إصدار الأقراص</h4>
                 <div class="rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> <span>(64)</span></div>
                 <p class="price"><span class="current-price">2099</span> ر.س <del>2280 ر.س</del></p>
-                <button class="btn btn-add" data-id="7" data-name="بلايستيشن 5 أقراص" data-price="2099" data-img="ps5_standard_new.png"><i class="fa-solid fa-cart-plus"></i> أضف للسلة</button>
+                <button class="btn btn-add" data-id="7" data-name="بلايستيشن 5 أقراص" data-price="2099" data-img="./ps5_standard_new.png"><i class="fa-solid fa-cart-plus"></i> أضف للسلة</button>
             </div>
         </div>
     </section>
 
     <!-- القيمنق -->
     <section id="gaming" class="products-section category-group">
-        <h3 class="section-title">بكجات وتجميعات القيمنق</h3>
+        <h3 class="section-title">بكجات القيمنق</h3>
         <div class="products-grid">
-            <div class="product-card" data-title="بكج قيمنق بلايستيشن 5 سليم متكامل">
-                <img src="ps5_setup.png" alt="بكج قيمنق بلايستيشن 5 سليم">
+            <div class="product-card" data-title="بكج قيمنق بلايستيشن 5 سليم">
+                <img src="./ps5_setup.png" alt="بكج قيمنق بلايستيشن 5 سليم" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=300&q=80'">
                 <h4>بكج قيمنق PS5 Slim متكامل</h4>
                 <div class="rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> <span>(18)</span></div>
                 <p class="price"><span class="current-price">4799</span> ر.س <del>4999 ر.س</del></p>
-                <button class="btn btn-add" data-id="8" data-name="بكج قيمنق PS5 Slim" data-price="4799" data-img="ps5_setup.png"><i class="fa-solid fa-cart-plus"></i> أضف للسلة</button>
+                <button class="btn btn-add" data-id="8" data-name="بكج قيمنق PS5 Slim" data-price="4799" data-img="./ps5_setup.png"><i class="fa-solid fa-cart-plus"></i> أضف للسلة</button>
             </div>
         </div>
     </section>
 
     <!-- الطاولات -->
     <section id="tables" class="products-section category-group">
-        <h3 class="section-title">طاولات القيمنق والسيت أب</h3>
+        <h3 class="section-title">طاولات السيت أب</h3>
         <div class="products-grid">
-            <div class="product-card" data-title="طاولة قيمنق برو الاحترافية">
-                <img src="table_pro.png" alt="طاولة قيمنق برو">
-                <h4>طاولة قيمنق Pro متطورة</h4>
+            <div class="product-card" data-title="طاولة قيمنق برو">
+                <img src="./table_pro.png" alt="طاولة قيمنق برو" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=300&q=80'">
+                <h4>طاولة قيمنق Pro الاحترافية</h4>
                 <div class="rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> <span>(14)</span></div>
                 <p class="price"><span class="current-price">750</span> ر.س</p>
-                <button class="btn btn-add" data-id="9" data-name="طاولة قيمنق Pro" data-price="750" data-img="table_pro.png"><i class="fa-solid fa-cart-plus"></i> أضف للسلة</button>
+                <button class="btn btn-add" data-id="9" data-name="طاولة قيمنق Pro" data-price="750" data-img="./table_pro.png"><i class="fa-solid fa-cart-plus"></i> أضف للسلة</button>
             </div>
-            <div class="product-card" data-title="طاولة سيت أب زاوية L">
-                <img src="table_l.png" alt="طاولة زاوية L">
-                <h4>طاولة سيت أب زاوية حرف L</h4>
+            <div class="product-card" data-title="طاولة سيت أب زاوية حرف L">
+                <img src="./table_l.png" alt="طاولة زاوية L" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=300&q=80'">
+                <h4>طاولة زاوية L للقيمنق</h4>
                 <div class="rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> <span>(29)</span></div>
                 <p class="price"><span class="current-price">1100</span> ر.س</p>
-                <button class="btn btn-add" data-id="10" data-name="طاولة زاوية حرف L" data-price="1100" data-img="table_l.png"><i class="fa-solid fa-cart-plus"></i> أضف للسلة</button>
+                <button class="btn btn-add" data-id="10" data-name="طاولة زاوية حرف L" data-price="1100" data-img="./table_l.png"><i class="fa-solid fa-cart-plus"></i> أضف للسلة</button>
             </div>
         </div>
     </section>
@@ -237,7 +235,7 @@
     <footer class="glass-footer">
         <div class="footer-content">
             <h3>TechGear</h3>
-            <p>المتجر التقني الرائد لمستلزمات القيمنق والإلكترونيات الحديثة بالمملكة العربية السعودية.</p>
+            <p>المتجر الإلكتروني الأول لأجهزة القيمنق والتقنية بالسعودية.</p>
             <p class="copyright">&copy; 2026 جميع الحقوق محفوظة لمتجر TechGear.</p>
         </div>
     </footer>
@@ -247,14 +245,86 @@
         <i class="fa-brands fa-whatsapp"></i> خدمة العملاء
     </a>
 
-    <!-- كود جافاسكريبت المتقدم -->
+    <!-- كود الجافاسكريبت الموثوق 100% -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            // Cart State
-            let cart = [];
-            let discountMultiplier = 0; // 0.15 عند تطبيق الكود
+            // --- إدارة الحساب والدخول ---
+            const loginModal = document.getElementById("loginModal");
+            const openLoginBtn = document.getElementById("openLoginBtn");
+            const closeModal = document.getElementById("closeModal");
+            const toggleLink = document.getElementById("toggleLink");
+            const toggleText = document.getElementById("toggleText");
+            const modalTitle = document.getElementById("modalTitle");
+            const modalSubtitle = document.getElementById("modalSubtitle");
+            const modalBtn = document.getElementById("modalBtn");
+            const regName = document.getElementById("regName");
+            const authEmail = document.getElementById("authEmail");
+            const authPassword = document.getElementById("authPassword");
+            const userBtnText = document.getElementById("userBtnText");
+            const authForm = document.getElementById("authForm");
+            let isLoginMode = true;
 
-            // Elements
+            function syncUserUI() {
+                const user = localStorage.getItem("techgear_user");
+                if (user) {
+                    userBtnText.innerHTML = `${user} <i class="fa-solid fa-sign-out-alt" style="margin-right:4px; color:#ff5252;" title="خروج"></i>`;
+                } else {
+                    userBtnText.innerText = "تسجيل الدخول";
+                }
+            }
+            syncUserUI();
+
+            openLoginBtn.addEventListener("click", (e) => {
+                e.preventDefault();
+                if (localStorage.getItem("techgear_user")) {
+                    if (confirm("هل ترغب في تسجيل الخروج من الحساب؟")) {
+                        localStorage.removeItem("techgear_user");
+                        syncUserUI();
+                        showToast("تم تسجيل الخروج.");
+                    }
+                } else {
+                    loginModal.style.display = "flex";
+                }
+            });
+
+            closeModal.addEventListener("click", () => loginModal.style.display = "none");
+
+            toggleLink.addEventListener("click", (e) => {
+                e.preventDefault();
+                isLoginMode = !isLoginMode;
+                if (isLoginMode) {
+                    modalTitle.innerText = "تسجيل الدخول";
+                    modalSubtitle.innerText = "مرحباً بك في متجر TechGear";
+                    regName.style.display = "none";
+                    regName.required = false;
+                    modalBtn.innerText = "دخول";
+                    toggleText.innerText = "ليس لديك حساب؟";
+                    toggleLink.innerText = "سجل الآن";
+                } else {
+                    modalTitle.innerText = "إنشاء حساب جديد";
+                    modalSubtitle.innerText = "سجل معنا واحصل على كوبونات إضافية";
+                    regName.style.display = "block";
+                    regName.required = true;
+                    modalBtn.innerText = "إنشاء الحساب";
+                    toggleText.innerText = "لديك حساب بالفعل؟";
+                    toggleLink.innerText = "تسجيل الدخول";
+                }
+            });
+
+            authForm.addEventListener("submit", (e) => {
+                e.preventDefault();
+                const name = regName.value.trim() || authEmail.value.split('@')[0];
+                localStorage.setItem("techgear_user", name);
+                syncUserUI();
+                loginModal.style.display = "none";
+                authForm.reset();
+                showToast(isLoginMode ? `مرحباً بك مجدداً يا ${name}!` : `تم إنشاء حسابك بنجاح يا ${name}!`);
+            });
+
+            // --- إدارة السلة والخصم ---
+            let cart = [];
+            let discountRate = 0;
+
             const cartModal = document.getElementById("cartModal");
             const cartLink = document.getElementById("cartLink");
             const closeCartModal = document.getElementById("closeCartModal");
@@ -272,10 +342,9 @@
             const couponMsg = document.getElementById("couponMsg");
             const checkoutBtn = document.getElementById("checkoutBtn");
 
-            // Toast Alert
             function showToast(msg) {
                 let toast = document.getElementById("customToast");
-                if(!toast) {
+                if (!toast) {
                     toast = document.createElement("div");
                     toast.id = "customToast";
                     toast.className = "custom-toast";
@@ -286,45 +355,42 @@
                 setTimeout(() => { toast.classList.remove("show"); }, 3000);
             }
 
-            // Update Cart UI
-            function updateCart() {
-                const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
-                cartBadge.innerText = totalItems;
-                cartBadge.style.display = totalItems > 0 ? "flex" : "none";
+            function refreshCartUI() {
+                const totalQty = cart.reduce((s, i) => s + i.qty, 0);
+                cartBadge.innerText = totalQty;
+                cartBadge.style.display = totalQty > 0 ? "flex" : "none";
 
-                if(cart.length === 0) {
+                if (cart.length === 0) {
                     emptyCartState.style.display = "flex";
                     filledCartState.style.display = "none";
                 } else {
                     emptyCartState.style.display = "none";
                     filledCartState.style.display = "block";
 
-                    // Render Cart Items
                     cartItemsList.innerHTML = cart.map(item => `
                         <div class="cart-item-row">
-                            <img src="${item.img}" alt="${item.name}">
+                            <img src="${item.img}" alt="${item.name}" onerror="this.src='https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=100&q=80'">
                             <div class="cart-item-info">
                                 <h5>${item.name}</h5>
                                 <p class="cart-item-price">${item.price} ر.س</p>
                             </div>
                             <div class="cart-item-qty">
-                                <button onclick="changeQty(${item.id}, -1)">-</button>
+                                <button type="button" onclick="modifyQty(${item.id}, -1)">-</button>
                                 <span>${item.qty}</span>
-                                <button onclick="changeQty(${item.id}, 1)">+</button>
+                                <button type="button" onclick="modifyQty(${item.id}, 1)">+</button>
                             </div>
-                            <button class="cart-item-del" onclick="deleteCartItem(${item.id})"><i class="fa-solid fa-trash"></i></button>
+                            <button type="button" class="cart-item-del" onclick="removeCartItem(${item.id})"><i class="fa-solid fa-trash"></i></button>
                         </div>
                     `).join("");
 
-                    // Calculate Totals
-                    const subtotal = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
-                    const discountAmount = Math.round(subtotal * discountMultiplier);
-                    const finalTotal = subtotal - discountAmount;
+                    const subtotal = cart.reduce((s, i) => s + (i.price * i.qty), 0);
+                    const discountAmt = Math.round(subtotal * discountRate);
+                    const finalTotal = subtotal - discountAmt;
 
                     subTotalElem.innerText = `${subtotal} ر.س`;
-                    if(discountMultiplier > 0) {
+                    if (discountRate > 0) {
                         discountRow.style.display = "flex";
-                        discountValElem.innerText = `- ${discountAmount} ر.س`;
+                        discountValElem.innerText = `- ${discountAmt} ر.س`;
                     } else {
                         discountRow.style.display = "none";
                     }
@@ -332,25 +398,21 @@
                 }
             }
 
-            // Window functions for Inline Handlers
-            window.changeQty = (id, delta) => {
-                const product = cart.find(item => item.id === id);
-                if(product) {
-                    product.qty += delta;
-                    if(product.qty <= 0) {
-                        cart = cart.filter(item => item.id !== id);
-                    }
-                    updateCart();
+            window.modifyQty = (id, change) => {
+                const item = cart.find(x => x.id === id);
+                if (item) {
+                    item.qty += change;
+                    if (item.qty <= 0) cart = cart.filter(x => x.id !== id);
+                    refreshCartUI();
                 }
             };
 
-            window.deleteCartItem = (id) => {
-                cart = cart.filter(item => item.id !== id);
-                updateCart();
+            window.removeCartItem = (id) => {
+                cart = cart.filter(x => x.id !== id);
+                refreshCartUI();
                 showToast("<i class='fa-solid fa-trash'></i> تم حذف المنتج من السلة");
             };
 
-            // Add To Cart Event
             document.querySelectorAll(".btn-add").forEach(btn => {
                 btn.addEventListener("click", function(e) {
                     e.preventDefault();
@@ -359,48 +421,44 @@
                     const price = parseInt(this.getAttribute("data-price"));
                     const img = this.getAttribute("data-img");
 
-                    const existing = cart.find(item => item.id === id);
-                    if(existing) {
+                    const existing = cart.find(x => x.id === id);
+                    if (existing) {
                         existing.qty++;
                     } else {
                         cart.push({ id, name, price, img, qty: 1 });
                     }
-                    updateCart();
-                    showToast(`<i class='fa-solid fa-circle-check'></i> تمت إضافة "${name}" إلى السلة!`);
+                    refreshCartUI();
+                    showToast(`<i class='fa-solid fa-cart-arrow-down'></i> أضيف "${name}" إلى السلة`);
                 });
             });
 
-            // Coupon Logic
             applyCouponBtn.addEventListener("click", () => {
-                const val = couponInput.value.trim().toUpperCase();
-                if(val === "KSA96") {
-                    discountMultiplier = 0.15;
+                if (couponInput.value.trim().toUpperCase() === "KSA96") {
+                    discountRate = 0.15;
                     couponMsg.style.color = "#00e676";
                     couponMsg.innerText = "تم تفعيل خصم 15% بنجاح! 🇸🇦";
-                    updateCart();
+                    refreshCartUI();
                 } else {
                     couponMsg.style.color = "#ff5252";
-                    couponMsg.innerText = "الكود غير صحيح، تأكد من إدخال KSA96";
+                    couponMsg.innerText = "كود خاطئ، الكود المعتمد: KSA96";
                 }
             });
 
-            // Cart Modal Handlers
             cartLink.addEventListener("click", (e) => { e.preventDefault(); cartModal.style.display = "flex"; });
             closeCartModal.addEventListener("click", () => cartModal.style.display = "none");
             startShoppingBtn.addEventListener("click", () => cartModal.style.display = "none");
 
-            // Checkout
             checkoutBtn.addEventListener("click", () => {
-                showToast("<i class='fa-solid fa-bag-shopping'></i> تم استلام طلبك بنجاح! شكراً لتسوقك من TechGear.");
+                showToast("<i class='fa-solid fa-circle-check'></i> تم اعتماد طلبك بنجاح! شكراً لك.");
                 cart = [];
-                discountMultiplier = 0;
+                discountRate = 0;
                 couponInput.value = "";
                 couponMsg.innerText = "";
-                updateCart();
-                setTimeout(() => { cartModal.style.display = "none"; }, 1500);
+                refreshCartUI();
+                setTimeout(() => cartModal.style.display = "none", 1400);
             });
 
-            // Filter Tabs
+            // --- الفلاتر والبحث الحي ---
             const tabs = document.querySelectorAll(".cat-tab");
             const groups = document.querySelectorAll(".category-group");
             tabs.forEach(tab => {
@@ -410,61 +468,23 @@
                     const target = this.getAttribute("data-target");
 
                     groups.forEach(group => {
-                        if(target === "all" || group.id === target) {
-                            group.style.display = "block";
-                        } else {
-                            group.style.display = "none";
-                        }
+                        group.style.display = (target === "all" || group.id === target) ? "block" : "none";
                     });
                 });
             });
 
-            // Live Search
             const searchInput = document.getElementById("searchInput");
             searchInput.addEventListener("input", function() {
-                const keyword = this.value.trim().toLowerCase();
-                const products = document.querySelectorAll(".product-card");
-
-                products.forEach(p => {
+                const val = this.value.trim().toLowerCase();
+                document.querySelectorAll(".product-card").forEach(p => {
                     const title = p.getAttribute("data-title") ? p.getAttribute("data-title").toLowerCase() : "";
-                    if(title.includes(keyword)) {
-                        p.style.display = "flex";
-                    } else {
-                        p.style.display = "none";
-                    }
+                    p.style.display = title.includes(val) ? "flex" : "none";
                 });
             });
 
-            // Auth Modal Handlers
-            const loginModal = document.getElementById("loginModal");
-            const openLoginBtn = document.getElementById("openLoginBtn");
-            const closeModal = document.getElementById("closeModal");
-            const toggleLink = document.getElementById("toggleLink");
-            let isLogin = true;
-
-            openLoginBtn.addEventListener("click", () => loginModal.style.display = "flex");
-            closeModal.addEventListener("click", () => loginModal.style.display = "none");
-            
-            toggleLink.addEventListener("click", (e) => {
-                e.preventDefault();
-                isLogin = !isLogin;
-                document.getElementById("modalTitle").innerText = isLogin ? "تسجيل الدخول" : "إنشاء حساب جديد";
-                document.getElementById("regName").style.display = isLogin ? "none" : "block";
-                document.getElementById("modalBtn").innerText = isLogin ? "دخول" : "إنشاء حساب";
-                document.getElementById("toggleText").innerText = isLogin ? "ليس لديك حساب؟" : "لديك حساب بالفعل؟";
-                toggleLink.innerText = isLogin ? "سجل الآن" : "تسجيل الدخول";
-            });
-
-            document.getElementById("authForm").addEventListener("submit", (e) => {
-                e.preventDefault();
-                loginModal.style.display = "none";
-                showToast(isLogin ? "تم تسجيل الدخول بنجاح!" : "تم إنشاء الحساب بنجاح!");
-            });
-
-            // Close modals clicking outside
             window.addEventListener("click", (e) => {
-                if(e.target === loginModal) loginModal.style.display = "none";
-                if(e.target === cartModal) cartModal.style.display = "none";
+                if (e.target === loginModal) loginModal.style.display = "none";
+                if (e.target === cartModal) cartModal.style.display = "none";
             });
         });
     </script>
