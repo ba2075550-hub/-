@@ -16,6 +16,9 @@
             <button id="closeModal" class="btn-close" type="button">&times;</button>
             <h2 id="modalTitle">تسجيل الدخول</h2>
             <p id="modalSubtitle">مرحباً بك في متجر TechGear</p>
+            <div class="admin-hint" style="background: rgba(255,179,0,0.1); border: 1px dashed #ffb300; padding: 8px; border-radius: 8px; font-size: 12px; margin-bottom: 12px; color: #ffb300; text-align: center;">
+                للدخول كـ <strong>آدمن</strong>: admin@techgear.com | الباسورد: admin123
+            </div>
             <form class="login-form" id="authForm">
                 <input type="text" id="regName" placeholder="الاسم الكامل" style="display: none;">
                 <input type="email" id="authEmail" placeholder="البريد الإلكتروني" required>
@@ -23,6 +26,57 @@
                 <button type="submit" id="modalBtn" class="btn btn-primary" style="width: 100%; justify-content: center; margin-top: 10px;">دخول</button>
             </form>
             <p class="register-link"><span id="toggleText">ليس لديك حساب؟</span> <a href="#" id="toggleLink">سجل الآن</a></p>
+        </div>
+    </div>
+
+    <!-- نافذة لوحة تحكم الآدمن (Admin Dashboard) -->
+    <div id="adminModal" class="modal-overlay">
+        <div class="modal-content glass-panel admin-modal-content">
+            <div class="cart-header">
+                <h2><i class="fa-solid fa-screwdriver-wrench" style="color: #ffb300;"></i> لوحة تحكم المدير</h2>
+                <button id="closeAdminModal" class="btn-close" type="button">&times;</button>
+            </div>
+
+            <!-- إحصائيات المتجر -->
+            <div class="admin-stats-grid">
+                <div class="stat-card">
+                    <i class="fa-solid fa-wallet"></i>
+                    <div>
+                        <span class="stat-label">المبيعات</span>
+                        <h4 id="adminTotalRevenue">0 ر.س</h4>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <i class="fa-solid fa-truck-fast"></i>
+                    <div>
+                        <span class="stat-label">الطلبات</span>
+                        <h4 id="adminOrdersCount">0</h4>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <i class="fa-solid fa-box-open"></i>
+                    <div>
+                        <span class="stat-label">المنتجات</span>
+                        <h4 id="adminProductsCount">0</h4>
+                    </div>
+                </div>
+            </div>
+
+            <!-- إضافة منتج جديد -->
+            <h3 style="font-size: 16px; margin: 20px 0 10px; color: #fff;"><i class="fa-solid fa-plus-circle"></i> إضافة منتج جديد للمتجر</h3>
+            <form id="addProductForm" class="add-product-form">
+                <input type="text" id="newProdName" placeholder="اسم المنتج" required>
+                <input type="number" id="newProdPrice" placeholder="السعر (ر.س)" required>
+                <select id="newProdCategory" required>
+                    <option value="smart-devices">الأجهزة الذكية</option>
+                    <option value="sony">السوني</option>
+                    <option value="gaming">القيمنق</option>
+                    <option value="tables">طاولات السيت أب</option>
+                    <option value="national-day">عروض اليوم الوطني</option>
+                </select>
+                <input type="text" id="newProdImg" placeholder="رابط صورة المنتج (أو اسم الملف مثل: iphone17.png)" required>
+                <button type="submit" class="btn" style="background: #ffb300; color: #040910; font-weight: 800; width: 100%; justify-content: center;"><i class="fa-solid fa-cloud-arrow-up"></i> نشر المنتج في المتجر</button>
+            </form>
         </div>
     </div>
 
@@ -82,6 +136,14 @@
                 <ul class="nav-links">
                     <li><a href="#" class="active-link">الرئيسية</a></li>
                     <li><a href="#national-day" class="text-green"><i class="fa-solid fa-flag"></i> عروض KSA96</a></li>
+                    
+                    <!-- زر لوحة الآدمن (يظهر فقط إذا سجلت كآدمن) -->
+                    <li id="adminNavBtnContainer" style="display: none;">
+                        <button class="admin-nav-btn" id="openAdminBtn" type="button">
+                            <i class="fa-solid fa-gear"></i> لوحة الإدارة
+                        </button>
+                    </li>
+
                     <li>
                         <button class="sign-in-btn" id="openLoginBtn" type="button">
                             <i class="fa-solid fa-user"></i> <span id="userBtnText">تسجيل الدخول</span>
@@ -103,7 +165,7 @@
         <div class="hero-content glass-panel">
             <span class="badge-tag">عروض محدودة 🇸🇦</span>
             <h2>احتفل بيوم الوطن مع TechGear</h2>
-            <p>أفضل وأحدث أجهزة الألعاب والهواتف الذكية مع خصم إضافي 15% عبر كود <strong>KSA96</strong></p>
+            <p>أفضل أجهزة الألعاب والهواتف الذكية مع خصم إضافي 15% عبر كود <strong>KSA96</strong></p>
             <div class="hero-btns">
                 <a href="#national-day" class="btn btn-national"><i class="fa-solid fa-tag"></i> تصفح عروض اليوم الوطني</a>
                 <a href="#categories" class="btn btn-secondary">كل الفئات</a>
@@ -124,112 +186,8 @@
         </nav>
     </section>
 
-    <!-- قسم عروض اليوم الوطني -->
-    <section id="national-day" class="products-section national-bg category-group">
-        <h3 class="section-title text-green"><i class="fa-solid fa-award"></i> عروض اليوم الوطني الخاصة</h3>
-        <div class="products-grid">
-            <div class="product-card" data-title="آيفون 17 برو">
-                <span class="discount-badge">-10%</span>
-                <img src="./iphone17.png" alt="آيفون 17 برو" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=300&q=80'">
-                <h4>آيفون 17 برو</h4>
-                <div class="rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> <span>(120)</span></div>
-                <p class="price"><span class="current-price">4500</span> ر.س <del>5000 ر.س</del></p>
-                <button class="btn btn-add" data-id="1" data-name="آيفون 17 برو" data-price="4500" data-img="./iphone17.png"><i class="fa-solid fa-cart-plus"></i> أضف للسلة</button>
-            </div>
-            <div class="product-card" data-title="بلايستيشن 5 برو">
-                <span class="discount-badge">-16%</span>
-                <img src="./ps5_digital_new.png" alt="بلايستيشن 5 برو" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=300&q=80'">
-                <h4>بلايستيشن 5 برو</h4>
-                <div class="rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i> <span>(85)</span></div>
-                <p class="price"><span class="current-price">2100</span> ر.س <del>2500 ر.س</del></p>
-                <button class="btn btn-add" data-id="2" data-name="بلايستيشن 5 برو" data-price="2100" data-img="./ps5_digital_new.png"><i class="fa-solid fa-cart-plus"></i> أضف للسلة</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- الأجهزة الذكية -->
-    <section id="smart-devices" class="products-section category-group">
-        <h3 class="section-title">الهواتف الذكية</h3>
-        <div class="products-grid">
-            <div class="product-card" data-title="آيفون 17 العادي">
-                <img src="./iphone17.png" alt="آيفون 17" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=300&q=80'">
-                <h4>آيفون 17</h4>
-                <div class="rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> <span>(40)</span></div>
-                <p class="price"><span class="current-price">4100</span> ر.س</p>
-                <button class="btn btn-add" data-id="3" data-name="آيفون 17" data-price="4100" data-img="./iphone17.png"><i class="fa-solid fa-cart-plus"></i> أضف للسلة</button>
-            </div>
-            <div class="product-card" data-title="آيفون 16 برو ماكس">
-                <img src="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=300&q=80" alt="آيفون 16 برو">
-                <h4>آيفون 16 برو ماكس</h4>
-                <div class="rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i> <span>(92)</span></div>
-                <p class="price"><span class="current-price">3800</span> ر.س</p>
-                <button class="btn btn-add" data-id="4" data-name="آيفون 16 برو ماكس" data-price="3800" data-img="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=300&q=80"><i class="fa-solid fa-cart-plus"></i> أضف للسلة</button>
-            </div>
-            <div class="product-card" data-title="آيفون 15 برو">
-                <img src="https://images.unsplash.com/photo-1616348436168-de43ad0db179?auto=format&fit=crop&w=300&q=80" alt="آيفون 15 برو">
-                <h4>آيفون 15 برو</h4>
-                <div class="rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> <span>(55)</span></div>
-                <p class="price"><span class="current-price">3200</span> ر.س</p>
-                <button class="btn btn-add" data-id="5" data-name="آيفون 15 برو" data-price="3200" data-img="https://images.unsplash.com/photo-1616348436168-de43ad0db179?auto=format&fit=crop&w=300&q=80"><i class="fa-solid fa-cart-plus"></i> أضف للسلة</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- سوني -->
-    <section id="sony" class="products-section category-group">
-        <h3 class="section-title">السوني وبلايستيشن</h3>
-        <div class="products-grid">
-            <div class="product-card" data-title="بلايستيشن 5 إصدار ديجيتال">
-                <img src="./ps5_digital_new.png" alt="بلايستيشن 5 ديجيتال" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=300&q=80'">
-                <h4>بلايستيشن 5 ديجيتال</h4>
-                <div class="rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> <span>(32)</span></div>
-                <p class="price"><span class="current-price">2599</span> ر.س <del>2899 ر.س</del></p>
-                <button class="btn btn-add" data-id="6" data-name="بلايستيشن 5 ديجيتال" data-price="2599" data-img="./ps5_digital_new.png"><i class="fa-solid fa-cart-plus"></i> أضف للسلة</button>
-            </div>
-            <div class="product-card" data-title="بلايستيشن 5 إصدار أقراص">
-                <img src="./ps5_standard_new.png" alt="بلايستيشن 5 إصدار أقراص" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=300&q=80'">
-                <h4>بلايستيشن 5 إصدار الأقراص</h4>
-                <div class="rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> <span>(64)</span></div>
-                <p class="price"><span class="current-price">2099</span> ر.س <del>2280 ر.س</del></p>
-                <button class="btn btn-add" data-id="7" data-name="بلايستيشن 5 أقراص" data-price="2099" data-img="./ps5_standard_new.png"><i class="fa-solid fa-cart-plus"></i> أضف للسلة</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- القيمنق -->
-    <section id="gaming" class="products-section category-group">
-        <h3 class="section-title">بكجات القيمنق</h3>
-        <div class="products-grid">
-            <div class="product-card" data-title="بكج قيمنق بلايستيشن 5 سليم">
-                <img src="./ps5_setup.png" alt="بكج قيمنق بلايستيشن 5 سليم" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=300&q=80'">
-                <h4>بكج قيمنق PS5 Slim متكامل</h4>
-                <div class="rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> <span>(18)</span></div>
-                <p class="price"><span class="current-price">4799</span> ر.س <del>4999 ر.س</del></p>
-                <button class="btn btn-add" data-id="8" data-name="بكج قيمنق PS5 Slim" data-price="4799" data-img="./ps5_setup.png"><i class="fa-solid fa-cart-plus"></i> أضف للسلة</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- الطاولات -->
-    <section id="tables" class="products-section category-group">
-        <h3 class="section-title">طاولات السيت أب</h3>
-        <div class="products-grid">
-            <div class="product-card" data-title="طاولة قيمنق برو">
-                <img src="./table_pro.png" alt="طاولة قيمنق برو" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=300&q=80'">
-                <h4>طاولة قيمنق Pro الاحترافية</h4>
-                <div class="rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> <span>(14)</span></div>
-                <p class="price"><span class="current-price">750</span> ر.س</p>
-                <button class="btn btn-add" data-id="9" data-name="طاولة قيمنق Pro" data-price="750" data-img="./table_pro.png"><i class="fa-solid fa-cart-plus"></i> أضف للسلة</button>
-            </div>
-            <div class="product-card" data-title="طاولة سيت أب زاوية حرف L">
-                <img src="./table_l.png" alt="طاولة زاوية L" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=300&q=80'">
-                <h4>طاولة زاوية L للقيمنق</h4>
-                <div class="rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> <span>(29)</span></div>
-                <p class="price"><span class="current-price">1100</span> ر.س</p>
-                <button class="btn btn-add" data-id="10" data-name="طاولة زاوية حرف L" data-price="1100" data-img="./table_l.png"><i class="fa-solid fa-cart-plus"></i> أضف للسلة</button>
-            </div>
-        </div>
-    </section>
+    <!-- مكان عرض جميع المنتجات ديناميكياً -->
+    <main id="productsContainer"></main>
 
     <!-- الفوتر -->
     <footer class="glass-footer">
@@ -245,86 +203,205 @@
         <i class="fa-brands fa-whatsapp"></i> خدمة العملاء
     </a>
 
-    <!-- كود الجافاسكريبت الموثوق 100% -->
+    <!-- كود الجافاسكريبت المطور كلياً -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            // --- إدارة الحساب والدخول ---
+            // المنتجات الافتراضية الأولية
+            const defaultProducts = [
+                { id: 1, name: "آيفون 17 برو", price: 4500, oldPrice: 5000, category: "national-day", img: "./iphone17.png", rating: 5, reviews: 120 },
+                { id: 2, name: "بلايستيشن 5 برو", price: 2100, oldPrice: 2500, category: "national-day", img: "./ps5_digital_new.png", rating: 4.5, reviews: 85 },
+                { id: 3, name: "آيفون 17 العادي", price: 4100, category: "smart-devices", img: "./iphone17.png", rating: 5, reviews: 40 },
+                { id: 4, name: "آيفون 16 برو ماكس", price: 3800, category: "smart-devices", img: "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=300&q=80", rating: 4.5, reviews: 92 },
+                { id: 5, name: "آيفون 15 برو", price: 3200, category: "smart-devices", img: "https://images.unsplash.com/photo-1616348436168-de43ad0db179?auto=format&fit=crop&w=300&q=80", rating: 4, reviews: 55 },
+                { id: 6, name: "بلايستيشن 5 إصدار ديجيتال", price: 2599, oldPrice: 2899, category: "sony", img: "./ps5_digital_new.png", rating: 5, reviews: 32 },
+                { id: 7, name: "بلايستيشن 5 نسخة الأقراص", price: 2099, oldPrice: 2280, category: "sony", img: "./ps5_standard_new.png", rating: 4, reviews: 64 },
+                { id: 8, name: "بكج قيمنق PS5 Slim متكامل", price: 4799, oldPrice: 4999, category: "gaming", img: "./ps5_setup.png", rating: 5, reviews: 18 },
+                { id: 9, name: "طاولة قيمنق Pro الاحترافية", price: 750, category: "tables", img: "./table_pro.png", rating: 4, reviews: 14 },
+                { id: 10, name: "طاولة زاوية L للقيمنق", price: 1100, category: "tables", img: "./table_l.png", rating: 5, reviews: 29 }
+            ];
+
+            // جلب المنتجات من التخزين المحلي أو تحميل الافتراضية
+            let products = JSON.parse(localStorage.getItem("techgear_inventory")) || defaultProducts;
+
+            // إحصائيات الآدمن
+            let storeStats = JSON.parse(localStorage.getItem("techgear_stats")) || { totalRevenue: 0, ordersCount: 0 };
+
+            // عرض المنتجات في الصفحة
+            function renderProducts() {
+                const container = document.getElementById("productsContainer");
+                const categoryNames = {
+                    "national-day": { title: '<i class="fa-solid fa-award"></i> عروض اليوم الوطني الخاصة', class: 'national-bg text-green' },
+                    "smart-devices": { title: 'الهواتف الذكية', class: '' },
+                    "sony": { title: 'أجهزة السوني وبلايستيشن', class: '' },
+                    "gaming": { title: 'بكجات القيمنق', class: '' },
+                    "tables": { title: 'طاولات السيت أب', class: '' }
+                };
+
+                let html = "";
+                const isAdmin = localStorage.getItem("techgear_is_admin") === "true";
+
+                for (let [catKey, catInfo] of Object.entries(categoryNames)) {
+                    const catProducts = products.filter(p => p.category === catKey);
+                    if (catProducts.length > 0) {
+                        html += `
+                            <section id="${catKey}" class="products-section ${catInfo.class} category-group">
+                                <h3 class="section-title ${catInfo.class}">${catInfo.title}</h3>
+                                <div class="products-grid">
+                        `;
+
+                        catProducts.forEach(p => {
+                            html += `
+                                <div class="product-card" data-title="${p.name}">
+                                    ${p.oldPrice ? `<span class="discount-badge">خصم خاص</span>` : ''}
+                                    ${isAdmin ? `<button type="button" class="btn-delete-prod" onclick="deleteProduct(${p.id})" title="حذف المنتج من المتجر"><i class="fa-solid fa-trash"></i></button>` : ''}
+                                    <img src="${p.img}" alt="${p.name}" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=300&q=80'">
+                                    <h4>${p.name}</h4>
+                                    <div class="rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> <span>(${p.reviews || 10})</span></div>
+                                    <p class="price"><span class="current-price">${p.price}</span> ر.س ${p.oldPrice ? `<del>${p.oldPrice} ر.س</del>` : ''}</p>
+                                    <button class="btn btn-add" data-id="${p.id}" data-name="${p.name}" data-price="${p.price}" data-img="${p.img}"><i class="fa-solid fa-cart-plus"></i> أضف للسلة</button>
+                                </div>
+                            `;
+                        });
+
+                        html += `</div></section>`;
+                    }
+                }
+                container.innerHTML = html;
+
+                // تحديث عداد المنتجات في الآدمن
+                document.getElementById("adminProductsCount").innerText = products.length;
+
+                // إعادة تفعيل أزرار الإضافة للسلة
+                attachAddToCartEvents();
+            }
+
+            // حذف منتج للمدير
+            window.deleteProduct = (id) => {
+                if (confirm("هل أنت متأكد من حذف هذا المنتج نهائياً من المتجر؟")) {
+                    products = products.filter(p => p.id !== id);
+                    localStorage.setItem("techgear_inventory", JSON.stringify(products));
+                    renderProducts();
+                    showToast("<i class='fa-solid fa-trash'></i> تم حذف المنتج بنجاح.");
+                }
+            };
+
+            // إضافة منتج جديد من لوحة الآدمن
+            const addProductForm = document.getElementById("addProductForm");
+            addProductForm.addEventListener("submit", (e) => {
+                e.preventDefault();
+                const newProd = {
+                    id: Date.now(),
+                    name: document.getElementById("newProdName").value.trim(),
+                    price: parseInt(document.getElementById("newProdPrice").value),
+                    category: document.getElementById("newProdCategory").value,
+                    img: document.getElementById("newProdImg").value.trim(),
+                    rating: 5,
+                    reviews: 1
+                };
+
+                products.unshift(newProd);
+                localStorage.setItem("techgear_inventory", JSON.stringify(products));
+                renderProducts();
+                addProductForm.reset();
+                document.getElementById("adminModal").style.display = "none";
+                showToast(`<i class='fa-solid fa-circle-check'></i> تم نشر المنتج "${newProd.name}" بالمتجر!`);
+            });
+
+            // نظام الحساب والآدمن
             const loginModal = document.getElementById("loginModal");
+            const adminModal = document.getElementById("adminModal");
             const openLoginBtn = document.getElementById("openLoginBtn");
+            const openAdminBtn = document.getElementById("openAdminBtn");
+            const adminNavBtnContainer = document.getElementById("adminNavBtnContainer");
             const closeModal = document.getElementById("closeModal");
+            const closeAdminModal = document.getElementById("closeAdminModal");
             const toggleLink = document.getElementById("toggleLink");
-            const toggleText = document.getElementById("toggleText");
-            const modalTitle = document.getElementById("modalTitle");
-            const modalSubtitle = document.getElementById("modalSubtitle");
-            const modalBtn = document.getElementById("modalBtn");
-            const regName = document.getElementById("regName");
-            const authEmail = document.getElementById("authEmail");
-            const authPassword = document.getElementById("authPassword");
             const userBtnText = document.getElementById("userBtnText");
             const authForm = document.getElementById("authForm");
+            const adminTotalRevenue = document.getElementById("adminTotalRevenue");
+            const adminOrdersCount = document.getElementById("adminOrdersCount");
             let isLoginMode = true;
 
             function syncUserUI() {
                 const user = localStorage.getItem("techgear_user");
+                const isAdmin = localStorage.getItem("techgear_is_admin") === "true";
+
                 if (user) {
                     userBtnText.innerHTML = `${user} <i class="fa-solid fa-sign-out-alt" style="margin-right:4px; color:#ff5252;" title="خروج"></i>`;
                 } else {
                     userBtnText.innerText = "تسجيل الدخول";
                 }
+
+                if (isAdmin) {
+                    adminNavBtnContainer.style.display = "inline-block";
+                } else {
+                    adminNavBtnContainer.style.display = "none";
+                }
+
+                adminTotalRevenue.innerText = `${storeStats.totalRevenue} ر.س`;
+                adminOrdersCount.innerText = storeStats.ordersCount;
             }
-            syncUserUI();
 
             openLoginBtn.addEventListener("click", (e) => {
                 e.preventDefault();
                 if (localStorage.getItem("techgear_user")) {
                     if (confirm("هل ترغب في تسجيل الخروج من الحساب؟")) {
                         localStorage.removeItem("techgear_user");
+                        localStorage.removeItem("techgear_is_admin");
                         syncUserUI();
-                        showToast("تم تسجيل الخروج.");
+                        renderProducts();
+                        showToast("تم تسجيل الخروج بنجاح.");
                     }
                 } else {
                     loginModal.style.display = "flex";
                 }
             });
 
+            openAdminBtn.addEventListener("click", () => { adminModal.style.display = "flex"; });
             closeModal.addEventListener("click", () => loginModal.style.display = "none");
+            closeAdminModal.addEventListener("click", () => adminModal.style.display = "none");
 
             toggleLink.addEventListener("click", (e) => {
                 e.preventDefault();
                 isLoginMode = !isLoginMode;
-                if (isLoginMode) {
-                    modalTitle.innerText = "تسجيل الدخول";
-                    modalSubtitle.innerText = "مرحباً بك في متجر TechGear";
-                    regName.style.display = "none";
-                    regName.required = false;
-                    modalBtn.innerText = "دخول";
-                    toggleText.innerText = "ليس لديك حساب؟";
-                    toggleLink.innerText = "سجل الآن";
-                } else {
-                    modalTitle.innerText = "إنشاء حساب جديد";
-                    modalSubtitle.innerText = "سجل معنا واحصل على كوبونات إضافية";
-                    regName.style.display = "block";
-                    regName.required = true;
-                    modalBtn.innerText = "إنشاء الحساب";
-                    toggleText.innerText = "لديك حساب بالفعل؟";
-                    toggleLink.innerText = "تسجيل الدخول";
-                }
+                document.getElementById("modalTitle").innerText = isLoginMode ? "تسجيل الدخول" : "إنشاء حساب جديد";
+                document.getElementById("regName").style.display = isLoginMode ? "none" : "block";
+                document.getElementById("modalBtn").innerText = isLoginMode ? "دخول" : "تسجيل";
+                document.getElementById("toggleText").innerText = isLoginMode ? "ليس لديك حساب؟" : "لديك حساب بالفعل؟";
+                toggleLink.innerText = isLoginMode ? "سجل الآن" : "تسجيل الدخول";
             });
 
             authForm.addEventListener("submit", (e) => {
                 e.preventDefault();
-                const name = regName.value.trim() || authEmail.value.split('@')[0];
+                const email = document.getElementById("authEmail").value.trim().toLowerCase();
+                const pass = document.getElementById("authPassword").value;
+
+                // التحقق من حساب المدير
+                if (email === "admin@techgear.com" && pass === "admin123") {
+                    localStorage.setItem("techgear_user", "المدير (Admin)");
+                    localStorage.setItem("techgear_is_admin", "true");
+                    syncUserUI();
+                    renderProducts();
+                    loginModal.style.display = "none";
+                    authForm.reset();
+                    showToast("<i class='fa-solid fa-crown' style='color:#ffb300;'></i> مرحباً بك يا مدير المتجر!");
+                    return;
+                }
+
+                // مستخدم عادي
+                const name = document.getElementById("regName").value.trim() || email.split('@')[0];
                 localStorage.setItem("techgear_user", name);
+                localStorage.removeItem("techgear_is_admin");
                 syncUserUI();
+                renderProducts();
                 loginModal.style.display = "none";
                 authForm.reset();
-                showToast(isLoginMode ? `مرحباً بك مجدداً يا ${name}!` : `تم إنشاء حسابك بنجاح يا ${name}!`);
+                showToast(`مرحباً بك يا ${name}!`);
             });
 
-            // --- إدارة السلة والخصم ---
+            // إدارة السلة
             let cart = [];
             let discountRate = 0;
-
             const cartModal = document.getElementById("cartModal");
             const cartLink = document.getElementById("cartLink");
             const closeCartModal = document.getElementById("closeCartModal");
@@ -413,24 +490,26 @@
                 showToast("<i class='fa-solid fa-trash'></i> تم حذف المنتج من السلة");
             };
 
-            document.querySelectorAll(".btn-add").forEach(btn => {
-                btn.addEventListener("click", function(e) {
-                    e.preventDefault();
-                    const id = parseInt(this.getAttribute("data-id"));
-                    const name = this.getAttribute("data-name");
-                    const price = parseInt(this.getAttribute("data-price"));
-                    const img = this.getAttribute("data-img");
+            function attachAddToCartEvents() {
+                document.querySelectorAll(".btn-add").forEach(btn => {
+                    btn.onclick = function(e) {
+                        e.preventDefault();
+                        const id = parseInt(this.getAttribute("data-id"));
+                        const name = this.getAttribute("data-name");
+                        const price = parseInt(this.getAttribute("data-price"));
+                        const img = this.getAttribute("data-img");
 
-                    const existing = cart.find(x => x.id === id);
-                    if (existing) {
-                        existing.qty++;
-                    } else {
-                        cart.push({ id, name, price, img, qty: 1 });
-                    }
-                    refreshCartUI();
-                    showToast(`<i class='fa-solid fa-cart-arrow-down'></i> أضيف "${name}" إلى السلة`);
+                        const existing = cart.find(x => x.id === id);
+                        if (existing) {
+                            existing.qty++;
+                        } else {
+                            cart.push({ id, name, price, img, qty: 1 });
+                        }
+                        refreshCartUI();
+                        showToast(`<i class='fa-solid fa-cart-arrow-down'></i> أضيف "${name}" إلى السلة`);
+                    };
                 });
-            });
+            }
 
             applyCouponBtn.addEventListener("click", () => {
                 if (couponInput.value.trim().toUpperCase() === "KSA96") {
@@ -448,7 +527,17 @@
             closeCartModal.addEventListener("click", () => cartModal.style.display = "none");
             startShoppingBtn.addEventListener("click", () => cartModal.style.display = "none");
 
+            // تأكيد الطلب وتحديث إحصائيات الآدمن
             checkoutBtn.addEventListener("click", () => {
+                const subtotal = cart.reduce((s, i) => s + (i.price * i.qty), 0);
+                const finalTotal = subtotal - Math.round(subtotal * discountRate);
+
+                // حفظ الإحصائية للمدير
+                storeStats.totalRevenue += finalTotal;
+                storeStats.ordersCount += 1;
+                localStorage.setItem("techgear_stats", JSON.stringify(storeStats));
+                syncUserUI();
+
                 showToast("<i class='fa-solid fa-circle-check'></i> تم اعتماد طلبك بنجاح! شكراً لك.");
                 cart = [];
                 discountRate = 0;
@@ -458,16 +547,15 @@
                 setTimeout(() => cartModal.style.display = "none", 1400);
             });
 
-            // --- الفلاتر والبحث الحي ---
+            // الفلاتر والبحث
             const tabs = document.querySelectorAll(".cat-tab");
-            const groups = document.querySelectorAll(".category-group");
             tabs.forEach(tab => {
                 tab.addEventListener("click", function() {
                     tabs.forEach(t => t.classList.remove("active-tab"));
                     this.classList.add("active-tab");
                     const target = this.getAttribute("data-target");
 
-                    groups.forEach(group => {
+                    document.querySelectorAll(".category-group").forEach(group => {
                         group.style.display = (target === "all" || group.id === target) ? "block" : "none";
                     });
                 });
@@ -485,7 +573,12 @@
             window.addEventListener("click", (e) => {
                 if (e.target === loginModal) loginModal.style.display = "none";
                 if (e.target === cartModal) cartModal.style.display = "none";
+                if (e.target === adminModal) adminModal.style.display = "none";
             });
+
+            // التشغيل المبدئي
+            syncUserUI();
+            renderProducts();
         });
     </script>
 </body>
