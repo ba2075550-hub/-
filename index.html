@@ -41,14 +41,14 @@
                     <h3 style="color: #c4a265; margin-bottom: 5px; font-size: 22px;">خصم إضافي 15%</h3>
                     <p style="margin-bottom: 20px; font-weight: bold; font-size: 16px;">استخدم الكود: <span style="background: #1a2332; padding: 5px 10px; border-radius: 5px; border: 1px solid #c4a265; color: #c4a265;">KSA96</span></p>
                     
-                    <button class="btn" id="startShoppingBtn" style="background: #0b111a; color: #fff; border: 1px solid #c4a265; padding: 12px 25px;">ابدأ التسوق</button>
+                    <button class="btn" id="startShoppingBtn" style="background: #0b111a; color: #fff; border: 1px solid #c4a265; padding: 12px 25px; cursor: pointer;">ابدأ التسوق</button>
                 </div>
                 <div class="empty-cart-image" style="background: rgba(255, 204, 0, 0.1); padding: 30px; border-radius: 50%; border: 2px dashed #c4a265;">
                     <i class="fa-solid fa-cart-arrow-down" style="font-size: 80px; color: #ffcc00; transform: rotate(-10deg);"></i>
                 </div>
             </div>
 
-            <!-- Filled Cart State (Hidden by default) -->
+            <!-- Filled Cart State -->
             <div id="filledCartState" class="cart-summary" style="display: none; text-align: center;">
                 <i class="fa-solid fa-cart-shopping cart-modal-icon" style="font-size: 50px; color: #c4a265; margin-bottom: 15px;"></i>
                 <h2 style="margin-bottom: 10px;">سلة الشراء</h2>
@@ -56,7 +56,7 @@
                 <div class="cart-total" style="font-size: 24px; margin: 20px 0; color: #c4a265;">
                     <strong id="cartTotalText">الإجمالي: 0 ر.س</strong>
                 </div>
-                <button class="btn btn-checkout" id="checkoutBtn" style="margin-top:20px; width:100%; font-size: 18px; padding: 15px; background: #c4a265; color: #0b111a;">إتمام الطلب</button>
+                <button class="btn btn-checkout" id="checkoutBtn" style="margin-top:20px; width:100%; font-size: 18px; padding: 15px; background: #c4a265; color: #0b111a; border: none; border-radius: 8px; cursor: pointer; font-weight: bold;">إتمام الطلب</button>
             </div>
         </div>
     </div>
@@ -65,6 +65,10 @@
     <header class="dark-navbar">
         <div class="logo">
             <h1>TechGear</h1>
+        </div>
+        <!-- Smart Search Bar -->
+        <div class="search-container" style="flex-grow: 1; max-width: 300px; margin: 0 20px;">
+            <input type="text" id="searchInput" placeholder="ابحث عن منتج..." style="width: 100%; padding: 8px 15px; border-radius: 20px; border: 1px solid #c4a265; background: #0b111a; color: #fff; text-align: right; font-family: 'Tajawal', sans-serif;">
         </div>
         <nav>
             <ul>
@@ -81,7 +85,7 @@
                 </li>
                 <li><a href="#national-day" class="text-green"><i class="fa-solid fa-flag"></i> عروض KSA96</a></li>
                 <li>
-                    <a href="#" class="sign-in-btn" onclick="document.getElementById('loginModal').style.display='flex'">
+                    <a href="#" class="sign-in-btn" id="openLoginBtn">
                         <span class="sign-in-text">Sign in</span>
                         <div class="sign-in-icon">
                             <i class="fa-solid fa-user-plus"></i>
@@ -100,7 +104,7 @@
         </nav>
     </header>
 
-    <!-- Hero Banner (Green) -->
+    <!-- Hero Banner -->
     <section class="hero green-hero">
         <div class="hero-content glass-panel">
             <h2>احتفل بيوم الوطن 96 🇸🇦</h2>
@@ -109,7 +113,7 @@
         </div>
     </section>
 
-    <!-- Categories Section (Horizontal Tabs) -->
+    <!-- Categories Tabs -->
     <section id="categories" class="categories-tabs-section">
         <nav class="categories-nav">
             <ul>
@@ -126,24 +130,24 @@
     <section id="national-day" class="products-section national-bg">
         <h3 class="section-title text-green"><i class="fa-solid fa-tag"></i> عروض اليوم الوطني KSA96</h3>
         <div class="products-grid">
-            <!-- Product 1: iPhone 17 -->
+            <!-- iPhone 17 (استخدام صورتك المرفوعة) -->
             <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=300&q=80" alt="ايفون 17">
+                <img src="iphone17.png" alt="ايفون 17 برو">
                 <h4>آيفون 17 برو</h4>
                 <div class="rating">
                     <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> <span>(120 تقييم)</span>
                 </div>
-                <p class="price">4500 ر.س <del>5000 ر.س</del></p>
+                <p class="price"><span class="current-price">4500</span> ر.س <del>5000 ر.س</del></p>
                 <button class="btn btn-add">أضف إلى السلة</button>
             </div>
-            <!-- Product 2: PS5 -->
+            <!-- PS5 Digital -->
             <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=300&q=80" alt="سوني 5">
+                <img src="ps5_digital_new.png" alt="سوني 5">
                 <h4>بلايستيشن 5 برو</h4>
                 <div class="rating">
                     <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i> <span>(85 تقييم)</span>
                 </div>
-                <p class="price">2100 ر.س <del>2500 ر.س</del></p>
+                <p class="price"><span class="current-price">2100</span> ر.س <del>2500 ر.س</del></p>
                 <button class="btn btn-add">أضف إلى السلة</button>
             </div>
         </div>
@@ -154,12 +158,12 @@
         <h3 class="section-title">الأجهزة الذكية</h3>
         <div class="products-grid">
             <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=300&q=80" alt="ايفون 17">
+                <img src="iphone17.png" alt="ايفون 17">
                 <h4>آيفون 17 برو</h4>
                 <div class="rating">
                     <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                 </div>
-                <p class="price">4500 ر.س</p>
+                <p class="price"><span class="current-price">4500</span> ر.س</p>
                 <button class="btn btn-add">أضف إلى السلة</button>
             </div>
             <div class="product-card">
@@ -168,7 +172,7 @@
                 <div class="rating">
                     <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
                 </div>
-                <p class="price">3800 ر.س</p>
+                <p class="price"><span class="current-price">3800</span> ر.س</p>
                 <button class="btn btn-add">أضف إلى السلة</button>
             </div>
             <div class="product-card">
@@ -177,7 +181,7 @@
                 <div class="rating">
                     <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
                 </div>
-                <p class="price">3200 ر.س</p>
+                <p class="price"><span class="current-price">3200</span> ر.س</p>
                 <button class="btn btn-add">أضف إلى السلة</button>
             </div>
         </div>
@@ -187,25 +191,23 @@
     <section id="sony" class="products-section">
         <h3 class="section-title">السوني</h3>
         <div class="products-grid">
-            <!-- Product 1: PS5 Digital (Uploaded) -->
             <div class="product-card">
                 <img src="ps5_digital_new.png" alt="جهاز ألعاب بلايستيشن 5 ديجيتال">
-                <h4 style="font-size:16px;">جهاز ألعاب بلايستيشن 5 ديجيتال ...</h4>
+                <h4 style="font-size:16px;">جهاز ألعاب بلايستيشن 5 ديجيتال</h4>
                 <div class="rating">
                     <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> <span>(32 تقييم)</span>
                 </div>
-                <p class="price">2599 ر.س <del>2899 ر.س</del></p>
+                <p class="price"><span class="current-price">2599</span> ر.س <del>2899 ر.س</del></p>
                 <button class="btn btn-add">أضف إلى السلة</button>
             </div>
 
-            <!-- Product 2: PS5 Standard (Uploaded) -->
             <div class="product-card">
                 <img src="ps5_standard_new.png" alt="جهاز ألعاب بلايستيشن 5 إصدار">
-                <h4 style="font-size:16px;">جهاز ألعاب بلايستيشن 5 إصدار ...</h4>
+                <h4 style="font-size:16px;">جهاز ألعاب بلايستيشن 5 إصدار الأقراص</h4>
                 <div class="rating">
                     <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> <span>(1 تقييم)</span>
                 </div>
-                <p class="price">2099 ر.س <del>2280 ر.س</del></p>
+                <p class="price"><span class="current-price">2099</span> ر.س <del>2280 ر.س</del></p>
                 <button class="btn btn-add">أضف إلى السلة</button>
             </div>
         </div>
@@ -215,14 +217,13 @@
     <section id="gaming" class="products-section">
         <h3 class="section-title">القيمنق</h3>
         <div class="products-grid">
-            <!-- Product 1: PS5 Gaming Setup (Uploaded) -->
             <div class="product-card">
                 <img src="ps5_setup.png" alt="بكج قيمنق بلايستيشن 5 سليم">
-                <h4 style="font-size:16px;">بكج قيمنق بلايستيشن 5 سليم ...</h4>
+                <h4 style="font-size:16px;">بكج قيمنق بلايستيشن 5 سليم</h4>
                 <div class="rating">
-                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> <span>(0 تقييم)</span>
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> <span>(5 تقييم)</span>
                 </div>
-                <p class="price">4799 ر.س <del>4999 ر.س</del></p>
+                <p class="price"><span class="current-price">4799</span> ر.س <del>4999 ر.س</del></p>
                 <button class="btn btn-add">أضف إلى السلة</button>
             </div>
         </div>
@@ -238,7 +239,7 @@
                 <div class="rating">
                     <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
                 </div>
-                <p class="price">750 ر.س</p>
+                <p class="price"><span class="current-price">750</span> ر.س</p>
                 <button class="btn btn-add">أضف إلى السلة</button>
             </div>
             <div class="product-card">
@@ -247,22 +248,11 @@
                 <div class="rating">
                     <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                 </div>
-                <p class="price">1100 ر.س</p>
-                <button class="btn btn-add">أضف إلى السلة</button>
-            </div>
-            <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=300&q=80" alt="طاولة 3">
-                <h4>طاولة قيمنق مع إضاءة</h4>
-                <div class="rating">
-                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
-                </div>
-                <p class="price">850 ر.س</p>
+                <p class="price"><span class="current-price">1100</span> ر.س</p>
                 <button class="btn btn-add">أضف إلى السلة</button>
             </div>
         </div>
     </section>
-
-    <!-- Removed Cart Section (Now a Modal) -->
 
     <!-- Footer -->
     <footer class="glass-footer">
@@ -271,7 +261,7 @@
     </footer>
 
     <!-- Customer Service Floating Button -->
-    <a href="#" class="customer-service-btn" id="supportBtn" title="خدمة العملاء">
+    <a href="https://wa.me/" target="_blank" class="customer-service-btn" id="supportBtn" title="خدمة العملاء">
         <i class="fa-brands fa-whatsapp"></i> خدمة العملاء
     </a>
 
@@ -279,16 +269,18 @@
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const loginModal = document.getElementById("loginModal");
+            const openLoginBtn = document.getElementById("openLoginBtn");
             const closeLoginBtn = document.getElementById("closeModal");
             const cartModal = document.getElementById("cartModal");
             const closeCartBtn = document.getElementById("closeCartModal");
             const cartLink = document.getElementById("cartLink");
-            
-            // Auto-show login modal on page load
-            if(loginModal) {
-                setTimeout(() => {
-                    loginModal.style.display = "flex";
-                }, 500);
+
+            // Open login modal on click only
+            if(openLoginBtn) {
+                openLoginBtn.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    if(loginModal) loginModal.style.display = "flex";
+                });
             }
             
             // Close login modal
@@ -315,15 +307,11 @@
 
             // Close modals when clicking outside
             window.addEventListener("click", (e) => {
-                if (loginModal && e.target === loginModal) {
-                    loginModal.style.display = "none";
-                }
-                if (cartModal && e.target === cartModal) {
-                    cartModal.style.display = "none";
-                }
+                if (loginModal && e.target === loginModal) loginModal.style.display = "none";
+                if (cartModal && e.target === cartModal) cartModal.style.display = "none";
             });
 
-            // Custom Toast Notification System
+            // Toast Alert
             function showToast(message) {
                 let toast = document.getElementById('customToast');
                 if(!toast) {
@@ -335,64 +323,19 @@
                     toast.style.transform = 'translateX(-50%)';
                     toast.style.background = '#00d2ff';
                     toast.style.color = '#0b111a';
-                    toast.style.padding = '15px 30px';
+                    toast.style.padding = '12px 25px';
                     toast.style.borderRadius = '30px';
                     toast.style.fontWeight = 'bold';
-                    toast.style.zIndex = '9999';
+                    toast.style.zIndex = '99999';
                     toast.style.boxShadow = '0 4px 15px rgba(0,210,255,0.4)';
                     toast.style.opacity = '0';
                     toast.style.transition = 'opacity 0.3s ease';
                     document.body.appendChild(toast);
                 }
                 toast.innerText = message;
-                // Force reflow
                 void toast.offsetWidth;
                 toast.style.opacity = '1';
-                
-                setTimeout(() => {
-                    toast.style.opacity = '0';
-                }, 3000);
-            }
-
-            // Prevent form submission on Enter key
-            const loginForm = document.querySelector(".login-form");
-            if(loginForm) {
-                loginForm.addEventListener("submit", function(e) {
-                    e.preventDefault();
-                    if(loginModal) loginModal.style.display = "none";
-                    showToast(isLogin ? "تم تسجيل الدخول بنجاح!" : "تم إنشاء الحساب بنجاح!");
-                });
-            }
-
-            // Toggle Login / Register
-            const toggleLink = document.getElementById("toggleLink");
-            const toggleText = document.getElementById("toggleText");
-            const modalTitle = document.getElementById("modalTitle");
-            const modalSubtitle = document.getElementById("modalSubtitle");
-            const regName = document.getElementById("regName");
-            const modalBtn = document.getElementById("modalBtn");
-            let isLogin = true;
-
-            if(toggleLink) {
-                toggleLink.addEventListener("click", (e) => {
-                    e.preventDefault();
-                    isLogin = !isLogin;
-                    if(isLogin) {
-                        if(modalTitle) modalTitle.innerText = "تسجيل الدخول";
-                        if(modalSubtitle) modalSubtitle.innerText = "مرحباً بك في TechGear";
-                        if(regName) regName.style.display = "none";
-                        if(modalBtn) modalBtn.innerText = "دخول";
-                        if(toggleText) toggleText.innerText = "ليس لديك حساب؟";
-                        if(toggleLink) toggleLink.innerText = "سجل الآن";
-                    } else {
-                        if(modalTitle) modalTitle.innerText = "إنشاء حساب";
-                        if(modalSubtitle) modalSubtitle.innerText = "انضم إلى TechGear الآن";
-                        if(regName) regName.style.display = "block";
-                        if(modalBtn) modalBtn.innerText = "تسجيل";
-                        if(toggleText) toggleText.innerText = "لديك حساب بالفعل؟";
-                        if(toggleLink) toggleLink.innerText = "تسجيل الدخول";
-                    }
-                });
+                setTimeout(() => { toast.style.opacity = '0'; }, 3000);
             }
 
             // Cart Logic
@@ -410,7 +353,6 @@
             function updateCartUI() {
                 if(cartBadge) {
                     cartBadge.innerText = cartCount;
-                    // Hide badge if empty for a cleaner look
                     cartBadge.style.display = cartCount > 0 ? "flex" : "none";
                 }
                 
@@ -424,8 +366,6 @@
                     if(cartTotalText) cartTotalText.innerText = `الإجمالي: ${cartTotal} ر.س`;
                 }
             }
-
-            // Initialize UI
             updateCartUI();
 
             if(startShoppingBtn) {
@@ -437,71 +377,35 @@
 
             addButtons.forEach(button => {
                 button.addEventListener("click", function(e) {
-                    e.preventDefault(); // Prevent any default action
-                    const productCard = this.parentElement;
-                    const priceElement = productCard.querySelector(".price");
-                    const priceText = priceElement ? priceElement.textContent : "0";
-                    // Extract numbers from price string correctly
-                    const match = priceText.match(/\d+/);
-                    const price = match ? parseInt(match[0]) : 0;
+                    e.preventDefault();
+                    const productCard = this.closest(".product-card");
+                    const priceElement = productCard.querySelector(".current-price") || productCard.querySelector(".price");
+                    
+                    let price = 0;
+                    if (priceElement) {
+                        const match = priceElement.textContent.match(/\d+/);
+                        price = match ? parseInt(match[0]) : 0;
+                    }
                     
                     cartCount++;
                     cartTotal += price;
-                    
                     updateCartUI();
                     
                     showToast("تمت إضافة المنتج إلى السلة بنجاح! 🛒");
                     
-                    // Simple animation feedback
                     const originalText = this.innerText;
                     this.innerText = "تمت الإضافة ✔";
                     this.style.background = "#c4a265";
                     this.style.color = "#0b111a";
-                    
                     setTimeout(() => {
                         this.innerText = originalText;
-                        this.style.background = ""; // Reset to CSS default
+                        this.style.background = "";
                         this.style.color = "";
-                    }, 2000);
+                    }, 1500);
                 });
             });
 
-            if(checkoutBtn) {
-                checkoutBtn.addEventListener("click", function(e) {
-                    e.preventDefault();
-                    if(cartCount > 0) {
-                        showToast(`تم استلام طلبك بنجاح! المبلغ الإجمالي: ${cartTotal} ر.س`);
-                        // Reset cart
-                        cartCount = 0;
-                        cartTotal = 0;
-                        updateCartUI();
-                        if(cartModal) cartModal.style.display = "none";
-                    } else {
-                        showToast("السلة فارغة حالياً. الرجاء إضافة منتجات قبل إتمام الطلب.");
-                    }
-                });
-            }
-
-            // Product Details Click Simulation
-            const productElements = document.querySelectorAll(".product-card img, .product-card h4");
-            productElements.forEach(item => {
-                item.style.cursor = "pointer";
-                item.addEventListener("click", function() {
-                    const productName = this.parentElement.querySelector("h4").innerText;
-                    showToast(`جاري فتح صفحة تفاصيل: ${productName}`);
-                });
-            });
-
-            // Customer Service Button
-            const supportBtn = document.getElementById("supportBtn");
-            if(supportBtn) {
-                supportBtn.addEventListener("click", function(e) {
-                    e.preventDefault();
-                    showToast("مرحباً بك في خدمة عملاء TechGear! كيف يمكننا مساعدتك؟");
-                });
-            }
-
-            // Tabs Logic
+            // Tabs Filtering Logic
             const catTabs = document.querySelectorAll('.cat-tab');
             const sections = {
                 '#smart-devices': document.getElementById('smart-devices'),
@@ -512,65 +416,50 @@
 
             catTabs.forEach(tab => {
                 tab.addEventListener('click', function(e) {
-                    e.preventDefault(); // Prevent scrolling
-                    
-                    // Remove active class from all tabs
+                    e.preventDefault();
                     catTabs.forEach(t => t.classList.remove('active-tab'));
                     this.classList.add('active-tab');
                     
                     const targetId = this.getAttribute('href');
-                    
                     if(targetId === '#all') {
-                        // Show all category sections
-                        Object.values(sections).forEach(sec => {
-                            if(sec) sec.style.display = 'block';
-                        });
+                        Object.values(sections).forEach(sec => { if(sec) sec.style.display = 'block'; });
                     } else {
-                        // Hide all category sections
-                        Object.values(sections).forEach(sec => {
-                            if(sec) sec.style.display = 'none';
-                        });
-                        // Show target section
-                        if(sections[targetId]) {
-                            sections[targetId].style.display = 'block';
-                        }
+                        Object.values(sections).forEach(sec => { if(sec) sec.style.display = 'none'; });
+                        if(sections[targetId]) sections[targetId].style.display = 'block';
                     }
                 });
             });
 
-            // Initialize: show everything because 'الكل' is default
-            Object.values(sections).forEach(sec => {
-                if(sec) sec.style.display = 'block';
-            });
-
-            // Dropdown Logic
+            // Dropdown links handling
             const dropLinks = document.querySelectorAll('.drop-link');
             dropLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
-                    e.preventDefault(); // Prevent instant jump
+                    e.preventDefault();
                     const targetId = this.getAttribute('data-target');
-                    const correspondingTab = document.querySelector(`.cat-tab[href="${targetId}"]`);
-                    if(correspondingTab) {
-                        correspondingTab.click(); // Trigger the tab logic
-                    }
-                    
-                    // Scroll smoothly to the categories section so the user sees the change
+                    const tab = document.querySelector(`.cat-tab[href="${targetId}"]`);
+                    if(tab) tab.click();
                     const catSection = document.getElementById('categories');
-                    if(catSection) {
-                        catSection.scrollIntoView({ behavior: 'smooth' });
-                    }
+                    if(catSection) catSection.scrollIntoView({ behavior: 'smooth' });
                 });
             });
 
-            // Navbar Active State Logic
-            const navLinks = document.querySelectorAll('.dark-navbar nav ul li a:not([onclick])');
-            navLinks.forEach(link => {
-                link.addEventListener('click', function() {
-                    navLinks.forEach(l => l.classList.remove('active-link'));
-                    this.classList.add('active-link');
+            // Smart Search Logic
+            const searchInput = document.getElementById('searchInput');
+            if (searchInput) {
+                searchInput.addEventListener('input', function(e) {
+                    const query = e.target.value.toLowerCase();
+                    const productCards = document.querySelectorAll('.product-card');
+                    
+                    productCards.forEach(card => {
+                        const title = card.querySelector('h4').textContent.toLowerCase();
+                        if (title.includes(query)) {
+                            card.style.display = 'flex';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
                 });
-            });
-
+            }
         });
     </script>
 </body>
