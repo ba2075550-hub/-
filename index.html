@@ -66,10 +66,6 @@
         <div class="logo">
             <h1>TechGear</h1>
         </div>
-        <!-- Smart Search Bar -->
-        <div class="search-container" style="flex-grow: 1; max-width: 300px; margin: 0 20px;">
-            <input type="text" id="searchInput" placeholder="ابحث عن منتج..." style="width: 100%; padding: 8px 15px; border-radius: 20px; border: 1px solid #c4a265; background: #0b111a; color: #fff; text-align: right; font-family: 'Tajawal', sans-serif;">
-        </div>
         <nav>
             <ul>
                 <li><a href="#" class="active-link">الرئيسية</a></li>
@@ -405,6 +401,19 @@
                 });
             });
 
+            if(checkoutBtn) {
+                checkoutBtn.addEventListener("click", function(e) {
+                    e.preventDefault();
+                    if(cartCount > 0) {
+                        showToast(`تم استلام طلبك بنجاح! الإجمالي: ${cartTotal} ر.س`);
+                        cartCount = 0;
+                        cartTotal = 0;
+                        updateCartUI();
+                        if(cartModal) cartModal.style.display = "none";
+                    }
+                });
+            }
+
             // Tabs Filtering Logic
             const catTabs = document.querySelectorAll('.cat-tab');
             const sections = {
@@ -442,24 +451,6 @@
                     if(catSection) catSection.scrollIntoView({ behavior: 'smooth' });
                 });
             });
-
-            // Smart Search Logic
-            const searchInput = document.getElementById('searchInput');
-            if (searchInput) {
-                searchInput.addEventListener('input', function(e) {
-                    const query = e.target.value.toLowerCase();
-                    const productCards = document.querySelectorAll('.product-card');
-                    
-                    productCards.forEach(card => {
-                        const title = card.querySelector('h4').textContent.toLowerCase();
-                        if (title.includes(query)) {
-                            card.style.display = 'flex';
-                        } else {
-                            card.style.display = 'none';
-                        }
-                    });
-                });
-            }
         });
     </script>
 </body>
