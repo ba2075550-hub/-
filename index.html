@@ -10,19 +10,19 @@
 </head>
 <body>
 
-    <!-- الشريط العلوي الإعلاني -->
+    <!-- الشريط العلوي -->
     <div class="top-announcement-bar">
-        <span>🚚 شحن فوري ومجاني لكافة مدن المملكة للطلبات فوق 300 ر.س | كود الخصم: <strong>KSA96</strong> لخصم 15%</span>
+        <span>🚚 شحن سريع ومجاني لجميع مدن المملكة للطلبات فوق 300 ر.س | استخدم الكود: <strong>KSA96</strong> لخصم 15%</span>
     </div>
 
-    <!-- نافذة تسجيل الدخول والحساب -->
+    <!-- نافذة تسجيل الدخول -->
     <div id="loginModal" class="modal-overlay">
         <div class="modal-content glass-panel">
             <button id="closeModal" class="btn-close" type="button">&times;</button>
             <h2 id="modalTitle">تسجيل الدخول</h2>
             <p id="modalSubtitle">مرحباً بك مجدداً في TechGear</p>
             <div class="admin-hint">
-                <i class="fa-solid fa-shield-halved"></i> لحساب المدير: <strong>admin@techgear.com</strong> | السر: <strong>admin123</strong>
+                <i class="fa-solid fa-shield-halved"></i> حساب المدير: <strong>admin@techgear.com</strong> | السر: <strong>admin123</strong>
             </div>
             <form class="login-form" id="authForm">
                 <input type="text" id="regName" placeholder="الاسم الكامل" style="display: none;">
@@ -34,7 +34,7 @@
         </div>
     </div>
 
-    <!-- نافذة لوحة تحكم الآدمن (Admin Dashboard) -->
+    <!-- نافذة لوحة الآدمن -->
     <div id="adminModal" class="modal-overlay">
         <div class="modal-content glass-panel admin-modal-content">
             <div class="modal-header-custom">
@@ -81,7 +81,7 @@
                             <option value="sony">أجهزة السوني</option>
                             <option value="tables">طاولات السيت أب</option>
                         </select>
-                        <input type="text" id="newProdImg" placeholder="رابط صورة المنتج" required>
+                        <input type="text" id="newProdImg" placeholder="رابط صورة المنتج المباشر" required>
                     </div>
                     <button type="submit" class="btn btn-gold btn-block"><i class="fa-solid fa-upload"></i> نشر المنتج مباشرة</button>
                 </form>
@@ -89,7 +89,7 @@
         </div>
     </div>
 
-    <!-- نافذة سلة المشتريات -->
+    <!-- نافذة السلة -->
     <div id="cartModal" class="modal-overlay">
         <div class="modal-content glass-panel cart-modal-content">
             <div class="modal-header-custom">
@@ -130,7 +130,7 @@
         </div>
     </div>
 
-    <!-- شريط التنقل (Navbar) -->
+    <!-- النافبار -->
     <header class="dark-navbar">
         <div class="nav-container">
             <div class="logo">
@@ -177,7 +177,7 @@
                 <i class="fa-solid fa-award"></i> احتفالات اليوم الوطني السعودي 96 🇸🇦
             </div>
             <h2>ارتقِ بتجربة ألعابك وسيت أب أحلامك</h2>
-            <p>أقوى بكجات القيمنق المتكاملة وأجهزة البلايستيشن بأفضل الأسعار مع كود خصم <strong>KSA96</strong>.</p>
+            <p>أقوى بكجات القيمنق المتكاملة وأحدث الهواتف بأسعار استثنائية مع كود خصم <strong>KSA96</strong>.</p>
             <div class="hero-btns">
                 <a href="#gaming" class="btn btn-national"><i class="fa-solid fa-gamepad"></i> تصفح بكجات القيمنق</a>
                 <a href="#categories" class="btn btn-secondary"><i class="fa-solid fa-compass"></i> كل الفئات</a>
@@ -279,169 +279,159 @@
         <i class="fa-brands fa-whatsapp"></i> <span>مساعدة فورية</span>
     </a>
 
-    <!-- المحرك البرمجي المحدث بالبكجات المتكاملة -->
+    <!-- المحرك البرمجي مع الصور المخصصة غير المكررة -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
+            // بيانات المنتجات بصور حقيقية ومفروزة بدقة
             const defaultProducts = [
-                // بكجات القيمنق المتكاملة
+                // 1. بكجات القيمنق (صور مختلفة واحترافية)
                 { 
                     id: 101, 
-                    name: "بكج قيمنق PS5 Slim متكامل + شاشة احترافية + كرسي وطاولة سيت أب", 
+                    name: "بكج قيمنق PS5 Slim متكامل (شاشة قيمنق منحنية + كرسي + طاولة RGB + سماعة)", 
                     price: 4799, 
                     oldPrice: 5299, 
                     category: "gaming", 
-                    img: "./ps5_setup.png", 
-                    fallback: "https://ayos.com.sa/storage/products/1700000000_setup.png", 
+                    img: "https://images.unsplash.com/photo-1616588589596-65f0be845c36?auto=format&fit=crop&w=600&q=80", 
                     rating: 5, 
                     reviews: 42, 
                     tag: "البكج الأكثر طلباً" 
                 },
                 { 
                     id: 102, 
-                    name: "بكج محاكاة السباقات دركسون G29 + شاشة 120Hz + طاولة وكرسي قيمنق", 
+                    name: "بكج محاكاة السباقات والهجولة (دركسون Logitech G29 + دواسات + قير + قاعدة احترافية)", 
                     price: 1899, 
                     oldPrice: 2199, 
                     category: "gaming", 
-                    img: "https://m.media-amazon.com/images/I/61Iym3td6ST._AC_SL1500_.jpg", 
-                    fallback: "./ps5_setup.png", 
+                    img: "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=600&q=80", 
                     rating: 5, 
                     reviews: 35, 
-                    tag: "عشاق الهجولة والسباقات" 
+                    tag: "عشاق المحاكاة" 
                 },
                 { 
                     id: 103, 
-                    name: "بكج سيت أب القيمنق الاقتصادي (شاشة 24 بوصة 120Hz + طاولة 100سم + كرسي + كيبورد وماوس)", 
+                    name: "بكج سيت أب القيمنق الاقتصادي المتكامل (طاولة كربون فايبر 120سم + كرسي طبي مريح)", 
                     price: 999, 
                     oldPrice: 1200, 
                     category: "gaming", 
-                    img: "https://m.media-amazon.com/images/I/71cngLX2xuL._AC_SL1500_.jpg", 
-                    fallback: "./table_pro.png", 
+                    img: "https://images.unsplash.com/photo-1598550476439-6847785fcea6?auto=format&fit=crop&w=600&q=80", 
                     rating: 4.5, 
                     reviews: 58, 
                     tag: "أفضل قيمة توفير" 
                 },
                 { 
                     id: 104, 
-                    name: "بكج إكسسوارات القيمنق 4 في 1 (سماعة محيطية + كيبورد ميكانيكي + ماوس احترافي + ماوس باد)", 
+                    name: "بكج إكسسوارات القيمنق الاحترافي 4 في 1 (كيبورد ميكانيكي + ماوس دقيق + سماعة محيطية + باد)", 
                     price: 249, 
                     oldPrice: 350, 
                     category: "gaming", 
-                    img: "https://m.media-amazon.com/images/I/71YyMknV6HL._AC_SL1500_.jpg", 
-                    fallback: "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=400&q=80", 
+                    img: "https://images.unsplash.com/photo-1541140532154-b024d705b909?auto=format&fit=crop&w=600&q=80", 
                     rating: 5, 
                     reviews: 76, 
                     tag: "ملحقات RGB" 
                 },
 
-                // سوني وبلايستيشن
+                // 2. أجهزة سوني وبلايستيشن
                 { 
                     id: 6, 
-                    name: "جهاز بلايستيشن 5 ديجيتال سليم (Slim)", 
+                    name: "جهاز بلايستيشن 5 سليم - الإصدار الرقمي (Digital Slim)", 
                     price: 2599, 
                     oldPrice: 2899, 
                     category: "sony", 
-                    img: "./ps5_digital_new.png", 
-                    fallback: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Black_and_white_Playstation_5_base_edition_with_controller.png/640px-Black_and_white_Playstation_5_base_edition_with_controller.png", 
+                    img: "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=600&q=80", 
                     rating: 5, 
                     reviews: 45, 
                     tag: "الأكثر طلباً" 
                 },
                 { 
                     id: 7, 
-                    name: "جهاز بلايستيشن 5 إصدار قارئ الأقراص", 
+                    name: "جهاز بلايستيشن 5 مع يد تحكم إضافية بيضاء (Disc Edition)", 
                     price: 2099, 
                     oldPrice: 2280, 
                     category: "sony", 
-                    img: "./ps5_standard_new.png", 
-                    fallback: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Black_and_white_Playstation_5_base_edition_with_controller.png/640px-Black_and_white_Playstation_5_base_edition_with_controller.png", 
+                    img: "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=600&q=80", 
                     rating: 4.5, 
                     reviews: 112 
                 },
 
-                // عروض اليوم الوطني
+                // 3. عروض اليوم الوطني
                 { 
                     id: 1, 
-                    name: "آيفون 17 برو ماكس - تيتانيوم طبيعي", 
+                    name: "آيفون 17 برو ماكس - لون تيتانيوم صحراوي طبيعي", 
                     price: 4500, 
                     oldPrice: 5000, 
                     category: "national-day", 
-                    img: "./iphone17.png", 
-                    fallback: "https://pngimg.com/d/iphone16_PNG38.png", 
+                    img: "https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=600&q=80", 
                     rating: 5, 
                     reviews: 142, 
                     tag: "خصم اليوم الوطني" 
                 },
                 { 
                     id: 2, 
-                    name: "بلايستيشن 5 برو - النسخة الرقمية", 
+                    name: "بلايستيشن 5 برو مع شاحن يدين أصلي مزدوج", 
                     price: 2100, 
                     oldPrice: 2500, 
                     category: "national-day", 
-                    img: "./ps5_digital_new.png", 
-                    fallback: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Black_and_white_Playstation_5_base_edition_with_controller.png/640px-Black_and_white_Playstation_5_base_edition_with_controller.png", 
+                    img: "https://images.unsplash.com/photo-1622297845775-5ff3fef71d13?auto=format&fit=crop&w=600&q=80", 
                     rating: 5, 
                     reviews: 98, 
                     tag: "عرض محدود" 
                 },
 
-                // الهواتف الذكية
+                // 4. الهواتف الذكية
                 { 
                     id: 3, 
-                    name: "آيفون 17 الجديد كلياً - سعة 256GB", 
+                    name: "آيفون 17 الإصدار القياسي - أزرق سماوي جديد", 
                     price: 4100, 
                     oldPrice: null, 
                     category: "smart-devices", 
-                    img: "./iphone17.png", 
-                    fallback: "https://pngimg.com/d/iphone16_PNG37.png", 
+                    img: "https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?auto=format&fit=crop&w=600&q=80", 
                     rating: 5, 
                     reviews: 63, 
                     tag: "إصدار حديث" 
                 },
                 { 
                     id: 4, 
-                    name: "آيفون 16 برو - تيتانيوم صحراوي", 
+                    name: "آيفون 16 برو - تيتانيوم رمادي فضي", 
                     price: 3800, 
                     oldPrice: 4200, 
                     category: "smart-devices", 
-                    img: "https://pngimg.com/d/iphone16_PNG10.png", 
-                    fallback: "https://pngimg.com/d/iphone16_PNG38.png", 
+                    img: "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=600&q=80", 
                     rating: 4.5, 
                     reviews: 88, 
                     tag: "الأكثر مبيعاً" 
                 },
 
-                // طاولات السيت أب
+                // 5. طاولات السيت أب
                 { 
                     id: 9, 
-                    name: "طاولة قيمنق Pro الاحترافية مع إضاءة RGB مدمجة", 
+                    name: "طاولة قيمنق Pro مستقيمة بسطح كاربون فايبر وإضاءة RGB", 
                     price: 750, 
                     oldPrice: 950, 
                     category: "tables", 
-                    img: "./table_pro.png", 
-                    fallback: "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=400&q=80", 
+                    img: "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=600&q=80", 
                     rating: 4.5, 
                     reviews: 29 
                 },
                 { 
                     id: 10, 
-                    name: "طاولة سيت أب زاوية شكل حرف L قيمنق هيدروليك", 
+                    name: "طاولة زاوية L ضخمة مخصصة للشاشات المتعددة والسيت أب الكامل", 
                     price: 1100, 
                     oldPrice: 1350, 
                     category: "tables", 
-                    img: "./table_l.png", 
-                    fallback: "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=400&q=80", 
+                    img: "https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?auto=format&fit=crop&w=600&q=80", 
                     rating: 5, 
                     reviews: 44, 
-                    tag: "الأكثر راحة" 
+                    tag: "الأكثر اتساعاً" 
                 }
             ];
 
+            // حفظ المنتجات الجديدة دائماً
+            localStorage.setItem("techgear_final_products_v4", JSON.stringify(defaultProducts));
             let products = defaultProducts;
-            localStorage.setItem("techgear_inventory_bundles", JSON.stringify(products));
 
-            let storeStats = JSON.parse(localStorage.getItem("techgear_stats_v3")) || { totalRevenue: 15400, ordersCount: 11 };
+            let storeStats = JSON.parse(localStorage.getItem("techgear_stats_v4")) || { totalRevenue: 15400, ordersCount: 11 };
 
-            // عرض المنتجات
+            // توليد المنتجات
             function renderProducts() {
                 const container = document.getElementById("productsContainer");
                 const categoryNames = {
@@ -474,7 +464,7 @@
                                     ${isAdmin ? `<button type="button" class="btn-delete-prod" onclick="deleteProduct(${p.id})" title="حذف المنتج من المتجر"><i class="fa-solid fa-trash-can"></i></button>` : ''}
                                     
                                     <div class="product-img-wrapper">
-                                        <img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.onerror=null; this.src='${p.fallback}';">
+                                        <img src="${p.img}" alt="${p.name}" loading="lazy">
                                     </div>
 
                                     <div class="product-card-body">
@@ -509,13 +499,12 @@
             window.deleteProduct = (id) => {
                 if (confirm("هل تريد حذف هذا المنتج نهائياً من المتجر؟")) {
                     products = products.filter(p => p.id !== id);
-                    localStorage.setItem("techgear_inventory_bundles", JSON.stringify(products));
                     renderProducts();
                     showToast("<i class='fa-solid fa-trash-can'></i> تم حذف المنتج بنجاح.");
                 }
             };
 
-            // إضافة منتج جديد
+            // إضافة منتج
             const addProductForm = document.getElementById("addProductForm");
             addProductForm.addEventListener("submit", (e) => {
                 e.preventDefault();
@@ -526,21 +515,19 @@
                     oldPrice: null,
                     category: document.getElementById("newProdCategory").value,
                     img: document.getElementById("newProdImg").value.trim(),
-                    fallback: "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=400&q=80",
                     rating: 5,
                     reviews: 1,
                     tag: "مضاف حديثاً"
                 };
 
                 products.unshift(newProd);
-                localStorage.setItem("techgear_inventory_bundles", JSON.stringify(products));
                 renderProducts();
                 addProductForm.reset();
                 document.getElementById("adminModal").style.display = "none";
                 showToast(`<i class='fa-solid fa-circle-check'></i> تم نشر "${newProd.name}" بنجاح!`);
             });
 
-            // حسابات الدخول والآدمن
+            // تسجيل الدخول والآدمن
             const loginModal = document.getElementById("loginModal");
             const adminModal = document.getElementById("adminModal");
             const openLoginBtn = document.getElementById("openLoginBtn");
@@ -573,7 +560,7 @@
             openLoginBtn.addEventListener("click", (e) => {
                 e.preventDefault();
                 if (localStorage.getItem("techgear_user")) {
-                    if (confirm("هل ترغب في تسجيل الخروج من حسابك؟")) {
+                    if (confirm("هل ترغب في تسجيل الخروج؟")) {
                         localStorage.removeItem("techgear_user");
                         localStorage.removeItem("techgear_is_admin");
                         syncUserUI();
@@ -672,7 +659,7 @@
 
                     cartItemsList.innerHTML = cart.map(item => `
                         <div class="cart-item-row">
-                            <img src="${item.img}" alt="${item.name}" onerror="this.src='./ps5_setup.png'">
+                            <img src="${item.img}" alt="${item.name}">
                             <div class="cart-item-info">
                                 <h5>${item.name}</h5>
                                 <p class="cart-item-price">${item.price.toLocaleString()} ر.س</p>
@@ -759,7 +746,6 @@
 
                 storeStats.totalRevenue += finalTotal;
                 storeStats.ordersCount += 1;
-                localStorage.setItem("techgear_stats_v3", JSON.stringify(storeStats));
                 syncUserUI();
 
                 showToast("<i class='fa-solid fa-circle-check text-green'></i> تم استلام طلبك بنجاح وسيتواصل معك المندوب قريباً!");
@@ -804,7 +790,7 @@
             syncUserUI();
             renderProducts();
 
-            // الفلتر الافتراضي عند الفتح ليكون على القيمنق
+            // الفلتر الافتراضي على القيمنق
             const defaultTab = document.querySelector('.cat-tab[data-target="gaming"]');
             if(defaultTab) defaultTab.click();
         });
