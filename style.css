@@ -1,5 +1,5 @@
 /* ===================================================
-   TechGear Store - Ultimate Military & Cyber Theme
+   TechGear Store - E-Commerce Standard Theme
    =================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap');
@@ -367,94 +367,48 @@ body {
 .btn-gold { background: linear-gradient(135deg, #ffb300, #ff8f00); color: #040910; font-weight: 900; }
 .btn-secondary { background: rgba(255, 255, 255, 0.05); color: #fff; border: 1px solid var(--border-glass); }
 
-/* ===================================================
-   القائمة التكتيكية (تنسيق مخصص لمنع ظهور خلفية بيضاء)
-   =================================================== */
+/* Categories Tabs */
 .categories-tabs-section {
     max-width: 1400px;
-    margin: 25px auto 35px;
+    margin: 10px auto 20px;
     padding: 0 24px;
-    display: flex;
-    justify-content: center;
-    width: 100%;
 }
 
-.tactical-nav {
-    display: flex !important;
-    align-items: center;
+.categories-nav ul {
+    display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 12px;
-    background: #050a08 !important;
-    padding: 10px 16px;
-    border-radius: 16px;
-    border: 1px solid rgba(0, 230, 118, 0.25);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    list-style: none;
 }
 
-.tactical-tab {
-    appearance: none;
-    -webkit-appearance: none;
-    background: #060e0a !important;
-    border: 1.5px solid rgba(0, 230, 118, 0.4) !important;
-    color: #ffffff !important;
-    padding: 10px 22px !important;
-    border-radius: 10px !important;
+.cat-tab {
+    background: #0d131f;
+    color: var(--text-muted);
+    border: 1px solid var(--border-glass);
+    padding: 12px 28px;
+    border-radius: 30px;
     cursor: pointer;
-    font-size: 16px !important;
-    font-weight: 800 !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 10px !important;
-    position: relative;
-    outline: none !important;
-    transition: all 0.25s ease;
+    font-weight: 800;
+    font-size: 16px;
+    transition: all 0.3s;
 }
 
-.tactical-tab i {
-    font-size: 17px !important;
-    color: #00e676 !important;
-    transition: transform 0.2s ease;
+.cat-tab:hover {
+    color: #fff;
+    border-color: var(--primary);
+    background: rgba(0, 210, 255, 0.08);
 }
 
-.tactical-tab span {
-    color: #ffffff !important;
-    font-weight: 800 !important;
-}
-
-.tactical-tab:hover {
-    border-color: #00ff88 !important;
-    background: rgba(0, 230, 118, 0.15) !important;
-    box-shadow: 0 0 12px rgba(0, 230, 118, 0.3) !important;
-    transform: translateY(-2px);
-}
-
-.tactical-tab.active-tab {
-    background: #007a3d !important;
-    border-color: #00ff88 !important;
-    color: #ffffff !important;
-    box-shadow: 0 0 15px rgba(0, 230, 118, 0.4) !important;
-}
-
-.tactical-tab.active-tab i {
-    color: #ffffff !important;
-}
-
-.tactical-tab.active-tab::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 15%;
-    width: 70%;
-    height: 3px;
-    background: #00ff88 !important;
-    border-radius: 4px;
-    box-shadow: 0 0 10px #00ff88;
+.cat-tab.active-tab {
+    background: var(--primary);
+    color: #040910;
+    border-color: var(--primary);
+    box-shadow: 0 4px 20px var(--primary-glow);
 }
 
 /* =========================================
-   بطاقات المنتجات
+   بطاقات المنتجات الجديدة الموحدة (E-Commerce Card)
    ========================================= */
 .main-products-container {
     max-width: 1400px;
@@ -499,6 +453,7 @@ body {
     width: 100%;
 }
 
+/* شكل البطاقة النظيف */
 .product-card {
     background: #0d131f;
     border: 1px solid var(--border-glass);
@@ -572,13 +527,14 @@ body {
     transition: 0.2s;
 }
 
+/* إطار الصورة الموحد والخلفية النقية */
 .product-img-wrapper {
     width: 100%;
     height: 240px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #121a29;
+    background: #121a29; /* خلفية متناسقة ومريحة للعين */
     padding: 24px;
     border-bottom: 1px solid var(--border-glass);
 }
@@ -586,7 +542,7 @@ body {
 .product-img-wrapper img {
     max-width: 100%;
     max-height: 100%;
-    object-fit: contain;
+    object-fit: contain; /* إظهار المنتج بالكامل بدون قص أطرافه */
     transition: transform 0.35s ease;
     filter: drop-shadow(0 5px 15px rgba(0,0,0,0.3));
 }
@@ -608,7 +564,7 @@ body {
     color: #fff;
     margin-bottom: 10px;
     line-height: 1.4;
-    min-height: 48px;
+    min-height: 48px; /* ضمان استواء ارتفاع البطاقات */
 }
 
 .rating {
@@ -656,7 +612,7 @@ body {
     box-shadow: 0 4px 15px var(--primary-glow);
 }
 
-/* Reviews Section */
+/* قسم آراء العملاء */
 .reviews-section {
     max-width: 1400px;
     margin: 60px auto 30px;
@@ -700,8 +656,8 @@ body {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.85);
-    backdrop-filter: blur(12px);
+    background: rgba(0, 0, 0, 0.82);
+    backdrop-filter: blur(10px);
     display: none;
     align-items: center;
     justify-content: center;
@@ -774,8 +730,8 @@ body {
 }
 
 .login-form input:focus, .add-product-form input:focus {
-    border-color: var(--saudi-green);
-    box-shadow: 0 0 12px rgba(0, 230, 118, 0.4);
+    border-color: var(--primary);
+    box-shadow: 0 0 12px var(--primary-glow);
 }
 
 .register-link {
@@ -791,7 +747,7 @@ body {
     font-weight: 800;
 }
 
-/* Admin Dashboard */
+/* Admin Dashboard Elements */
 .admin-stats-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
