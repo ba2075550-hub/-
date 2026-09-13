@@ -984,3 +984,11 @@ body {
     .footer-grid { grid-template-columns: 1fr; }
     .form-row { flex-direction: column; gap: 0; }
 }
+.product-img-wrapper img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    mix-blend-mode: screen; /* لإخفاء أي خلفية بيضاء تظهر في صور البكجات */
+    filter: drop-shadow(0 8px 15px rgba(0, 0, 0, 0.5));
+    transition: transform 0.35s ease;
+}
