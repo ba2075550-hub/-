@@ -3,88 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>متجر TechGear | عروض اليوم الوطني KSA96</title>
+    <title>متجر TechGear | المتجر التقني الأول</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <!-- نافذة تسجيل الدخول -->
+    <!-- الشريط العلوي الإعلاني -->
+    <div class="top-announcement-bar">
+        <span>🚚 شحن سريع ومجاني لجميع مناطق المملكة للطلبات فوق 300 ر.س | استخدم الكود: <strong>KSA96</strong> لخصم 15%</span>
+    </div>
+
+    <!-- نافذة تسجيل الدخول والحساب -->
     <div id="loginModal" class="modal-overlay">
         <div class="modal-content glass-panel">
             <button id="closeModal" class="btn-close" type="button">&times;</button>
             <h2 id="modalTitle">تسجيل الدخول</h2>
-            <p id="modalSubtitle">مرحباً بك في متجر TechGear</p>
-            <div class="admin-hint" style="background: rgba(255,179,0,0.1); border: 1px dashed #ffb300; padding: 8px; border-radius: 8px; font-size: 12px; margin-bottom: 12px; color: #ffb300; text-align: center;">
-                للدخول كـ <strong>آدمن</strong>: admin@techgear.com | الباسورد: admin123
+            <p id="modalSubtitle">مرحباً بك مجدداً في TechGear</p>
+            <div class="admin-hint">
+                <i class="fa-solid fa-shield-halved"></i> لحساب المدير: <strong>admin@techgear.com</strong> | السر: <strong>admin123</strong>
             </div>
             <form class="login-form" id="authForm">
                 <input type="text" id="regName" placeholder="الاسم الكامل" style="display: none;">
                 <input type="email" id="authEmail" placeholder="البريد الإلكتروني" required>
                 <input type="password" id="authPassword" placeholder="كلمة المرور" required>
-                <button type="submit" id="modalBtn" class="btn btn-primary" style="width: 100%; justify-content: center; margin-top: 10px;">دخول</button>
+                <button type="submit" id="modalBtn" class="btn btn-primary btn-block">دخول</button>
             </form>
-            <p class="register-link"><span id="toggleText">ليس لديك حساب؟</span> <a href="#" id="toggleLink">سجل الآن</a></p>
+            <p class="register-link"><span id="toggleText">ليس لديك حساب؟</span> <a href="#" id="toggleLink">إنشاء حساب جديد</a></p>
         </div>
     </div>
 
     <!-- نافذة لوحة تحكم الآدمن (Admin Dashboard) -->
     <div id="adminModal" class="modal-overlay">
         <div class="modal-content glass-panel admin-modal-content">
-            <div class="cart-header">
-                <h2><i class="fa-solid fa-screwdriver-wrench" style="color: #ffb300;"></i> لوحة تحكم المدير</h2>
+            <div class="modal-header-custom">
+                <h2><i class="fa-solid fa-crown text-gold"></i> لوحة تحكم إدارة المتجر</h2>
                 <button id="closeAdminModal" class="btn-close" type="button">&times;</button>
             </div>
 
-            <!-- إحصائيات المتجر -->
+            <!-- إحصائيات المتجر للمدير -->
             <div class="admin-stats-grid">
                 <div class="stat-card">
-                    <i class="fa-solid fa-wallet"></i>
+                    <i class="fa-solid fa-sack-dollar text-green"></i>
                     <div>
-                        <span class="stat-label">المبيعات</span>
+                        <span class="stat-label">إجمالي المبيعات</span>
                         <h4 id="adminTotalRevenue">0 ر.س</h4>
                     </div>
                 </div>
                 <div class="stat-card">
-                    <i class="fa-solid fa-truck-fast"></i>
+                    <i class="fa-solid fa-boxes-packing text-blue"></i>
                     <div>
-                        <span class="stat-label">الطلبات</span>
-                        <h4 id="adminOrdersCount">0</h4>
+                        <span class="stat-label">الطلبات المكتملة</span>
+                        <h4 id="adminOrdersCount">0 طلب</h4>
                     </div>
                 </div>
                 <div class="stat-card">
-                    <i class="fa-solid fa-box-open"></i>
+                    <i class="fa-solid fa-layer-group text-gold"></i>
                     <div>
-                        <span class="stat-label">المنتجات</span>
+                        <span class="stat-label">عدد المنتجات</span>
                         <h4 id="adminProductsCount">0</h4>
                     </div>
                 </div>
             </div>
 
-            <!-- إضافة منتج جديد -->
-            <h3 style="font-size: 16px; margin: 20px 0 10px; color: #fff;"><i class="fa-solid fa-plus-circle"></i> إضافة منتج جديد للمتجر</h3>
-            <form id="addProductForm" class="add-product-form">
-                <input type="text" id="newProdName" placeholder="اسم المنتج" required>
-                <input type="number" id="newProdPrice" placeholder="السعر (ر.س)" required>
-                <select id="newProdCategory" required>
-                    <option value="smart-devices">الأجهزة الذكية</option>
-                    <option value="sony">السوني</option>
-                    <option value="gaming">القيمنق</option>
-                    <option value="tables">طاولات السيت أب</option>
-                    <option value="national-day">عروض اليوم الوطني</option>
-                </select>
-                <input type="text" id="newProdImg" placeholder="رابط صورة المنتج (أو اسم الملف مثل: iphone17.png)" required>
-                <button type="submit" class="btn" style="background: #ffb300; color: #040910; font-weight: 800; width: 100%; justify-content: center;"><i class="fa-solid fa-cloud-arrow-up"></i> نشر المنتج في المتجر</button>
-            </form>
+            <!-- نموذج إضافة منتج جديد -->
+            <div class="add-product-box">
+                <h4><i class="fa-solid fa-circle-plus"></i> إضافة منتج جديد إلى المتجر</h4>
+                <form id="addProductForm" class="add-product-form">
+                    <div class="form-row">
+                        <input type="text" id="newProdName" placeholder="اسم المنتج" required>
+                        <input type="number" id="newProdPrice" placeholder="السعر بالريال" required>
+                    </div>
+                    <div class="form-row">
+                        <select id="newProdCategory" required>
+                            <option value="national-day">عروض اليوم الوطني</option>
+                            <option value="smart-devices">الهواتف الذكية</option>
+                            <option value="sony">أجهزة السوني</option>
+                            <option value="gaming">القيمنق والبكجات</option>
+                            <option value="tables">طاولات السيت أب</option>
+                        </select>
+                        <input type="text" id="newProdImg" placeholder="اسم الصورة المرفوعة أو رابط خارجي" required>
+                    </div>
+                    <button type="submit" class="btn btn-gold btn-block"><i class="fa-solid fa-upload"></i> نشر المنتج مباشرة في المتجر</button>
+                </form>
+            </div>
         </div>
     </div>
 
-    <!-- نافذة سلة المشتريات -->
+    <!-- نافذة سلة المشتريات المتقدمة -->
     <div id="cartModal" class="modal-overlay">
         <div class="modal-content glass-panel cart-modal-content">
-            <div class="cart-header">
-                <h2><i class="fa-solid fa-cart-shopping"></i> سلة المشتريات</h2>
+            <div class="modal-header-custom">
+                <h2><i class="fa-solid fa-cart-shopping text-blue"></i> سلة المشتريات</h2>
                 <button id="closeCartModal" class="btn-close" type="button">&times;</button>
             </div>
             
@@ -92,8 +103,8 @@
                 <div class="empty-cart-icon">
                     <i class="fa-solid fa-cart-arrow-down"></i>
                 </div>
-                <h3>سلتك فارغة حالياً</h3>
-                <p>استفد من خصومات اليوم الوطني واستخدم كود <span class="coupon-tag">KSA96</span></p>
+                <h3>سلة مشترياتك فارغة حالياً</h3>
+                <p>تصفح أقوى العروض الحصرية واستخدم كود الخصم <span class="coupon-tag">KSA96</span></p>
                 <button class="btn btn-primary" id="startShoppingBtn" type="button">ابدأ التسوق الآن</button>
             </div>
 
@@ -101,43 +112,45 @@
                 <div class="cart-items-list" id="cartItemsList"></div>
                 
                 <div class="coupon-box">
-                    <input type="text" id="couponInput" placeholder="كود الخصم: KSA96">
-                    <button id="applyCouponBtn" class="btn" type="button">تطبيق</button>
+                    <input type="text" id="couponInput" placeholder="أدخل كود الخصم (مثال: KSA96)">
+                    <button id="applyCouponBtn" class="btn btn-gold" type="button">تطبيق الخصم</button>
                 </div>
                 <p id="couponMsg" class="coupon-message"></p>
 
                 <div class="cart-summary-box">
                     <div class="summary-row"><span>المجموع الفرعي:</span><span id="subTotal">0 ر.س</span></div>
-                    <div class="summary-row" id="discountRow" style="display: none; color: #00e676;">
-                        <span>الخصم المطبق (15%):</span><span id="discountVal">- 0 ر.س</span>
+                    <div class="summary-row text-green" id="discountRow" style="display: none;">
+                        <span>قيمة الخصم (15%):</span><span id="discountVal">- 0 ر.س</span>
                     </div>
-                    <div class="summary-row total-row"><span>الإجمالي النهائي:</span><span id="finalTotal">0 ر.س</span></div>
+                    <div class="summary-row total-row"><span>المجموع الإجمالي:</span><span id="finalTotal">0 ر.س</span></div>
                 </div>
 
-                <button class="btn btn-checkout" id="checkoutBtn" type="button"><i class="fa-solid fa-check-circle"></i> إتمام وتأكيد الطلب</button>
+                <button class="btn btn-checkout btn-block" id="checkoutBtn" type="button">
+                    <i class="fa-solid fa-circle-check"></i> تأكيد وإتمام عملية الشراء
+                </button>
             </div>
         </div>
     </div>
 
-    <!-- النافبار -->
+    <!-- شريط التنقل الرئيسي (Navbar) -->
     <header class="dark-navbar">
         <div class="nav-container">
             <div class="logo">
-                <i class="fa-solid fa-bolt logo-icon"></i>
-                <span>TechGear</span>
+                <div class="logo-badge"><i class="fa-solid fa-bolt"></i></div>
+                <span>Tech<span class="logo-accent">Gear</span></span>
             </div>
 
             <div class="search-bar-box">
                 <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" id="searchInput" placeholder="ابحث عن أي منتج (آيفون، سوني، طاولة...)">
+                <input type="text" id="searchInput" placeholder="ابحث عن أجهزة، شاشات، سوني، سيت أب...">
             </div>
 
             <nav>
                 <ul class="nav-links">
                     <li><a href="#" class="active-link">الرئيسية</a></li>
-                    <li><a href="#national-day" class="text-green"><i class="fa-solid fa-flag"></i> عروض KSA96</a></li>
+                    <li><a href="#national-day" class="nav-offer-link"><i class="fa-solid fa-flag"></i> عروض KSA96</a></li>
                     
-                    <!-- زر لوحة الآدمن (يظهر فقط إذا سجلت كآدمن) -->
+                    <!-- زر لوحة الآدمن (يظهر فقط للمدير) -->
                     <li id="adminNavBtnContainer" style="display: none;">
                         <button class="admin-nav-btn" id="openAdminBtn" type="button">
                             <i class="fa-solid fa-gear"></i> لوحة الإدارة
@@ -160,81 +173,145 @@
         </div>
     </header>
 
-    <!-- الهيرو سيكشن -->
+    <!-- الهيرو سيكشن الفخم (Hero Section) -->
     <section class="hero green-hero">
         <div class="hero-content glass-panel">
-            <span class="badge-tag">عروض محدودة 🇸🇦</span>
-            <h2>احتفل بيوم الوطن مع TechGear</h2>
-            <p>أفضل أجهزة الألعاب والهواتف الذكية مع خصم إضافي 15% عبر كود <strong>KSA96</strong></p>
+            <div class="hero-badge">
+                <i class="fa-solid fa-award"></i> احتفالات اليوم الوطني السعودي 96 🇸🇦
+            </div>
+            <h2>ارتقِ بتجربة ألعابك وتقنيتك للقمة</h2>
+            <p>أحدث أجهزة البلايستيشن، الهواتف الذكية، وملحقات السيت أب الاحترافية بأسعار استثنائية مع كود خصم <strong>KSA96</strong>.</p>
             <div class="hero-btns">
-                <a href="#national-day" class="btn btn-national"><i class="fa-solid fa-tag"></i> تصفح عروض اليوم الوطني</a>
-                <a href="#categories" class="btn btn-secondary">كل الفئات</a>
+                <a href="#national-day" class="btn btn-national"><i class="fa-solid fa-fire"></i> استكشف العروض الخضراء</a>
+                <a href="#categories" class="btn btn-secondary"><i class="fa-solid fa-compass"></i> تصفح المنتجات</a>
             </div>
         </div>
     </section>
 
-    <!-- التبويبات -->
-    <section id="categories" class="categories-tabs-section">
-        <nav class="categories-nav">
-            <ul>
-                <li><button class="cat-tab active-tab" data-target="all" type="button">الكل</button></li>
-                <li><button class="cat-tab" data-target="smart-devices" type="button">الأجهزة الذكية</button></li>
-                <li><button class="cat-tab" data-target="sony" type="button">السوني</button></li>
-                <li><button class="cat-tab" data-target="gaming" type="button">القيمنق</button></li>
-                <li><button class="cat-tab" data-target="tables" type="button">الطاولات</button></li>
-            </ul>
-        </nav>
+    <!-- شريط الثقة والمميزات (Trust Features) -->
+    <section class="features-bar">
+        <div class="features-container">
+            <div class="feature-item">
+                <i class="fa-solid fa-truck-fast"></i>
+                <div>
+                    <h5>توصيل فائق السرعة</h5>
+                    <p>شحن لجميع مدن المملكة</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <i class="fa-solid fa-shield-check"></i>
+                <div>
+                    <h5>ضمان ذهبي سنتين</h5>
+                    <p>ضمان الوكيل الرسمي المعتمد</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <i class="fa-solid fa-credit-card"></i>
+                <div>
+                    <h5>دفع آمن 100%</h5>
+                    <p>مدى، فيزا، تابي وتمارا</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <i class="fa-solid fa-headset"></i>
+                <div>
+                    <h5>دعم فني 24/7</h5>
+                    <p>فريق متخصص لخدمتك دوماً</p>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- مكان عرض جميع المنتجات ديناميكياً -->
+    <!-- أزرار تصفية الأقسام -->
+    <section id="categories" class="categories-tabs-section">
+        <div class="categories-nav">
+            <ul>
+                <li><button class="cat-tab active-tab" data-target="all" type="button">🔥 كل المنتجات</button></li>
+                <li><button class="cat-tab" data-target="smart-devices" type="button">📱 الهواتف الذكية</button></li>
+                <li><button class="cat-tab" data-target="sony" type="button">🎮 سوني وبلايستيشن</button></li>
+                <li><button class="cat-tab" data-target="gaming" type="button">⚡ بكجات القيمنق</button></li>
+                <li><button class="cat-tab" data-target="tables" type="button">🖥️ طاولات السيت أب</button></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- حاوية المنتجات الديناميكية -->
     <main id="productsContainer"></main>
 
-    <!-- الفوتر -->
-    <footer class="glass-footer">
-        <div class="footer-content">
-            <h3>TechGear</h3>
-            <p>المتجر الإلكتروني الأول لأجهزة القيمنق والتقنية بالسعودية.</p>
-            <p class="copyright">&copy; 2026 جميع الحقوق محفوظة لمتجر TechGear.</p>
+    <!-- الفوتر الاحترافي -->
+    <footer class="main-footer">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="logo">
+                    <div class="logo-badge"><i class="fa-solid fa-bolt"></i></div>
+                    <span>Tech<span class="logo-accent">Gear</span></span>
+                </div>
+                <p class="footer-desc">الوجهة السعودية الأولى لعشاق الألعاب والعتاد التقني الأحدث عالمياً بأعلى معايير الجودة والضمان.</p>
+            </div>
+            <div class="footer-col">
+                <h5>روابط سريعة</h5>
+                <ul>
+                    <li><a href="#">الرئيسية</a></li>
+                    <li><a href="#national-day">عروض اليوم الوطني</a></li>
+                    <li><a href="#categories">أقسام المنتجات</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>خدمة العملاء</h5>
+                <ul>
+                    <li><a href="#">سياسة الاسترجاع والضمان</a></li>
+                    <li><a href="#">الشحن والتوصيل</a></li>
+                    <li><a href="#">الأسئلة الشائعة</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>طرق الدفع المعتمدة</h5>
+                <div class="payment-methods">
+                    <span class="pay-badge"><i class="fa-brands fa-apple-pay"></i> Apple Pay</span>
+                    <span class="pay-badge"><i class="fa-regular fa-credit-card"></i> Mada</span>
+                    <span class="pay-badge"><i class="fa-brands fa-cc-visa"></i> Visa</span>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 متجر TechGear. جميع الحقوق محفوظة بالمملكة العربية السعودية 🇸🇦.</p>
         </div>
     </footer>
 
-    <!-- زر واتساب خدمة العملاء -->
-    <a href="https://wa.me/" target="_blank" class="customer-service-btn" title="تواصل عبر الواتساب">
-        <i class="fa-brands fa-whatsapp"></i> خدمة العملاء
+    <!-- زر خدمة العملاء عبر الواتساب -->
+    <a href="https://wa.me/" target="_blank" class="customer-service-btn" title="تواصل مع خدمة العملاء">
+        <i class="fa-brands fa-whatsapp"></i> <span>مساعدة فورية</span>
     </a>
 
-    <!-- كود الجافاسكريبت المطور كلياً -->
+    <!-- المحرك البرمجي المتكامل والمتطور -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            // المنتجات الافتراضية الأولية
+            // مخزون المنتجات الأساسية عالي الدقة مع مسارات الصور المعالجة
             const defaultProducts = [
-                { id: 1, name: "آيفون 17 برو", price: 4500, oldPrice: 5000, category: "national-day", img: "./iphone17.png", rating: 5, reviews: 120 },
-                { id: 2, name: "بلايستيشن 5 برو", price: 2100, oldPrice: 2500, category: "national-day", img: "./ps5_digital_new.png", rating: 4.5, reviews: 85 },
-                { id: 3, name: "آيفون 17 العادي", price: 4100, category: "smart-devices", img: "./iphone17.png", rating: 5, reviews: 40 },
-                { id: 4, name: "آيفون 16 برو ماكس", price: 3800, category: "smart-devices", img: "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=300&q=80", rating: 4.5, reviews: 92 },
-                { id: 5, name: "آيفون 15 برو", price: 3200, category: "smart-devices", img: "https://images.unsplash.com/photo-1616348436168-de43ad0db179?auto=format&fit=crop&w=300&q=80", rating: 4, reviews: 55 },
-                { id: 6, name: "بلايستيشن 5 إصدار ديجيتال", price: 2599, oldPrice: 2899, category: "sony", img: "./ps5_digital_new.png", rating: 5, reviews: 32 },
-                { id: 7, name: "بلايستيشن 5 نسخة الأقراص", price: 2099, oldPrice: 2280, category: "sony", img: "./ps5_standard_new.png", rating: 4, reviews: 64 },
-                { id: 8, name: "بكج قيمنق PS5 Slim متكامل", price: 4799, oldPrice: 4999, category: "gaming", img: "./ps5_setup.png", rating: 5, reviews: 18 },
-                { id: 9, name: "طاولة قيمنق Pro الاحترافية", price: 750, category: "tables", img: "./table_pro.png", rating: 4, reviews: 14 },
-                { id: 10, name: "طاولة زاوية L للقيمنق", price: 1100, category: "tables", img: "./table_l.png", rating: 5, reviews: 29 }
+                { id: 1, name: "آيفون 17 برو ماكس", price: 4500, oldPrice: 5000, category: "national-day", img: "./iphone17.png", fallback: "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=400&q=80", rating: 5, reviews: 142, tag: "أقوى خصم" },
+                { id: 2, name: "بلايستيشن 5 برو (نسخة الشرق الأوسط)", price: 2100, oldPrice: 2500, category: "national-day", img: "./ps5_digital_new.png", fallback: "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=400&q=80", rating: 5, reviews: 98, tag: "عرض خاص" },
+                { id: 3, name: "آيفون 17 تيتانيوم", price: 4100, oldPrice: null, category: "smart-devices", img: "./iphone17.png", fallback: "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=400&q=80", rating: 5, reviews: 63, tag: "جديد" },
+                { id: 4, name: "آيفون 16 برو - أزرق غامق", price: 3800, oldPrice: 4200, category: "smart-devices", img: "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=400&q=80", rating: 4.5, reviews: 88, tag: "الأكثر مبيعاً" },
+                { id: 5, name: "آيفون 15 برو ماكس", price: 3200, oldPrice: 3500, category: "smart-devices", img: "https://images.unsplash.com/photo-1616348436168-de43ad0db179?auto=format&fit=crop&w=400&q=80", rating: 4.5, reviews: 52 },
+                { id: 6, name: "بلايستيشن 5 إصدار ديجيتال سليم", price: 2599, oldPrice: 2899, category: "sony", img: "./ps5_digital_new.png", fallback: "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=400&q=80", rating: 5, reviews: 45, tag: "الأكثر طلباً" },
+                { id: 7, name: "بلايستيشن 5 إصدار قارئ الأقراص", price: 2099, oldPrice: 2280, category: "sony", img: "./ps5_standard_new.png", fallback: "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=400&q=80", rating: 4.5, reviews: 112 },
+                { id: 8, name: "بكج قيمنق PS5 Slim متكامل + شاشة + يدين", price: 4799, oldPrice: 5299, category: "gaming", img: "./ps5_setup.png", fallback: "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=400&q=80", rating: 5, reviews: 31, tag: "بكج التوفير" },
+                { id: 9, name: "طاولة قيمنق Pro الاحترافية RGB مع حامل أكواب", price: 750, oldPrice: 950, category: "tables", img: "./table_pro.png", fallback: "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=400&q=80", rating: 4.5, reviews: 29 },
+                { id: 10, name: "طاولة سيت أب زاوية حرف L هيدروليك", price: 1100, oldPrice: 1350, category: "tables", img: "./table_l.png", fallback: "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=400&q=80", rating: 5, reviews: 44, tag: "موصى به" }
             ];
 
-            // جلب المنتجات من التخزين المحلي أو تحميل الافتراضية
-            let products = JSON.parse(localStorage.getItem("techgear_inventory")) || defaultProducts;
+            let products = JSON.parse(localStorage.getItem("techgear_inventory_v2")) || defaultProducts;
+            let storeStats = JSON.parse(localStorage.getItem("techgear_stats_v2")) || { totalRevenue: 12450, ordersCount: 8 };
 
-            // إحصائيات الآدمن
-            let storeStats = JSON.parse(localStorage.getItem("techgear_stats")) || { totalRevenue: 0, ordersCount: 0 };
-
-            // عرض المنتجات في الصفحة
+            // عرض المنتجات
             function renderProducts() {
                 const container = document.getElementById("productsContainer");
                 const categoryNames = {
-                    "national-day": { title: '<i class="fa-solid fa-award"></i> عروض اليوم الوطني الخاصة', class: 'national-bg text-green' },
-                    "smart-devices": { title: 'الهواتف الذكية', class: '' },
-                    "sony": { title: 'أجهزة السوني وبلايستيشن', class: '' },
-                    "gaming": { title: 'بكجات القيمنق', class: '' },
-                    "tables": { title: 'طاولات السيت أب', class: '' }
+                    "national-day": { title: '<i class="fa-solid fa-flag text-green"></i> عروض اليوم الوطني KSA96 الحصرية', class: 'national-bg' },
+                    "smart-devices": { title: '<i class="fa-solid fa-mobile-screen-button text-blue"></i> الهواتف الذكية والأجهزة اللوحية', class: '' },
+                    "sony": { title: '<i class="fa-brands fa-playstation text-blue"></i> منصات سوني بلايستيشن الأصلية', class: '' },
+                    "gaming": { title: '<i class="fa-solid fa-gamepad text-gold"></i> بكجات وعُتاد القيمنق', class: '' },
+                    "tables": { title: '<i class="fa-solid fa-couch text-blue"></i> طاولات السيت أب الاحترافية', class: '' }
                 };
 
                 let html = "";
@@ -245,20 +322,39 @@
                     if (catProducts.length > 0) {
                         html += `
                             <section id="${catKey}" class="products-section ${catInfo.class} category-group">
-                                <h3 class="section-title ${catInfo.class}">${catInfo.title}</h3>
+                                <div class="section-header-wrap">
+                                    <h3 class="section-title">${catInfo.title}</h3>
+                                    <span class="section-subtitle">${catProducts.length} منتج متوفر</span>
+                                </div>
                                 <div class="products-grid">
                         `;
 
                         catProducts.forEach(p => {
                             html += `
                                 <div class="product-card" data-title="${p.name}">
-                                    ${p.oldPrice ? `<span class="discount-badge">خصم خاص</span>` : ''}
-                                    ${isAdmin ? `<button type="button" class="btn-delete-prod" onclick="deleteProduct(${p.id})" title="حذف المنتج من المتجر"><i class="fa-solid fa-trash"></i></button>` : ''}
-                                    <img src="${p.img}" alt="${p.name}" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=300&q=80'">
-                                    <h4>${p.name}</h4>
-                                    <div class="rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> <span>(${p.reviews || 10})</span></div>
-                                    <p class="price"><span class="current-price">${p.price}</span> ر.س ${p.oldPrice ? `<del>${p.oldPrice} ر.س</del>` : ''}</p>
-                                    <button class="btn btn-add" data-id="${p.id}" data-name="${p.name}" data-price="${p.price}" data-img="${p.img}"><i class="fa-solid fa-cart-plus"></i> أضف للسلة</button>
+                                    ${p.tag ? `<span class="product-badge">${p.tag}</span>` : ''}
+                                    ${isAdmin ? `<button type="button" class="btn-delete-prod" onclick="deleteProduct(${p.id})" title="حذف المنتج من المتجر"><i class="fa-solid fa-trash-can"></i></button>` : ''}
+                                    
+                                    <div class="product-img-wrapper">
+                                        <img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.onerror=null; this.src='${p.fallback || 'https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=400&q=80'}';">
+                                    </div>
+
+                                    <div class="product-card-body">
+                                        <h4>${p.name}</h4>
+                                        <div class="rating">
+                                            <div class="stars">
+                                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                            </div>
+                                            <span class="review-count">(${p.reviews || 25} تقييم)</span>
+                                        </div>
+                                        <div class="price-container">
+                                            <span class="current-price">${p.price} <small>ر.س</small></span>
+                                            ${p.oldPrice ? `<del>${p.oldPrice} ر.س</del>` : ''}
+                                        </div>
+                                        <button class="btn btn-add" data-id="${p.id}" data-name="${p.name}" data-price="${p.price}" data-img="${p.img}">
+                                            <i class="fa-solid fa-cart-shopping"></i> أضف إلى السلة
+                                        </button>
+                                    </div>
                                 </div>
                             `;
                         });
@@ -267,25 +363,21 @@
                     }
                 }
                 container.innerHTML = html;
-
-                // تحديث عداد المنتجات في الآدمن
                 document.getElementById("adminProductsCount").innerText = products.length;
-
-                // إعادة تفعيل أزرار الإضافة للسلة
                 attachAddToCartEvents();
             }
 
-            // حذف منتج للمدير
+            // حذف منتج
             window.deleteProduct = (id) => {
-                if (confirm("هل أنت متأكد من حذف هذا المنتج نهائياً من المتجر؟")) {
+                if (confirm("هل تريد حذف هذا المنتج نهائياً من المتجر؟")) {
                     products = products.filter(p => p.id !== id);
-                    localStorage.setItem("techgear_inventory", JSON.stringify(products));
+                    localStorage.setItem("techgear_inventory_v2", JSON.stringify(products));
                     renderProducts();
-                    showToast("<i class='fa-solid fa-trash'></i> تم حذف المنتج بنجاح.");
+                    showToast("<i class='fa-solid fa-trash-can'></i> تم حذف المنتج بنجاح.");
                 }
             };
 
-            // إضافة منتج جديد من لوحة الآدمن
+            // إضافة منتج جديد
             const addProductForm = document.getElementById("addProductForm");
             addProductForm.addEventListener("submit", (e) => {
                 e.preventDefault();
@@ -293,21 +385,24 @@
                     id: Date.now(),
                     name: document.getElementById("newProdName").value.trim(),
                     price: parseInt(document.getElementById("newProdPrice").value),
+                    oldPrice: null,
                     category: document.getElementById("newProdCategory").value,
                     img: document.getElementById("newProdImg").value.trim(),
+                    fallback: "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=400&q=80",
                     rating: 5,
-                    reviews: 1
+                    reviews: 1,
+                    tag: "مضاف حديثاً"
                 };
 
                 products.unshift(newProd);
-                localStorage.setItem("techgear_inventory", JSON.stringify(products));
+                localStorage.setItem("techgear_inventory_v2", JSON.stringify(products));
                 renderProducts();
                 addProductForm.reset();
                 document.getElementById("adminModal").style.display = "none";
-                showToast(`<i class='fa-solid fa-circle-check'></i> تم نشر المنتج "${newProd.name}" بالمتجر!`);
+                showToast(`<i class='fa-solid fa-circle-check'></i> تم نشر المنتج "${newProd.name}" بنجاح!`);
             });
 
-            // نظام الحساب والآدمن
+            // نظام المستخدم والآدمن
             const loginModal = document.getElementById("loginModal");
             const adminModal = document.getElementById("adminModal");
             const openLoginBtn = document.getElementById("openLoginBtn");
@@ -327,25 +422,20 @@
                 const isAdmin = localStorage.getItem("techgear_is_admin") === "true";
 
                 if (user) {
-                    userBtnText.innerHTML = `${user} <i class="fa-solid fa-sign-out-alt" style="margin-right:4px; color:#ff5252;" title="خروج"></i>`;
+                    userBtnText.innerHTML = `${user} <i class="fa-solid fa-arrow-right-from-bracket" style="margin-right:5px; color:#ff5252;" title="خروج"></i>`;
                 } else {
                     userBtnText.innerText = "تسجيل الدخول";
                 }
 
-                if (isAdmin) {
-                    adminNavBtnContainer.style.display = "inline-block";
-                } else {
-                    adminNavBtnContainer.style.display = "none";
-                }
-
-                adminTotalRevenue.innerText = `${storeStats.totalRevenue} ر.س`;
-                adminOrdersCount.innerText = storeStats.ordersCount;
+                adminNavBtnContainer.style.display = isAdmin ? "inline-block" : "none";
+                adminTotalRevenue.innerText = `${storeStats.totalRevenue.toLocaleString()} ر.س`;
+                adminOrdersCount.innerText = `${storeStats.ordersCount} طلب`;
             }
 
             openLoginBtn.addEventListener("click", (e) => {
                 e.preventDefault();
                 if (localStorage.getItem("techgear_user")) {
-                    if (confirm("هل ترغب في تسجيل الخروج من الحساب؟")) {
+                    if (confirm("هل ترغب في تسجيل الخروج؟")) {
                         localStorage.removeItem("techgear_user");
                         localStorage.removeItem("techgear_is_admin");
                         syncUserUI();
@@ -366,9 +456,9 @@
                 isLoginMode = !isLoginMode;
                 document.getElementById("modalTitle").innerText = isLoginMode ? "تسجيل الدخول" : "إنشاء حساب جديد";
                 document.getElementById("regName").style.display = isLoginMode ? "none" : "block";
-                document.getElementById("modalBtn").innerText = isLoginMode ? "دخول" : "تسجيل";
+                document.getElementById("modalBtn").innerText = isLoginMode ? "دخول" : "إنشاء الحساب";
                 document.getElementById("toggleText").innerText = isLoginMode ? "ليس لديك حساب؟" : "لديك حساب بالفعل؟";
-                toggleLink.innerText = isLoginMode ? "سجل الآن" : "تسجيل الدخول";
+                toggleLink.innerText = isLoginMode ? "إنشاء حساب جديد" : "تسجيل الدخول";
             });
 
             authForm.addEventListener("submit", (e) => {
@@ -376,19 +466,17 @@
                 const email = document.getElementById("authEmail").value.trim().toLowerCase();
                 const pass = document.getElementById("authPassword").value;
 
-                // التحقق من حساب المدير
                 if (email === "admin@techgear.com" && pass === "admin123") {
-                    localStorage.setItem("techgear_user", "المدير (Admin)");
+                    localStorage.setItem("techgear_user", "المدير العام (Admin)");
                     localStorage.setItem("techgear_is_admin", "true");
                     syncUserUI();
                     renderProducts();
                     loginModal.style.display = "none";
                     authForm.reset();
-                    showToast("<i class='fa-solid fa-crown' style='color:#ffb300;'></i> مرحباً بك يا مدير المتجر!");
+                    showToast("<i class='fa-solid fa-crown text-gold'></i> أهلاً بك يا مدير المتجر، تم تفعيل لوحة الإدارة!");
                     return;
                 }
 
-                // مستخدم عادي
                 const name = document.getElementById("regName").value.trim() || email.split('@')[0];
                 localStorage.setItem("techgear_user", name);
                 localStorage.removeItem("techgear_is_admin");
@@ -396,10 +484,10 @@
                 renderProducts();
                 loginModal.style.display = "none";
                 authForm.reset();
-                showToast(`مرحباً بك يا ${name}!`);
+                showToast(`مرحباً بك في TechGear يا ${name}!`);
             });
 
-            // إدارة السلة
+            // منطق سلة الشراء
             let cart = [];
             let discountRate = 0;
             const cartModal = document.getElementById("cartModal");
@@ -429,7 +517,7 @@
                 }
                 toast.innerHTML = msg;
                 toast.classList.add("show");
-                setTimeout(() => { toast.classList.remove("show"); }, 3000);
+                setTimeout(() => { toast.classList.remove("show"); }, 3200);
             }
 
             function refreshCartUI() {
@@ -446,7 +534,7 @@
 
                     cartItemsList.innerHTML = cart.map(item => `
                         <div class="cart-item-row">
-                            <img src="${item.img}" alt="${item.name}" onerror="this.src='https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=100&q=80'">
+                            <img src="${item.img}" alt="${item.name}" onerror="this.src='https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=120&q=80'">
                             <div class="cart-item-info">
                                 <h5>${item.name}</h5>
                                 <p class="cart-item-price">${item.price} ر.س</p>
@@ -456,7 +544,7 @@
                                 <span>${item.qty}</span>
                                 <button type="button" onclick="modifyQty(${item.id}, 1)">+</button>
                             </div>
-                            <button type="button" class="cart-item-del" onclick="removeCartItem(${item.id})"><i class="fa-solid fa-trash"></i></button>
+                            <button type="button" class="cart-item-del" onclick="removeCartItem(${item.id})"><i class="fa-solid fa-trash-can"></i></button>
                         </div>
                     `).join("");
 
@@ -464,14 +552,14 @@
                     const discountAmt = Math.round(subtotal * discountRate);
                     const finalTotal = subtotal - discountAmt;
 
-                    subTotalElem.innerText = `${subtotal} ر.س`;
+                    subTotalElem.innerText = `${subtotal.toLocaleString()} ر.س`;
                     if (discountRate > 0) {
                         discountRow.style.display = "flex";
-                        discountValElem.innerText = `- ${discountAmt} ر.س`;
+                        discountValElem.innerText = `- ${discountAmt.toLocaleString()} ر.س`;
                     } else {
                         discountRow.style.display = "none";
                     }
-                    finalTotalElem.innerText = `${finalTotal} ر.س`;
+                    finalTotalElem.innerText = `${finalTotal.toLocaleString()} ر.س`;
                 }
             }
 
@@ -487,7 +575,7 @@
             window.removeCartItem = (id) => {
                 cart = cart.filter(x => x.id !== id);
                 refreshCartUI();
-                showToast("<i class='fa-solid fa-trash'></i> تم حذف المنتج من السلة");
+                showToast("<i class='fa-solid fa-trash-can'></i> تم حذف المنتج من السلة");
             };
 
             function attachAddToCartEvents() {
@@ -506,7 +594,7 @@
                             cart.push({ id, name, price, img, qty: 1 });
                         }
                         refreshCartUI();
-                        showToast(`<i class='fa-solid fa-cart-arrow-down'></i> أضيف "${name}" إلى السلة`);
+                        showToast(`<i class='fa-solid fa-cart-arrow-down text-blue'></i> أضيف "${name}" إلى سلتك بنجاح!`);
                     };
                 });
             }
@@ -519,7 +607,7 @@
                     refreshCartUI();
                 } else {
                     couponMsg.style.color = "#ff5252";
-                    couponMsg.innerText = "كود خاطئ، الكود المعتمد: KSA96";
+                    couponMsg.innerText = "كود الخصم غير صالح، الكود الصحيح هو KSA96";
                 }
             });
 
@@ -527,27 +615,26 @@
             closeCartModal.addEventListener("click", () => cartModal.style.display = "none");
             startShoppingBtn.addEventListener("click", () => cartModal.style.display = "none");
 
-            // تأكيد الطلب وتحديث إحصائيات الآدمن
+            // تأكيد الطلب وتحديث الإحصائيات
             checkoutBtn.addEventListener("click", () => {
                 const subtotal = cart.reduce((s, i) => s + (i.price * i.qty), 0);
                 const finalTotal = subtotal - Math.round(subtotal * discountRate);
 
-                // حفظ الإحصائية للمدير
                 storeStats.totalRevenue += finalTotal;
                 storeStats.ordersCount += 1;
-                localStorage.setItem("techgear_stats", JSON.stringify(storeStats));
+                localStorage.setItem("techgear_stats_v2", JSON.stringify(storeStats));
                 syncUserUI();
 
-                showToast("<i class='fa-solid fa-circle-check'></i> تم اعتماد طلبك بنجاح! شكراً لك.");
+                showToast("<i class='fa-solid fa-circle-check text-green'></i> تم استلام طلبك بنجاح وسيتواصل معك المندوب قريباً!");
                 cart = [];
                 discountRate = 0;
                 couponInput.value = "";
                 couponMsg.innerText = "";
                 refreshCartUI();
-                setTimeout(() => cartModal.style.display = "none", 1400);
+                setTimeout(() => cartModal.style.display = "none", 1500);
             });
 
-            // الفلاتر والبحث
+            // فلترة الأقسام
             const tabs = document.querySelectorAll(".cat-tab");
             tabs.forEach(tab => {
                 tab.addEventListener("click", function() {
@@ -561,6 +648,7 @@
                 });
             });
 
+            // البحث الفوري
             const searchInput = document.getElementById("searchInput");
             searchInput.addEventListener("input", function() {
                 const val = this.value.trim().toLowerCase();
@@ -576,7 +664,6 @@
                 if (e.target === adminModal) adminModal.style.display = "none";
             });
 
-            // التشغيل المبدئي
             syncUserUI();
             renderProducts();
         });
