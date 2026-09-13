@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
     <style>
         /* ===================================================
-           TechGear Store - Unified CSS (Dark & Military Theme)
+           TechGear Store - Ultimate Unified Theme
            =================================================== */
         :root {
             --bg-dark: #070a10;
@@ -224,10 +224,94 @@
             border: 2px solid var(--bg-dark);
         }
 
+        /* ===================================================
+           القائمة التكتيكية في القمة تحت شريط البحث مباشرة
+           =================================================== */
+        .categories-tabs-section {
+            max-width: 1400px;
+            margin: 20px auto 10px;
+            padding: 0 24px;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .tactical-nav {
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            background: #050a08 !important;
+            padding: 10px 16px;
+            border-radius: 16px;
+            border: 1px solid rgba(0, 230, 118, 0.25);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .tactical-tab {
+            appearance: none;
+            -webkit-appearance: none;
+            background: #060e0a !important;
+            border: 1.5px solid rgba(0, 230, 118, 0.4) !important;
+            color: #ffffff !important;
+            padding: 10px 22px !important;
+            border-radius: 10px !important;
+            cursor: pointer;
+            font-size: 16px !important;
+            font-weight: 800 !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 10px !important;
+            position: relative;
+            outline: none !important;
+            transition: all 0.25s ease;
+        }
+
+        .tactical-tab i {
+            font-size: 17px !important;
+            color: #00e676 !important;
+            transition: transform 0.2s ease;
+        }
+
+        .tactical-tab span {
+            color: #ffffff !important;
+            font-weight: 800 !important;
+        }
+
+        .tactical-tab:hover {
+            border-color: #00ff88 !important;
+            background: rgba(0, 230, 118, 0.15) !important;
+            box-shadow: 0 0 12px rgba(0, 230, 118, 0.3) !important;
+            transform: translateY(-2px);
+        }
+
+        .tactical-tab.active-tab {
+            background: #007a3d !important;
+            border-color: #00ff88 !important;
+            color: #ffffff !important;
+            box-shadow: 0 0 15px rgba(0, 230, 118, 0.4) !important;
+        }
+
+        .tactical-tab.active-tab i { color: #ffffff !important; }
+
+        .tactical-tab.active-tab::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 15%;
+            width: 70%;
+            height: 3px;
+            background: #00ff88 !important;
+            border-radius: 4px;
+            box-shadow: 0 0 10px #00ff88;
+        }
+
         /* Features Bar */
         .features-bar {
             max-width: 1400px;
-            margin: 20px auto 10px;
+            margin: 15px auto 10px;
             padding: 0 24px;
         }
 
@@ -251,7 +335,7 @@
         .feature-item h5 { font-size: 16px; font-weight: 800; color: #fff; margin-bottom: 2px; }
         .feature-item p { font-size: 14px; color: var(--text-muted); }
 
-        /* Hero Split Section */
+        /* Hero Section */
         .hero-split-section {
             max-width: 1400px;
             margin: 25px auto 40px;
@@ -367,90 +451,6 @@
         .btn-national:hover { transform: translateY(-3px); box-shadow: 0 10px 30px var(--saudi-glow); }
         .btn-gold { background: linear-gradient(135deg, #ffb300, #ff8f00); color: #040910; font-weight: 900; }
         .btn-secondary { background: rgba(255, 255, 255, 0.05); color: #fff; border: 1px solid var(--border-glass); }
-
-        /* ===================================================
-           القائمة التكتيكية (مضمونة ضد الخلفيات البيضاء)
-           =================================================== */
-        .categories-tabs-section {
-            max-width: 1400px;
-            margin: 25px auto 35px;
-            padding: 0 24px;
-            display: flex;
-            justify-content: center;
-            width: 100%;
-        }
-
-        .tactical-nav {
-            display: flex !important;
-            align-items: center;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 12px;
-            background: #050a08 !important;
-            padding: 10px 16px;
-            border-radius: 16px;
-            border: 1px solid rgba(0, 230, 118, 0.25);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-        }
-
-        .tactical-tab {
-            appearance: none;
-            -webkit-appearance: none;
-            background: #060e0a !important;
-            border: 1.5px solid rgba(0, 230, 118, 0.4) !important;
-            color: #ffffff !important;
-            padding: 10px 22px !important;
-            border-radius: 10px !important;
-            cursor: pointer;
-            font-size: 16px !important;
-            font-weight: 800 !important;
-            display: inline-flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-            gap: 10px !important;
-            position: relative;
-            outline: none !important;
-            transition: all 0.25s ease;
-        }
-
-        .tactical-tab i {
-            font-size: 17px !important;
-            color: #00e676 !important;
-            transition: transform 0.2s ease;
-        }
-
-        .tactical-tab span {
-            color: #ffffff !important;
-            font-weight: 800 !important;
-        }
-
-        .tactical-tab:hover {
-            border-color: #00ff88 !important;
-            background: rgba(0, 230, 118, 0.15) !important;
-            box-shadow: 0 0 12px rgba(0, 230, 118, 0.3) !important;
-            transform: translateY(-2px);
-        }
-
-        .tactical-tab.active-tab {
-            background: #007a3d !important;
-            border-color: #00ff88 !important;
-            color: #ffffff !important;
-            box-shadow: 0 0 15px rgba(0, 230, 118, 0.4) !important;
-        }
-
-        .tactical-tab.active-tab i { color: #ffffff !important; }
-
-        .tactical-tab.active-tab::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 15%;
-            width: 70%;
-            height: 3px;
-            background: #00ff88 !important;
-            border-radius: 4px;
-            box-shadow: 0 0 10px #00ff88;
-        }
 
         /* Products Grid */
         .main-products-container {
@@ -1306,7 +1306,7 @@
         </div>
     </div>
 
-    <!-- النافبار -->
+    <!-- النافبار وشريط البحث -->
     <header class="dark-navbar">
         <div class="nav-container">
             <div class="logo">
@@ -1345,6 +1345,32 @@
             </nav>
         </div>
     </header>
+
+    <!-- مكان القائمة التكتيكية فوق (تحت البحث والنافبار مباشرة) -->
+    <section id="categories" class="categories-tabs-section">
+        <div class="tactical-nav">
+            <button class="tactical-tab active-tab" data-target="all" type="button">
+                <i class="fa-solid fa-table-cells-large"></i>
+                <span>الكل</span>
+            </button>
+            <button class="tactical-tab" data-target="gaming" type="button">
+                <i class="fa-solid fa-gamepad"></i>
+                <span>القيمنق</span>
+            </button>
+            <button class="tactical-tab" data-target="sony" type="button">
+                <i class="fa-brands fa-playstation"></i>
+                <span>السوني</span>
+            </button>
+            <button class="tactical-tab" data-target="smart-devices" type="button">
+                <i class="fa-solid fa-mobile-screen-button"></i>
+                <span>الأجهزة الذكية</span>
+            </button>
+            <button class="tactical-tab" data-target="tables" type="button">
+                <i class="fa-solid fa-couch"></i>
+                <span>الطاولات</span>
+            </button>
+        </div>
+    </section>
 
     <!-- شريط الثقة -->
     <section class="features-bar">
@@ -1417,32 +1443,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- القائمة بالستايل التكتيكي المميز -->
-    <section id="categories" class="categories-tabs-section">
-        <div class="tactical-nav">
-            <button class="tactical-tab active-tab" data-target="all" type="button">
-                <i class="fa-solid fa-table-cells-large"></i>
-                <span>الكل</span>
-            </button>
-            <button class="tactical-tab" data-target="gaming" type="button">
-                <i class="fa-solid fa-gamepad"></i>
-                <span>القيمنق</span>
-            </button>
-            <button class="tactical-tab" data-target="sony" type="button">
-                <i class="fa-brands fa-playstation"></i>
-                <span>السوني</span>
-            </button>
-            <button class="tactical-tab" data-target="smart-devices" type="button">
-                <i class="fa-solid fa-mobile-screen-button"></i>
-                <span>الأجهزة الذكية</span>
-            </button>
-            <button class="tactical-tab" data-target="tables" type="button">
-                <i class="fa-solid fa-couch"></i>
-                <span>الطاولات</span>
-            </button>
         </div>
     </section>
 
@@ -2011,9 +2011,10 @@
                 couponInput.value = "";
                 couponMsg.innerText = "";
                 refreshCartUI();
-                showToast("<i class='fa-solid fa-circle-check text-green'></i> تم تأكيد طلبك وإصدار الفاتورة بنجاح!");
+                showToast("<i class='fa-solid fa-circle-check text-green'></i> تم تأكيد طلبك بنجاح!");
             });
 
+            // فلترة التبويبات التكتيكية
             const tabs = document.querySelectorAll(".tactical-tab");
             tabs.forEach(tab => {
                 tab.addEventListener("click", function() {
