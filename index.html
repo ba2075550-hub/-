@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>متجر TechGear | المتجر التقني الأول</title>
+    <title>متجر TechGear | المتجر التقني الأول في المملكة</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
@@ -12,7 +12,7 @@
 
     <!-- الشريط العلوي الإعلاني -->
     <div class="top-announcement-bar">
-        <span>🚚 شحن فوري ومجاني لكافة مدن المملكة للطلبات فوق 300 ر.س | استخدم الكود: <strong>KSA96</strong> لخصم 15%</span>
+        <span>🚚 شحن سريع ومجاني لجميع مناطق المملكة للطلبات فوق 300 ر.س | استخدم الكود: <strong>KSA96</strong> لخصم 15% إضافي</span>
     </div>
 
     <!-- نافذة تسجيل الدخول -->
@@ -75,9 +75,10 @@
                     </div>
                     <div class="form-row">
                         <select id="newProdCategory" required>
+                            <option value="national-day">عروض اليوم الوطني</option>
                             <option value="gaming">القيمنق والبكجات</option>
                             <option value="sony">أجهزة السوني</option>
-                            <option value="smart-devices">الأجهزة الذكية</option>
+                            <option value="smart-devices">الهواتف الذكية</option>
                             <option value="tables">طاولات السيت أب</option>
                         </select>
                         <input type="text" id="newProdImg" placeholder="رابط صورة المنتج المباشر" required>
@@ -88,7 +89,7 @@
         </div>
     </div>
 
-    <!-- نافذة سلة المشتريات -->
+    <!-- نافذة السلة -->
     <div id="cartModal" class="modal-overlay">
         <div class="modal-content glass-panel cart-modal-content">
             <div class="modal-header-custom">
@@ -101,7 +102,7 @@
                     <i class="fa-solid fa-cart-arrow-down"></i>
                 </div>
                 <h3>سلة مشترياتك فارغة حالياً</h3>
-                <p>تصفح أقوى العروض الحصرية واستخدم كود الخصم <span class="coupon-tag">KSA96</span></p>
+                <p>تصفح أقوى العروض واستخدم كود الخصم <span class="coupon-tag">KSA96</span></p>
                 <button class="btn btn-primary" id="startShoppingBtn" type="button">ابدأ التسوق الآن</button>
             </div>
 
@@ -129,11 +130,11 @@
         </div>
     </div>
 
-    <!-- نافذة الفاتورة والطباعة (ميزة حصرية وجديدة) -->
+    <!-- نافذة الفاتورة والطباعة -->
     <div id="invoiceModal" class="modal-overlay">
         <div class="modal-content glass-panel invoice-modal-content">
             <div class="modal-header-custom no-print">
-                <h2><i class="fa-solid fa-receipt text-green"></i> فاتورة شراء معتمدة</h2>
+                <h2><i class="fa-solid fa-receipt text-green"></i> فاتورة شراء إلكترونية معتمدة</h2>
                 <button id="closeInvoiceModal" class="btn-close" type="button">&times;</button>
             </div>
 
@@ -141,18 +142,12 @@
                 <div class="invoice-header">
                     <div class="invoice-brand">
                         <h3>TechGear Store</h3>
-                        <p>المملكة العربية السعودية 🇸🇦</p>
+                        <p>الرياض - المملكة العربية السعودية 🇸🇦</p>
                     </div>
                     <div class="invoice-meta">
                         <p>رقم الفاتورة: <strong id="invNumber">#TG-0000</strong></p>
                         <p>التاريخ: <span id="invDate"></span></p>
                     </div>
-                </div>
-
-                <div class="order-tracker no-print">
-                    <div class="step active"><i class="fa-solid fa-check"></i> تم التأكيد</div>
-                    <div class="step active"><i class="fa-solid fa-box"></i> قيد التجهيز</div>
-                    <div class="step"><i class="fa-solid fa-truck-fast"></i> في الطريق</div>
                 </div>
 
                 <table class="invoice-table">
@@ -169,8 +164,8 @@
 
                 <div class="invoice-totals">
                     <div class="inv-row"><span>المجموع:</span> <span id="invSubTotal"></span></div>
-                    <div class="inv-row text-green"><span>الخصم:</span> <span id="invDiscount">0 ر.س</span></div>
-                    <div class="inv-row inv-final"><span>المبلغ المدفوع:</span> <strong id="invGrandTotal"></strong></div>
+                    <div class="inv-row text-green"><span>الخصم المطبق:</span> <span id="invDiscount">0 ر.س</span></div>
+                    <div class="inv-row inv-final"><span>المبلغ الإجمالي المدفوع:</span> <strong id="invGrandTotal"></strong></div>
                 </div>
             </div>
 
@@ -180,7 +175,7 @@
         </div>
     </div>
 
-    <!-- شريط التنقل العلوي (Navbar) -->
+    <!-- النافبار الرئيسي -->
     <header class="dark-navbar">
         <div class="nav-container">
             <div class="logo">
@@ -190,7 +185,7 @@
 
             <div class="search-bar-box">
                 <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" id="searchInput" placeholder="ابحث عن بكج، سوني، هواتف، سيت أب...">
+                <input type="text" id="searchInput" placeholder="ابحث عن بكج قيمنق، سوني 5، آيفون، سيت أب...">
             </div>
 
             <nav>
@@ -220,72 +215,132 @@
         </div>
     </header>
 
-    <!-- الهيرو سيكشن -->
-    <section class="hero green-hero">
-        <div class="hero-content glass-panel">
-            <div class="hero-badge">
-                <i class="fa-solid fa-award"></i> احتفالات اليوم الوطني السعودي 96 🇸🇦
-            </div>
-            <h2>ارتقِ بتجربة ألعابك وسيت أب أحلامك</h2>
-            <p>أقوى عروض اليوم الوطني السعودي وبكجات القيمنق بأفضل الأسعار مع كود خصم <strong>KSA96</strong>.</p>
-            <div class="hero-btns">
-                <a href="#national-day" class="btn btn-national"><i class="fa-solid fa-flag"></i> تصفح عروض اليوم الوطني</a>
-                <a href="#gaming" class="btn btn-secondary"><i class="fa-solid fa-gamepad"></i> بكجات القيمنق</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- مميزات المتجر -->
+    <!-- شريط الثقة المعتمد تحت الهيدر مباشرة -->
     <section class="features-bar">
         <div class="features-container">
             <div class="feature-item">
                 <i class="fa-solid fa-truck-fast"></i>
                 <div>
-                    <h5>توصيل سريع مجاني</h5>
-                    <p>لكافة مناطق المملكة</p>
+                    <h5>شحن لجميع مدن المملكة</h5>
+                    <p>توصيل آمن وبأسرع وقت</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <i class="fa-solid fa-rotate-left"></i>
+                <div>
+                    <h5>ضمان استرجاع 14 يوم</h5>
+                    <p>استبدال واسترجاع فوري وميسر</p>
                 </div>
             </div>
             <div class="feature-item">
                 <i class="fa-solid fa-shield-check"></i>
                 <div>
                     <h5>ضمان سنتين معتمد</h5>
-                    <p>ضمان الوكيل الرسمي</p>
+                    <p>ضمان الوكيل الرسمي المعتمد</p>
                 </div>
             </div>
             <div class="feature-item">
                 <i class="fa-solid fa-credit-card"></i>
                 <div>
-                    <h5>خيارات دفع متعددة</h5>
-                    <p>مدى، فيزا، تابي وتمارا</p>
-                </div>
-            </div>
-            <div class="feature-item">
-                <i class="fa-solid fa-headset"></i>
-                <div>
-                    <h5>خدمة عملاء 24/7</h5>
-                    <p>مساعدة فورية عبر الواتساب</p>
+                    <h5>دفع إلكتروني آمن 100%</h5>
+                    <p>مدى، Apple Pay، تابي وتمارا</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- تصفية الأقسام -->
+    <!-- الهيرو سيكشن الشامل والاحترافي مع العداد التنازلي -->
+    <section class="hero-split-section">
+        <div class="hero-grid-wrapper glass-panel">
+            <div class="hero-text-side">
+                <div class="hero-badge">
+                    <i class="fa-solid fa-bolt"></i> أقوى تجهيزات القيمنق في السعودية 🇸🇦
+                </div>
+                <h2>ارتقِ بسيت أب أحلامك وتجربة ألعابك للقمة</h2>
+                <p>وجهتك المتكاملة لأحدث منصات البلايستيشن الأصلية، بكجات القيمنق الاحترافية، والهواتف الذكية مع شحن فوري وضمان معتمد سنتين.</p>
+                
+                <!-- عداد تنازلي للعروض -->
+                <div class="countdown-container">
+                    <span class="cd-title"><i class="fa-regular fa-clock"></i> ينتهي عرض اليوم الوطني خلال:</span>
+                    <div class="countdown-boxes">
+                        <div class="cd-box"><span id="cd-hours">18</span><small>ساعة</small></div>
+                        <div class="cd-box"><span id="cd-minutes">42</span><small>دقيقة</small></div>
+                        <div class="cd-box"><span id="cd-seconds">15</span><small>ثانية</small></div>
+                    </div>
+                </div>
+
+                <div class="hero-btns">
+                    <a href="#national-day" class="btn btn-national"><i class="fa-solid fa-fire"></i> تصفح عروض KSA96</a>
+                    <a href="#gaming" class="btn btn-secondary"><i class="fa-solid fa-gamepad"></i> بكجات القيمنق</a>
+                </div>
+            </div>
+
+            <div class="hero-media-side">
+                <div class="hero-image-card">
+                    <img src="https://images.unsplash.com/photo-1616588589596-65f0be845c36?auto=format&fit=crop&w=800&q=80" alt="سيت أب قيمنق كامل">
+                    <div class="hero-floating-tag">
+                        <i class="fa-solid fa-award text-gold"></i>
+                        <div>
+                            <strong>الأكثر طلباً</strong>
+                            <span>خصومات حتى 35%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- شريط تصفية الأقسام -->
     <section id="categories" class="categories-tabs-section">
         <div class="categories-nav">
             <ul>
-                <li><button class="cat-tab active-tab" data-target="all" type="button">الكل</button></li>
-                <li><button class="cat-tab" data-target="smart-devices" type="button">الأجهزة الذكية</button></li>
-                <li><button class="cat-tab" data-target="sony" type="button">السوني</button></li>
-                <li><button class="cat-tab" data-target="gaming" type="button">القيمنق</button></li>
-                <li><button class="cat-tab" data-target="tables" type="button">الطاولات</button></li>
+                <li><button class="cat-tab active-tab" data-target="all" type="button">🔥 كل المنتجات</button></li>
+                <li><button class="cat-tab" data-target="gaming" type="button">⚡ بكجات القيمنق</button></li>
+                <li><button class="cat-tab" data-target="sony" type="button">🎮 سوني وبلايستيشن</button></li>
+                <li><button class="cat-tab" data-target="smart-devices" type="button">📱 الهواتف الذكية</button></li>
+                <li><button class="cat-tab" data-target="tables" type="button">🖥️ طاولات السيت أب</button></li>
             </ul>
         </div>
     </section>
 
-    <!-- حاوية المنتجات -->
-    <main id="productsContainer"></main>
+    <!-- حاوية المنتجات بكامل عرض الصفحة المتوازن -->
+    <main id="productsContainer" class="main-products-container"></main>
 
-    <!-- الفوتر -->
+    <!-- قسم آراء العملاء الحقيقية (Customer Reviews) -->
+    <section class="reviews-section">
+        <div class="section-header-wrap">
+            <h3 class="section-title"><i class="fa-solid fa-comments text-blue"></i> تجارب وآراء عملائنا</h3>
+            <span class="section-subtitle">تقييم المتجر 4.8 / 5 بناءً على أكثر من 1,200 طلب</span>
+        </div>
+        <div class="reviews-grid">
+            <div class="review-card glass-panel">
+                <div class="rev-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p>«طلبت بكج القيمنق PS5 Slim وصلني خلال يومين للرياض، التغليف أسطوري والأجهزة أصلية بضمان الوكيل. تجربة ممتازة!»</p>
+                <div class="rev-user">
+                    <div class="rev-avatar">س</div>
+                    <div><strong>سلطان الدوسري</strong> <span>عميل موثق ✔</span></div>
+                </div>
+            </div>
+            <div class="review-card glass-panel">
+                <div class="rev-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p>«طاولة الزاوية L خرافية ومتينة جداً وشالت شاشتين والبي سي بكل راحة، واستخدمت كود الخصم KSA96 وفر لي مبلغ محترم.»</p>
+                <div class="rev-user">
+                    <div class="rev-avatar">م</div>
+                    <div><strong>محمد الغامدي</strong> <span>عميل موثق ✔</span></div>
+                </div>
+            </div>
+            <div class="review-card glass-panel">
+                <div class="rev-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div>
+                <p>«خدمة العملاء في الواتساب سريعين في الرد وتعاملهم محترم، والأهم الجهاز وصلني سليم ومعه كرت الضمان المعتمد.»</p>
+                <div class="rev-user">
+                    <div class="rev-avatar">ع</div>
+                    <div><strong>عبدالله الشمري</strong> <span>عميل موثق ✔</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- الفوتر المحسن بالكامل -->
     <footer class="main-footer">
         <div class="footer-grid">
             <div class="footer-col">
@@ -293,14 +348,15 @@
                     <div class="logo-badge"><i class="fa-solid fa-bolt"></i></div>
                     <span>Tech<span class="logo-accent">Gear</span></span>
                 </div>
-                <p class="footer-desc">متجرك السعودي المتكامل لأحدث عتاد وسيت أب ألعاب القيمنق الاحترافية بأعلى جودة وضمان.</p>
+                <p class="footer-desc">الوجهة السعودية الأولى لعشاق الألعاب والعتاد التقني الأحدث عالمياً بأعلى معايير الجودة والضمان المعتمد.</p>
             </div>
             <div class="footer-col">
-                <h5>روابط سريعة</h5>
+                <h5>روابط المتجر</h5>
                 <ul>
-                    <li><a href="#">الرئيسية</a></li>
+                    <li><a href="#">الصفحة الرئيسية</a></li>
                     <li><a href="#national-day">عروض اليوم الوطني</a></li>
                     <li><a href="#gaming">بكجات القيمنق</a></li>
+                    <li><a href="#categories">أقسام المنتجات</a></li>
                 </ul>
             </div>
             <div class="footer-col">
@@ -308,10 +364,12 @@
                 <ul>
                     <li><a href="#">سياسة الاسترجاع والضمان</a></li>
                     <li><a href="#">الشحن والتوصيل السريع</a></li>
+                    <li><a href="#">الأسئلة الشائعة</a></li>
+                    <li><a href="#">تتبع الشحنة</a></li>
                 </ul>
             </div>
             <div class="footer-col">
-                <h5>طرق الدفع</h5>
+                <h5>طرق الدفع المعتمدة</h5>
                 <div class="payment-methods">
                     <span class="pay-badge"><i class="fa-brands fa-apple-pay"></i> Apple Pay</span>
                     <span class="pay-badge"><i class="fa-regular fa-credit-card"></i> Mada</span>
@@ -320,28 +378,29 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 متجر TechGear. جميع الحقوق محفوظة 🇸🇦.</p>
+            <p>&copy; 2026 متجر TechGear. جميع الحقوق محفوظة بالمملكة العربية السعودية 🇸🇦.</p>
         </div>
     </footer>
 
-    <!-- زر واتساب -->
-    <a href="https://wa.me/" target="_blank" class="customer-service-btn" title="تواصل مع خدمة العملاء">
-        <i class="fa-brands fa-whatsapp"></i> <span>مساعدة فورية</span>
+    <!-- زر واتساب المصغر والأنيق -->
+    <a href="https://wa.me/" target="_blank" class="whatsapp-float-btn" title="تواصل عبر الواتساب">
+        <i class="fa-brands fa-whatsapp"></i>
     </a>
 
-    <!-- المحرك البرمجي المتكامل -->
+    <!-- المحرك البرمجي المتطور -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
+            // بيانات المنتجات الواقعية مع درجات تقييم متفاوتة ومقنعة (4.3 - 4.9)
             const defaultProducts = [
-                // 1. عروض اليوم الوطني (في القمة)
+                // 1. عروض اليوم الوطني
                 { 
                     id: 1, 
-                    name: "آيفون 17 برو ماكس - تيتانيوم صحراوي طبيعي", 
+                    name: "آيفون 17 برو ماكس - تيتانيوم صحراوي طبيعي (256GB)", 
                     price: 4500, 
                     oldPrice: 5000, 
                     category: "national-day", 
                     img: "https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=600&q=80", 
-                    rating: 5, 
+                    rating: "4.9", 
                     reviews: 142, 
                     tag: "خصم اليوم الوطني 🇸🇦" 
                 },
@@ -352,7 +411,7 @@
                     oldPrice: 2500, 
                     category: "national-day", 
                     img: "https://images.unsplash.com/photo-1622297845775-5ff3fef71d13?auto=format&fit=crop&w=600&q=80", 
-                    rating: 5, 
+                    rating: "4.8", 
                     reviews: 98, 
                     tag: "عرض اليوم الوطني 🇸🇦" 
                 },
@@ -360,50 +419,50 @@
                 // 2. بكجات القيمنق
                 { 
                     id: 101, 
-                    name: "بكج قيمنق PS5 Slim متكامل (شاشة قيمنق منحنية + كرسي + طاولة RGB + سماعة)", 
+                    name: "بكج قيمنق PS5 Slim متكامل (شاشة منحنية 144Hz + كرسي + طاولة RGB)", 
                     price: 4799, 
                     oldPrice: 5299, 
                     category: "gaming", 
                     img: "https://images.unsplash.com/photo-1616588589596-65f0be845c36?auto=format&fit=crop&w=600&q=80", 
-                    rating: 5, 
+                    rating: "4.9", 
                     reviews: 42, 
-                    tag: "البكج الأكثر طلباً" 
+                    tag: "الأكثر طلباً" 
                 },
                 { 
                     id: 102, 
-                    name: "بكج محاكاة السباقات والهجولة (دركسون Logitech G29 + دواسات + قير + قاعدة احترافية)", 
+                    name: "بكج محاكاة السباقات والهجولة (دركسون Logitech G29 + دواسات + قير + قاعدة)", 
                     price: 1899, 
                     oldPrice: 2199, 
                     category: "gaming", 
                     img: "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=600&q=80", 
-                    rating: 5, 
+                    rating: "4.7", 
                     reviews: 35, 
-                    tag: "عشاق المحاكاة" 
+                    tag: "عشاق السباقات" 
                 },
                 { 
                     id: 103, 
-                    name: "بكج سيت أب القيمنق الاقتصادي المتكامل (طاولة كربون فايبر 120سم + كرسي طبي مريح)", 
+                    name: "بكج سيت أب القيمنق الاقتصادي (طاولة كربون فايبر 120سم + كرسي طبي مريح)", 
                     price: 999, 
                     oldPrice: 1200, 
                     category: "gaming", 
                     img: "https://images.unsplash.com/photo-1598550476439-6847785fcea6?auto=format&fit=crop&w=600&q=80", 
-                    rating: 4.5, 
+                    rating: "4.5", 
                     reviews: 58, 
                     tag: "أفضل قيمة توفير" 
                 },
                 { 
                     id: 104, 
-                    name: "بكج إكسسوارات القيمنق الاحترافي 4 في 1 (كيبورد ميكانيكي + ماوس دقيق + سماعة محيطية + باد)", 
+                    name: "بكج إكسسوارات القيمنق 4 في 1 (كيبورد ميكانيكي + ماوس دقيق + سماعة محيطية + باد)", 
                     price: 249, 
                     oldPrice: 350, 
                     category: "gaming", 
                     img: "https://images.unsplash.com/photo-1541140532154-b024d705b909?auto=format&fit=crop&w=600&q=80", 
-                    rating: 5, 
+                    rating: "4.6", 
                     reviews: 76, 
                     tag: "ملحقات RGB" 
                 },
 
-                // 3. أجهزة سوني
+                // 3. أجهزة سوني وبلايستيشن
                 { 
                     id: 6, 
                     name: "جهاز بلايستيشن 5 سليم - الإصدار الرقمي (Digital Slim)", 
@@ -411,7 +470,7 @@
                     oldPrice: 2899, 
                     category: "sony", 
                     img: "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=600&q=80", 
-                    rating: 5, 
+                    rating: "4.8", 
                     reviews: 45, 
                     tag: "الأكثر طلباً" 
                 },
@@ -422,30 +481,30 @@
                     oldPrice: 2280, 
                     category: "sony", 
                     img: "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=600&q=80", 
-                    rating: 4.5, 
+                    rating: "4.7", 
                     reviews: 112 
                 },
 
-                // 4. الأجهزة الذكية
+                // 4. الهواتف الذكية
                 { 
                     id: 3, 
-                    name: "آيفون 17 الإصدار القياسي - أزرق سماوي جديد", 
+                    name: "آيفون 17 الإصدار القياسي - أزرق سماوي جديد (128GB)", 
                     price: 4100, 
                     oldPrice: null, 
                     category: "smart-devices", 
                     img: "https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?auto=format&fit=crop&w=600&q=80", 
-                    rating: 5, 
+                    rating: "4.9", 
                     reviews: 63, 
                     tag: "إصدار حديث" 
                 },
                 { 
                     id: 4, 
-                    name: "آيفون 16 برو - تيتانيوم رمادي فضي", 
+                    name: "آيفون 16 برو - تيتانيوم رمادي فضي (256GB)", 
                     price: 3800, 
                     oldPrice: 4200, 
                     category: "smart-devices", 
                     img: "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=600&q=80", 
-                    rating: 4.5, 
+                    rating: "4.8", 
                     reviews: 88, 
                     tag: "الأكثر مبيعاً" 
                 },
@@ -458,17 +517,17 @@
                     oldPrice: 950, 
                     category: "tables", 
                     img: "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=600&q=80", 
-                    rating: 4.5, 
+                    rating: "4.4", 
                     reviews: 29 
                 },
                 { 
                     id: 10, 
-                    name: "طاولة زاوية L ضخمة مخصصة للشاشات المتعددة والسيت أب الكامل", 
+                    name: "طاولة سيت أب زاوية شكل حرف L قيمنق هيدروليك للشاشات المتعددة", 
                     price: 1100, 
                     oldPrice: 1350, 
                     category: "tables", 
                     img: "https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?auto=format&fit=crop&w=600&q=80", 
-                    rating: 5, 
+                    rating: "4.8", 
                     reviews: 44, 
                     tag: "الأكثر اتساعاً" 
                 }
@@ -476,9 +535,9 @@
 
             let products = defaultProducts;
             let favorites = JSON.parse(localStorage.getItem("techgear_favs")) || [];
-            let storeStats = JSON.parse(localStorage.getItem("techgear_stats_v5")) || { totalRevenue: 15400, ordersCount: 11 };
+            let storeStats = JSON.parse(localStorage.getItem("techgear_stats_v6")) || { totalRevenue: 15400, ordersCount: 11 };
 
-            // توليد وعرض المنتجات
+            // عرض وتوزيع المنتجات بعرض متوازن
             function renderProducts() {
                 const container = document.getElementById("productsContainer");
                 const categoryOrder = [
@@ -522,7 +581,8 @@
                                         <h4>${p.name}</h4>
                                         <div class="rating">
                                             <div class="stars">
-                                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <span class="rating-score">${p.rating}</span>
                                             </div>
                                             <span class="review-count">(${p.reviews} تقييم)</span>
                                         </div>
@@ -569,7 +629,7 @@
                 }
             };
 
-            // إضافة منتج
+            // إضافة منتج جديد
             const addProductForm = document.getElementById("addProductForm");
             addProductForm.addEventListener("submit", (e) => {
                 e.preventDefault();
@@ -580,7 +640,7 @@
                     oldPrice: null,
                     category: document.getElementById("newProdCategory").value,
                     img: document.getElementById("newProdImg").value.trim(),
-                    rating: 5,
+                    rating: "4.8",
                     reviews: 1,
                     tag: "مضاف حديثاً"
                 };
@@ -808,7 +868,7 @@
             closeCartModal.addEventListener("click", () => cartModal.style.display = "none");
             startShoppingBtn.addEventListener("click", () => cartModal.style.display = "none");
 
-            // تأكيد الطلب وتوليد الفاتورة الاحترافية
+            // تأكيد الطلب وتوليد الفاتورة
             checkoutBtn.addEventListener("click", () => {
                 const subtotal = cart.reduce((s, i) => s + (i.price * i.qty), 0);
                 const discountAmt = Math.round(subtotal * discountRate);
@@ -816,10 +876,10 @@
 
                 storeStats.totalRevenue += finalTotal;
                 storeStats.ordersCount += 1;
-                localStorage.setItem("techgear_stats_v5", JSON.stringify(storeStats));
+                localStorage.setItem("techgear_stats_v6", JSON.stringify(storeStats));
                 syncUserUI();
 
-                // تجهيز الفاتورة
+                // تعبئة الفاتورة
                 document.getElementById("invNumber").innerText = `#TG-${Math.floor(100000 + Math.random() * 900000)}`;
                 document.getElementById("invDate").innerText = new Date().toLocaleDateString('ar-SA');
                 document.getElementById("invoiceItemsBody").innerHTML = cart.map(i => `
@@ -859,7 +919,7 @@
                 });
             });
 
-            // البحث الفوري
+            // البحث الحي
             const searchInput = document.getElementById("searchInput");
             searchInput.addEventListener("input", function() {
                 const val = this.value.trim().toLowerCase();
@@ -869,7 +929,21 @@
                 });
             });
 
-            // إغلاق النوافذ عند الضغط في الخلفية
+            // مؤقت العد التنازلي الحي
+            let totalSeconds = 18 * 3600 + 42 * 60 + 15;
+            setInterval(() => {
+                if (totalSeconds > 0) {
+                    totalSeconds--;
+                    const h = Math.floor(totalSeconds / 3600);
+                    const m = Math.floor((totalSeconds % 3600) / 60);
+                    const s = totalSeconds % 60;
+                    document.getElementById("cd-hours").innerText = h < 10 ? '0' + h : h;
+                    document.getElementById("cd-minutes").innerText = m < 10 ? '0' + m : m;
+                    document.getElementById("cd-seconds").innerText = s < 10 ? '0' + s : s;
+                }
+            }, 1000);
+
+            // إغلاق النوافذ عند النقر بالخارج
             window.addEventListener("click", (e) => {
                 if (e.target === loginModal) loginModal.style.display = "none";
                 if (e.target === cartModal) cartModal.style.display = "none";
