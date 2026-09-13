@@ -10,27 +10,36 @@
 </head>
 <body>
 
-    <!-- الشريط العلوي -->
+    <!-- الشريط العلوي الإعلاني -->
     <div class="top-announcement-bar">
         <span>🚚 شحن سريع ومجاني لجميع مدن المملكة للطلبات فوق 300 ر.س | استخدم الكود: <strong>KSA96</strong> لخصم 15%</span>
     </div>
 
-    <!-- نافذة تسجيل الدخول -->
-    <div id="loginModal" class="modal-overlay">
-        <div class="modal-content glass-panel">
-            <button id="closeModal" class="btn-close" type="button">&times;</button>
-            <h2 id="modalTitle">تسجيل الدخول</h2>
-            <p id="modalSubtitle">مرحباً بك في TechGear</p>
-            <div class="admin-hint">
-                <i class="fa-solid fa-shield-halved"></i> حساب المدير: <strong>admin@techgear.com</strong> | السر: <strong>admin123</strong>
+    <!-- نافذة تسجيل الدخول الإلزامية عند الدخول -->
+    <div id="loginModal" class="modal-overlay" style="display: flex;">
+        <div class="modal-content glass-panel" style="border: 2px solid rgba(0, 230, 118, 0.4); box-shadow: 0 0 35px rgba(0, 230, 118, 0.2);">
+            <div style="text-align: center; margin-bottom: 15px;">
+                <div class="logo-badge" style="margin: 0 auto 12px; width: 50px; height: 50px; font-size: 24px;"><i class="fa-solid fa-lock"></i></div>
+                <h2 id="modalTitle" style="font-size: 24px; color: #fff;">تسجيل الدخول للمتجر</h2>
+                <p id="modalSubtitle" style="color: var(--text-muted); font-size: 14px; margin-top: 5px;">يرجى إدخال بيانات الدخول المعتمدة للمتابعة</p>
             </div>
+            
             <form class="login-form" id="authForm">
-                <input type="text" id="regName" placeholder="الاسم الكامل" style="display: none;">
-                <input type="email" id="authEmail" placeholder="البريد الإلكتروني" required>
-                <input type="password" id="authPassword" placeholder="كلمة المرور" required>
-                <button type="submit" id="modalBtn" class="btn btn-primary btn-block">دخول</button>
+                <div style="margin-bottom: 12px;">
+                    <label style="display: block; font-size: 13px; color: #a7f3d0; margin-bottom: 6px; font-weight: bold;">اسم المستخدم:</label>
+                    <input type="text" id="authUsername" placeholder="أدخل اسم المستخدم" required autocomplete="off">
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; font-size: 13px; color: #a7f3d0; margin-bottom: 6px; font-weight: bold;">كلمة المرور:</label>
+                    <input type="password" id="authPassword" placeholder="أدخل كلمة المرور" required>
+                </div>
+                <p id="loginErrorMsg" style="color: #ff5252; font-size: 13px; font-weight: bold; text-align: center; display: none; margin-bottom: 12px;">
+                    <i class="fa-solid fa-triangle-exclamation"></i> اسم المستخدم أو كلمة المرور غير صحيحة!
+                </p>
+                <button type="submit" id="modalBtn" class="btn btn-national btn-block" style="font-size: 17px; padding: 12px;">
+                    <i class="fa-solid fa-right-to-bracket"></i> دخول المتجر
+                </button>
             </form>
-            <p class="register-link"><span id="toggleText">ليس لديك حساب؟</span> <a href="#" id="toggleLink">إنشاء حساب جديد</a></p>
         </div>
     </div>
 
@@ -201,7 +210,7 @@
 
                     <li>
                         <button class="sign-in-btn" id="openLoginBtn" type="button">
-                            <i class="fa-solid fa-user"></i> <span id="userBtnText">تسجيل الدخول</span>
+                            <i class="fa-solid fa-user"></i> <span id="userBtnText">Badr1122</span>
                         </button>
                     </li>
                     <li>
@@ -289,16 +298,29 @@
         </div>
     </section>
 
-    <!-- شريط تصفية الأقسام (نظيف وبدون زر عروض اليوم الوطني الزائد) -->
+    <!-- القائمة بالستايل التكتيكي المميز -->
     <section id="categories" class="categories-tabs-section">
-        <div class="categories-nav">
-            <ul>
-                <li><button class="cat-tab active-tab" data-target="all" type="button">الكل</button></li>
-                <li><button class="cat-tab" data-target="gaming" type="button">القيمنق</button></li>
-                <li><button class="cat-tab" data-target="sony" type="button">السوني</button></li>
-                <li><button class="cat-tab" data-target="smart-devices" type="button">الأجهزة الذكية</button></li>
-                <li><button class="cat-tab" data-target="tables" type="button">الطاولات</button></li>
-            </ul>
+        <div class="tactical-nav">
+            <button class="tactical-tab active-tab" data-target="all" type="button">
+                <i class="fa-solid fa-table-cells-large"></i>
+                <span>الكل</span>
+            </button>
+            <button class="tactical-tab" data-target="gaming" type="button">
+                <i class="fa-solid fa-gamepad"></i>
+                <span>القيمنق</span>
+            </button>
+            <button class="tactical-tab" data-target="sony" type="button">
+                <i class="fa-brands fa-playstation"></i>
+                <span>السوني</span>
+            </button>
+            <button class="tactical-tab" data-target="smart-devices" type="button">
+                <i class="fa-solid fa-mobile-screen-button"></i>
+                <span>الأجهزة الذكية</span>
+            </button>
+            <button class="tactical-tab" data-target="tables" type="button">
+                <i class="fa-solid fa-couch"></i>
+                <span>الطاولات</span>
+            </button>
         </div>
     </section>
 
@@ -385,12 +407,10 @@
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
-    <!-- المحرك البرمجي بصور استوديو موحدة ومفرغة -->
+    <!-- المحرك البرمجي مع نظام الدخول الإلزامي Badr1122 -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            // صور استوديو بيضاء أو مفرغة للمنتج نفسه بنسبة متناسقة
             const defaultProducts = [
-                // 1. عروض اليوم الوطني (في القمة)
                 { 
                     id: 1, 
                     name: "آيفون 17 برو ماكس - تيتانيوم صحراوي طبيعي (256GB)", 
@@ -413,8 +433,6 @@
                     reviews: 98, 
                     tag: "عرض اليوم الوطني 🇸🇦" 
                 },
-
-                // 2. بكجات القيمنق
                 { 
                     id: 101, 
                     name: "بكج قيمنق PS5 Slim متكامل (شاشة قيمنق 144Hz + كرسي + سماعة محيطية)", 
@@ -459,8 +477,6 @@
                     reviews: 76, 
                     tag: "ملحقات RGB" 
                 },
-
-                // 3. أجهزة سوني
                 { 
                     id: 6, 
                     name: "جهاز بلايستيشن 5 سليم - الإصدار الرقمي (Digital Slim)", 
@@ -482,8 +498,6 @@
                     rating: "4.7", 
                     reviews: 112 
                 },
-
-                // 4. الأجهزة الذكية
                 { 
                     id: 3, 
                     name: "آيفون 17 الإصدار القياسي - أزرق سماوي جديد (128GB)", 
@@ -506,8 +520,6 @@
                     reviews: 88, 
                     tag: "الأكثر مبيعاً" 
                 },
-
-                // 5. طاولات السيت أب
                 { 
                     id: 9, 
                     name: "طاولة قيمنق Pro مستقيمة بسطح كربون فايبر مع إضاءة RGB مدمجة", 
@@ -535,7 +547,6 @@
             let favorites = JSON.parse(localStorage.getItem("techgear_favs")) || [];
             let storeStats = JSON.parse(localStorage.getItem("techgear_stats_clean")) || { totalRevenue: 15400, ordersCount: 11 };
 
-            // توليد وعرض المنتجات بشكل البطاقات المتناسقة
             function renderProducts() {
                 const container = document.getElementById("productsContainer");
                 const categoryOrder = [
@@ -647,46 +658,69 @@
                 showToast(`<i class='fa-solid fa-circle-check'></i> تم نشر "${newProd.name}" بنجاح!`);
             });
 
+            // نظام التحقق وتثبيت الدخول الإلزامي
             const loginModal = document.getElementById("loginModal");
             const adminModal = document.getElementById("adminModal");
             const invoiceModal = document.getElementById("invoiceModal");
             const openLoginBtn = document.getElementById("openLoginBtn");
             const openAdminBtn = document.getElementById("openAdminBtn");
             const adminNavBtnContainer = document.getElementById("adminNavBtnContainer");
-            const closeModal = document.getElementById("closeModal");
             const closeAdminModal = document.getElementById("closeAdminModal");
             const closeInvoiceModal = document.getElementById("closeInvoiceModal");
-            const toggleLink = document.getElementById("toggleLink");
             const userBtnText = document.getElementById("userBtnText");
             const authForm = document.getElementById("authForm");
+            const authUsername = document.getElementById("authUsername");
+            const authPassword = document.getElementById("authPassword");
+            const loginErrorMsg = document.getElementById("loginErrorMsg");
             const adminTotalRevenue = document.getElementById("adminTotalRevenue");
             const adminOrdersCount = document.getElementById("adminOrdersCount");
-            let isLoginMode = true;
 
-            function syncUserUI() {
-                const user = localStorage.getItem("techgear_user");
-                const isAdmin = localStorage.getItem("techgear_is_admin") === "true";
-
-                if (user) {
-                    userBtnText.innerHTML = `${user} <i class="fa-solid fa-arrow-right-from-bracket" style="margin-right:5px; color:#ff5252;" title="خروج"></i>`;
+            function checkAuth() {
+                const loggedIn = localStorage.getItem("techgear_logged_in");
+                if (loggedIn === "true") {
+                    loginModal.style.display = "none";
+                    userBtnText.innerHTML = `Badr1122 <i class="fa-solid fa-arrow-right-from-bracket" style="margin-right:5px; color:#ff5252;" title="خروج"></i>`;
+                    adminNavBtnContainer.style.display = "inline-block";
                 } else {
+                    // إظهار نافذة تسجيل الدخول فوراً
+                    loginModal.style.display = "flex";
                     userBtnText.innerText = "تسجيل الدخول";
+                    adminNavBtnContainer.style.display = "none";
                 }
 
-                adminNavBtnContainer.style.display = isAdmin ? "inline-block" : "none";
                 adminTotalRevenue.innerText = `${storeStats.totalRevenue.toLocaleString()} ر.س`;
                 adminOrdersCount.innerText = `${storeStats.ordersCount} طلب`;
             }
 
+            // التحقق من اسم المستخدم والباسورد Badr1122
+            authForm.addEventListener("submit", (e) => {
+                e.preventDefault();
+                const user = authUsername.value.trim();
+                const pass = authPassword.value.trim();
+
+                if (user === "Badr1122" && pass === "Badr1122") {
+                    localStorage.setItem("techgear_logged_in", "true");
+                    localStorage.setItem("techgear_is_admin", "true");
+                    loginErrorMsg.style.display = "none";
+                    loginModal.style.display = "none";
+                    checkAuth();
+                    renderProducts();
+                    showToast("<i class='fa-solid fa-crown text-gold'></i> مرحباً بك يا بدر (Badr1122)! تم فتح المتجر وصلاحيات الإدارة.");
+                } else {
+                    loginErrorMsg.style.display = "block";
+                    authPassword.value = "";
+                }
+            });
+
             openLoginBtn.addEventListener("click", (e) => {
                 e.preventDefault();
-                if (localStorage.getItem("techgear_user")) {
-                    if (confirm("هل ترغب في تسجيل الخروج؟")) {
-                        localStorage.removeItem("techgear_user");
+                if (localStorage.getItem("techgear_logged_in") === "true") {
+                    if (confirm("هل ترغب في تسجيل الخروج وقفل المتجر؟")) {
+                        localStorage.removeItem("techgear_logged_in");
                         localStorage.removeItem("techgear_is_admin");
-                        syncUserUI();
+                        checkAuth();
                         renderProducts();
-                        showToast("تم تسجيل الخروج بنجاح.");
+                        showToast("تم تسجيل الخروج وقفل المتجر.");
                     }
                 } else {
                     loginModal.style.display = "flex";
@@ -694,45 +728,8 @@
             });
 
             openAdminBtn.addEventListener("click", () => { adminModal.style.display = "flex"; });
-            closeModal.addEventListener("click", () => loginModal.style.display = "none");
             closeAdminModal.addEventListener("click", () => adminModal.style.display = "none");
             closeInvoiceModal.addEventListener("click", () => invoiceModal.style.display = "none");
-
-            toggleLink.addEventListener("click", (e) => {
-                e.preventDefault();
-                isLoginMode = !isLoginMode;
-                document.getElementById("modalTitle").innerText = isLoginMode ? "تسجيل الدخول" : "إنشاء حساب جديد";
-                document.getElementById("regName").style.display = isLoginMode ? "none" : "block";
-                document.getElementById("modalBtn").innerText = isLoginMode ? "دخول" : "إنشاء الحساب";
-                document.getElementById("toggleText").innerText = isLoginMode ? "ليس لديك حساب؟" : "لديك حساب بالفعل؟";
-                toggleLink.innerText = isLoginMode ? "إنشاء حساب جديد" : "تسجيل الدخول";
-            });
-
-            authForm.addEventListener("submit", (e) => {
-                e.preventDefault();
-                const email = document.getElementById("authEmail").value.trim().toLowerCase();
-                const pass = document.getElementById("authPassword").value;
-
-                if (email === "admin@techgear.com" && pass === "admin123") {
-                    localStorage.setItem("techgear_user", "المدير العام (Admin)");
-                    localStorage.setItem("techgear_is_admin", "true");
-                    syncUserUI();
-                    renderProducts();
-                    loginModal.style.display = "none";
-                    authForm.reset();
-                    showToast("<i class='fa-solid fa-crown text-gold'></i> أهلاً بك يا مدير المتجر!");
-                    return;
-                }
-
-                const name = document.getElementById("regName").value.trim() || email.split('@')[0];
-                localStorage.setItem("techgear_user", name);
-                localStorage.removeItem("techgear_is_admin");
-                syncUserUI();
-                renderProducts();
-                loginModal.style.display = "none";
-                authForm.reset();
-                showToast(`مرحباً بك في TechGear يا ${name}!`);
-            });
 
             // السلة والخصم
             let cart = [];
@@ -870,7 +867,7 @@
                 storeStats.totalRevenue += finalTotal;
                 storeStats.ordersCount += 1;
                 localStorage.setItem("techgear_stats_clean", JSON.stringify(storeStats));
-                syncUserUI();
+                checkAuth();
 
                 document.getElementById("invNumber").innerText = `#TG-${Math.floor(100000 + Math.random() * 900000)}`;
                 document.getElementById("invDate").innerText = new Date().toLocaleDateString('ar-SA');
@@ -894,10 +891,11 @@
                 couponInput.value = "";
                 couponMsg.innerText = "";
                 refreshCartUI();
-                showToast("<i class='fa-solid fa-circle-check text-green'></i> تم تأكيد طلبك وإصدار الفاتورة بنجاح!");
+                showToast("<i class='fa-solid fa-circle-check text-green'></i> تم تأكيد طلبك بنجاح!");
             });
 
-            const tabs = document.querySelectorAll(".cat-tab");
+            // فلترة التبويبات التكتيكية
+            const tabs = document.querySelectorAll(".tactical-tab");
             tabs.forEach(tab => {
                 tab.addEventListener("click", function() {
                     tabs.forEach(t => t.classList.remove("active-tab"));
@@ -933,13 +931,13 @@
             }, 1000);
 
             window.addEventListener("click", (e) => {
-                if (e.target === loginModal) loginModal.style.display = "none";
                 if (e.target === cartModal) cartModal.style.display = "none";
                 if (e.target === adminModal) adminModal.style.display = "none";
                 if (e.target === invoiceModal) invoiceModal.style.display = "none";
             });
 
-            syncUserUI();
+            // تشغيل التحقق وعرض المنتجات عند الفتح
+            checkAuth();
             renderProducts();
         });
     </script>
