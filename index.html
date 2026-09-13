@@ -75,7 +75,6 @@
                     </div>
                     <div class="form-row">
                         <select id="newProdCategory" required>
-                            <option value="national-day">عروض اليوم الوطني</option>
                             <option value="gaming">القيمنق والبكجات</option>
                             <option value="sony">أجهزة السوني</option>
                             <option value="smart-devices">الهواتف الذكية</option>
@@ -179,7 +178,7 @@
             <h2>ارتقِ بتجربة ألعابك وسيت أب أحلامك</h2>
             <p>أقوى عروض اليوم الوطني السعودي وبكجات القيمنق بأفضل الأسعار مع كود خصم <strong>KSA96</strong>.</p>
             <div class="hero-btns">
-                <a href="#national-day" class="btn btn-national"><i class="fa-solid fa-flag"></i> تصفح عروض اليوم الوطني</a>
+                <a href="#national-day" class="btn btn-national"><i class="fa-solid fa-flag"></i> تصفح العروض الخضراء</a>
                 <a href="#gaming" class="btn btn-secondary"><i class="fa-solid fa-gamepad"></i> بكجات القيمنق</a>
             </div>
         </div>
@@ -219,21 +218,20 @@
         </div>
     </section>
 
-    <!-- تصفية الأقسام (تم وضع عروض اليوم الوطني أولاً وبزر مميز) -->
+    <!-- تصفية الأقسام (تمت إزالة الزر وعادت كما كانت) -->
     <section id="categories" class="categories-tabs-section">
         <div class="categories-nav">
             <ul>
-                <li><button class="cat-tab active-tab" data-target="all" type="button">🔥 الكل</button></li>
-                <li><button class="cat-tab" data-target="national-day" type="button" style="border-color: #00e676; color: #00e676;">🇸🇦 عروض اليوم الوطني</button></li>
-                <li><button class="cat-tab" data-target="gaming" type="button">⚡ القيمنق</button></li>
-                <li><button class="cat-tab" data-target="sony" type="button">🎮 السوني</button></li>
-                <li><button class="cat-tab" data-target="smart-devices" type="button">📱 الأجهزة الذكية</button></li>
-                <li><button class="cat-tab" data-target="tables" type="button">🖥️ الطاولات</button></li>
+                <li><button class="cat-tab active-tab" data-target="all" type="button">الكل</button></li>
+                <li><button class="cat-tab" data-target="smart-devices" type="button">الأجهزة الذكية</button></li>
+                <li><button class="cat-tab" data-target="sony" type="button">السوني</button></li>
+                <li><button class="cat-tab" data-target="gaming" type="button">القيمنق</button></li>
+                <li><button class="cat-tab" data-target="tables" type="button">الطاولات</button></li>
             </ul>
         </div>
     </section>
 
-    <!-- حاوية المنتجات (تبدأ بعروض اليوم الوطني فوق) -->
+    <!-- حاوية المنتجات -->
     <main id="productsContainer"></main>
 
     <!-- الفوتر -->
@@ -284,7 +282,7 @@
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const defaultProducts = [
-                // 1. عروض اليوم الوطني (في القمة)
+                // 1. عروض اليوم الوطني (تظهر في الأعلى وفي قسم الكل)
                 { 
                     id: 1, 
                     name: "آيفون 17 برو ماكس - تيتانيوم صحراوي طبيعي", 
@@ -425,11 +423,11 @@
                 }
             ];
 
-            localStorage.setItem("techgear_final_products_v5", JSON.stringify(defaultProducts));
+            localStorage.setItem("techgear_final_clean", JSON.stringify(defaultProducts));
             let products = defaultProducts;
             let storeStats = JSON.parse(localStorage.getItem("techgear_stats_v4")) || { totalRevenue: 15400, ordersCount: 11 };
 
-            // توليد المنتجات (عروض اليوم الوطني أولاً)
+            // توليد المنتجات
             function renderProducts() {
                 const container = document.getElementById("productsContainer");
                 const categoryOrder = [
@@ -756,7 +754,7 @@
                 setTimeout(() => cartModal.style.display = "none", 1500);
             });
 
-            // فلترة التبويبات (تدعم الفلترة المباشرة لعروض اليوم الوطني)
+            // فلترة التبويبات بدون زر اليوم الوطني
             const tabs = document.querySelectorAll(".cat-tab");
             tabs.forEach(tab => {
                 tab.addEventListener("click", function() {
