@@ -12,7 +12,7 @@
 
     <!-- الشريط العلوي الإعلاني -->
     <div class="top-announcement-bar">
-        <span>🚚 شحن سريع ومجاني لجميع مناطق المملكة للطلبات فوق 300 ر.س | استخدم الكود: <strong>KSA96</strong> لخصم 15%</span>
+        <span>🚚 شحن فوري ومجاني لكافة مدن المملكة للطلبات فوق 300 ر.س | استخدم الكود: <strong>KSA96</strong> لخصم 15%</span>
     </div>
 
     <!-- نافذة تسجيل الدخول والحساب -->
@@ -42,7 +42,7 @@
                 <button id="closeAdminModal" class="btn-close" type="button">&times;</button>
             </div>
 
-            <!-- إحصائيات المتجر للمدير -->
+            <!-- إحصائيات المتجر -->
             <div class="admin-stats-grid">
                 <div class="stat-card">
                     <i class="fa-solid fa-sack-dollar text-green"></i>
@@ -83,7 +83,7 @@
                             <option value="gaming">القيمنق والبكجات</option>
                             <option value="tables">طاولات السيت أب</option>
                         </select>
-                        <input type="text" id="newProdImg" placeholder="اسم الصورة المرفوعة أو رابط خارجي" required>
+                        <input type="text" id="newProdImg" placeholder="رابط صورة المنتج المباشر" required>
                     </div>
                     <button type="submit" class="btn btn-gold btn-block"><i class="fa-solid fa-upload"></i> نشر المنتج مباشرة في المتجر</button>
                 </form>
@@ -91,7 +91,7 @@
         </div>
     </div>
 
-    <!-- نافذة سلة المشتريات المتقدمة -->
+    <!-- نافذة سلة المشتريات -->
     <div id="cartModal" class="modal-overlay">
         <div class="modal-content glass-panel cart-modal-content">
             <div class="modal-header-custom">
@@ -132,7 +132,7 @@
         </div>
     </div>
 
-    <!-- شريط التنقل الرئيسي (Navbar) -->
+    <!-- شريط التنقل (Navbar) -->
     <header class="dark-navbar">
         <div class="nav-container">
             <div class="logo">
@@ -142,7 +142,7 @@
 
             <div class="search-bar-box">
                 <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" id="searchInput" placeholder="ابحث عن أجهزة، شاشات، سوني، سيت أب...">
+                <input type="text" id="searchInput" placeholder="ابحث عن أجهزة، سوني، هواتف، سيت أب...">
             </div>
 
             <nav>
@@ -150,7 +150,6 @@
                     <li><a href="#" class="active-link">الرئيسية</a></li>
                     <li><a href="#national-day" class="nav-offer-link"><i class="fa-solid fa-flag"></i> عروض KSA96</a></li>
                     
-                    <!-- زر لوحة الآدمن (يظهر فقط للمدير) -->
                     <li id="adminNavBtnContainer" style="display: none;">
                         <button class="admin-nav-btn" id="openAdminBtn" type="button">
                             <i class="fa-solid fa-gear"></i> لوحة الإدارة
@@ -173,7 +172,7 @@
         </div>
     </header>
 
-    <!-- الهيرو سيكشن الفخم (Hero Section) -->
+    <!-- الهيرو سيكشن الفخم (Hero Banner) -->
     <section class="hero green-hero">
         <div class="hero-content glass-panel">
             <div class="hero-badge">
@@ -188,7 +187,7 @@
         </div>
     </section>
 
-    <!-- شريط الثقة والمميزات (Trust Features) -->
+    <!-- مميزات المتجر -->
     <section class="features-bar">
         <div class="features-container">
             <div class="feature-item">
@@ -222,7 +221,7 @@
         </div>
     </section>
 
-    <!-- أزرار تصفية الأقسام -->
+    <!-- تصفية الأقسام -->
     <section id="categories" class="categories-tabs-section">
         <div class="categories-nav">
             <ul>
@@ -238,7 +237,7 @@
     <!-- حاوية المنتجات الديناميكية -->
     <main id="productsContainer"></main>
 
-    <!-- الفوتر الاحترافي -->
+    <!-- الفوتر -->
     <footer class="main-footer">
         <div class="footer-grid">
             <div class="footer-col">
@@ -278,39 +277,149 @@
         </div>
     </footer>
 
-    <!-- زر خدمة العملاء عبر الواتساب -->
+    <!-- زر واتساب خدمة العملاء -->
     <a href="https://wa.me/" target="_blank" class="customer-service-btn" title="تواصل مع خدمة العملاء">
         <i class="fa-brands fa-whatsapp"></i> <span>مساعدة فورية</span>
     </a>
 
-    <!-- المحرك البرمجي المتكامل والمتطور -->
+    <!-- المحرك البرمجي المحدث بالصور الاحترافية المفرغة -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            // مخزون المنتجات الأساسية عالي الدقة مع مسارات الصور المعالجة
+            // بيانات المنتجات مع صور شفافة عالية الجودة وبدائل جاهزة
             const defaultProducts = [
-                { id: 1, name: "آيفون 17 برو ماكس", price: 4500, oldPrice: 5000, category: "national-day", img: "./iphone17.png", fallback: "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=400&q=80", rating: 5, reviews: 142, tag: "أقوى خصم" },
-                { id: 2, name: "بلايستيشن 5 برو (نسخة الشرق الأوسط)", price: 2100, oldPrice: 2500, category: "national-day", img: "./ps5_digital_new.png", fallback: "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=400&q=80", rating: 5, reviews: 98, tag: "عرض خاص" },
-                { id: 3, name: "آيفون 17 تيتانيوم", price: 4100, oldPrice: null, category: "smart-devices", img: "./iphone17.png", fallback: "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=400&q=80", rating: 5, reviews: 63, tag: "جديد" },
-                { id: 4, name: "آيفون 16 برو - أزرق غامق", price: 3800, oldPrice: 4200, category: "smart-devices", img: "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=400&q=80", rating: 4.5, reviews: 88, tag: "الأكثر مبيعاً" },
-                { id: 5, name: "آيفون 15 برو ماكس", price: 3200, oldPrice: 3500, category: "smart-devices", img: "https://images.unsplash.com/photo-1616348436168-de43ad0db179?auto=format&fit=crop&w=400&q=80", rating: 4.5, reviews: 52 },
-                { id: 6, name: "بلايستيشن 5 إصدار ديجيتال سليم", price: 2599, oldPrice: 2899, category: "sony", img: "./ps5_digital_new.png", fallback: "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=400&q=80", rating: 5, reviews: 45, tag: "الأكثر طلباً" },
-                { id: 7, name: "بلايستيشن 5 إصدار قارئ الأقراص", price: 2099, oldPrice: 2280, category: "sony", img: "./ps5_standard_new.png", fallback: "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=400&q=80", rating: 4.5, reviews: 112 },
-                { id: 8, name: "بكج قيمنق PS5 Slim متكامل + شاشة + يدين", price: 4799, oldPrice: 5299, category: "gaming", img: "./ps5_setup.png", fallback: "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=400&q=80", rating: 5, reviews: 31, tag: "بكج التوفير" },
-                { id: 9, name: "طاولة قيمنق Pro الاحترافية RGB مع حامل أكواب", price: 750, oldPrice: 950, category: "tables", img: "./table_pro.png", fallback: "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=400&q=80", rating: 4.5, reviews: 29 },
-                { id: 10, name: "طاولة سيت أب زاوية حرف L هيدروليك", price: 1100, oldPrice: 1350, category: "tables", img: "./table_l.png", fallback: "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=400&q=80", rating: 5, reviews: 44, tag: "موصى به" }
+                { 
+                    id: 1, 
+                    name: "آيفون 17 برو ماكس - تيتانيوم طبيعي", 
+                    price: 4500, 
+                    oldPrice: 5000, 
+                    category: "national-day", 
+                    img: "./iphone17.png", 
+                    fallback: "https://pngimg.com/d/iphone16_PNG38.png", 
+                    rating: 5, 
+                    reviews: 142, 
+                    tag: "أقوى خصم" 
+                },
+                { 
+                    id: 2, 
+                    name: "بلايستيشن 5 برو - النسخة الرقمية", 
+                    price: 2100, 
+                    oldPrice: 2500, 
+                    category: "national-day", 
+                    img: "./ps5_digital_new.png", 
+                    fallback: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Black_and_white_Playstation_5_base_edition_with_controller.png/640px-Black_and_white_Playstation_5_base_edition_with_controller.png", 
+                    rating: 5, 
+                    reviews: 98, 
+                    tag: "عرض اليوم الوطني" 
+                },
+                { 
+                    id: 3, 
+                    name: "آيفون 17 الجديد كلياً - سعة 256GB", 
+                    price: 4100, 
+                    oldPrice: null, 
+                    category: "smart-devices", 
+                    img: "./iphone17.png", 
+                    fallback: "https://pngimg.com/d/iphone16_PNG37.png", 
+                    rating: 5, 
+                    reviews: 63, 
+                    tag: "إصدار حديث" 
+                },
+                { 
+                    id: 4, 
+                    name: "آيفون 16 برو - تيتانيوم صحراوي", 
+                    price: 3800, 
+                    oldPrice: 4200, 
+                    category: "smart-devices", 
+                    img: "https://pngimg.com/d/iphone16_PNG10.png", 
+                    fallback: "https://pngimg.com/d/iphone16_PNG38.png", 
+                    rating: 4.5, 
+                    reviews: 88, 
+                    tag: "الأكثر مبيعاً" 
+                },
+                { 
+                    id: 5, 
+                    name: "آيفون 15 برو ماكس - تيتانيوم أسود", 
+                    price: 3200, 
+                    oldPrice: 3500, 
+                    category: "smart-devices", 
+                    img: "https://pngimg.com/d/iphone16_PNG14.png", 
+                    fallback: "https://pngimg.com/d/iphone16_PNG38.png", 
+                    rating: 4.5, 
+                    reviews: 52 
+                },
+                { 
+                    id: 6, 
+                    name: "جهاز بلايستيشن 5 ديجيتال سليم (Slim)", 
+                    price: 2599, 
+                    oldPrice: 2899, 
+                    category: "sony", 
+                    img: "./ps5_digital_new.png", 
+                    fallback: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Black_and_white_Playstation_5_base_edition_with_controller.png/640px-Black_and_white_Playstation_5_base_edition_with_controller.png", 
+                    rating: 5, 
+                    reviews: 45, 
+                    tag: "الأكثر طلباً" 
+                },
+                { 
+                    id: 7, 
+                    name: "جهاز بلايستيشن 5 إصدار قارئ الأقراص", 
+                    price: 2099, 
+                    oldPrice: 2280, 
+                    category: "sony", 
+                    img: "./ps5_standard_new.png", 
+                    fallback: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Black_and_white_Playstation_5_base_edition_with_controller.png/640px-Black_and_white_Playstation_5_base_edition_with_controller.png", 
+                    rating: 4.5, 
+                    reviews: 112 
+                },
+                { 
+                    id: 8, 
+                    name: "بكج قيمنق بلايستيشن 5 سليم + شاشة وشاحن يدين", 
+                    price: 4799, 
+                    oldPrice: 5299, 
+                    category: "gaming", 
+                    img: "./ps5_setup.png", 
+                    fallback: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/PlayStation_5_and_DualSense_with_transparent_background.png/640px-PlayStation_5_and_DualSense_with_transparent_background.png", 
+                    rating: 5, 
+                    reviews: 31, 
+                    tag: "بكج متكامل" 
+                },
+                { 
+                    id: 9, 
+                    name: "طاولة قيمنق Pro الاحترافية مع إضاءة RGB مدمجة", 
+                    price: 750, 
+                    oldPrice: 950, 
+                    category: "tables", 
+                    img: "./table_pro.png", 
+                    fallback: "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=400&q=80", 
+                    rating: 4.5, 
+                    reviews: 29 
+                },
+                { 
+                    id: 10, 
+                    name: "طاولة سيت أب زاوية شكل حرف L قيمنق هيدروليك", 
+                    price: 1100, 
+                    oldPrice: 1350, 
+                    category: "tables", 
+                    img: "./table_l.png", 
+                    fallback: "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=400&q=80", 
+                    rating: 5, 
+                    reviews: 44, 
+                    tag: "الأكثر راحة" 
+                }
             ];
 
-            let products = JSON.parse(localStorage.getItem("techgear_inventory_v2")) || defaultProducts;
-            let storeStats = JSON.parse(localStorage.getItem("techgear_stats_v2")) || { totalRevenue: 12450, ordersCount: 8 };
+            // مسح الكاش القديم وتثبيت المنتجات المحدثة
+            let products = defaultProducts;
+            localStorage.setItem("techgear_inventory_v3", JSON.stringify(products));
 
-            // عرض المنتجات
+            let storeStats = JSON.parse(localStorage.getItem("techgear_stats_v3")) || { totalRevenue: 15400, ordersCount: 11 };
+
+            // توليد وعرض المنتجات
             function renderProducts() {
                 const container = document.getElementById("productsContainer");
                 const categoryNames = {
                     "national-day": { title: '<i class="fa-solid fa-flag text-green"></i> عروض اليوم الوطني KSA96 الحصرية', class: 'national-bg' },
-                    "smart-devices": { title: '<i class="fa-solid fa-mobile-screen-button text-blue"></i> الهواتف الذكية والأجهزة اللوحية', class: '' },
-                    "sony": { title: '<i class="fa-brands fa-playstation text-blue"></i> منصات سوني بلايستيشن الأصلية', class: '' },
-                    "gaming": { title: '<i class="fa-solid fa-gamepad text-gold"></i> بكجات وعُتاد القيمنق', class: '' },
+                    "smart-devices": { title: '<i class="fa-solid fa-mobile-screen-button text-blue"></i> الهواتف الذكية والأجهزة الذكية', class: '' },
+                    "sony": { title: '<i class="fa-brands fa-playstation text-blue"></i> منصات وأجهزة سوني الأصلية', class: '' },
+                    "gaming": { title: '<i class="fa-solid fa-gamepad text-gold"></i> بكجات وعُتاد ألعاب القيمنق', class: '' },
                     "tables": { title: '<i class="fa-solid fa-couch text-blue"></i> طاولات السيت أب الاحترافية', class: '' }
                 };
 
@@ -324,7 +433,7 @@
                             <section id="${catKey}" class="products-section ${catInfo.class} category-group">
                                 <div class="section-header-wrap">
                                     <h3 class="section-title">${catInfo.title}</h3>
-                                    <span class="section-subtitle">${catProducts.length} منتج متوفر</span>
+                                    <span class="section-subtitle">${catProducts.length} منتج جاهز للشحن</span>
                                 </div>
                                 <div class="products-grid">
                         `;
@@ -336,7 +445,7 @@
                                     ${isAdmin ? `<button type="button" class="btn-delete-prod" onclick="deleteProduct(${p.id})" title="حذف المنتج من المتجر"><i class="fa-solid fa-trash-can"></i></button>` : ''}
                                     
                                     <div class="product-img-wrapper">
-                                        <img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.onerror=null; this.src='${p.fallback || 'https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=400&q=80'}';">
+                                        <img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.onerror=null; this.src='${p.fallback}';">
                                     </div>
 
                                     <div class="product-card-body">
@@ -345,11 +454,11 @@
                                             <div class="stars">
                                                 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                                             </div>
-                                            <span class="review-count">(${p.reviews || 25} تقييم)</span>
+                                            <span class="review-count">(${p.reviews} تقييم)</span>
                                         </div>
                                         <div class="price-container">
-                                            <span class="current-price">${p.price} <small>ر.س</small></span>
-                                            ${p.oldPrice ? `<del>${p.oldPrice} ر.س</del>` : ''}
+                                            <span class="current-price">${p.price.toLocaleString()} <small>ر.س</small></span>
+                                            ${p.oldPrice ? `<del>${p.oldPrice.toLocaleString()} ر.س</del>` : ''}
                                         </div>
                                         <button class="btn btn-add" data-id="${p.id}" data-name="${p.name}" data-price="${p.price}" data-img="${p.img}">
                                             <i class="fa-solid fa-cart-shopping"></i> أضف إلى السلة
@@ -367,11 +476,11 @@
                 attachAddToCartEvents();
             }
 
-            // حذف منتج
+            // حذف منتج للمدير
             window.deleteProduct = (id) => {
                 if (confirm("هل تريد حذف هذا المنتج نهائياً من المتجر؟")) {
                     products = products.filter(p => p.id !== id);
-                    localStorage.setItem("techgear_inventory_v2", JSON.stringify(products));
+                    localStorage.setItem("techgear_inventory_v3", JSON.stringify(products));
                     renderProducts();
                     showToast("<i class='fa-solid fa-trash-can'></i> تم حذف المنتج بنجاح.");
                 }
@@ -388,21 +497,21 @@
                     oldPrice: null,
                     category: document.getElementById("newProdCategory").value,
                     img: document.getElementById("newProdImg").value.trim(),
-                    fallback: "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=400&q=80",
+                    fallback: "https://pngimg.com/d/iphone16_PNG38.png",
                     rating: 5,
                     reviews: 1,
                     tag: "مضاف حديثاً"
                 };
 
                 products.unshift(newProd);
-                localStorage.setItem("techgear_inventory_v2", JSON.stringify(products));
+                localStorage.setItem("techgear_inventory_v3", JSON.stringify(products));
                 renderProducts();
                 addProductForm.reset();
                 document.getElementById("adminModal").style.display = "none";
-                showToast(`<i class='fa-solid fa-circle-check'></i> تم نشر المنتج "${newProd.name}" بنجاح!`);
+                showToast(`<i class='fa-solid fa-circle-check'></i> تم نشر "${newProd.name}" بنجاح!`);
             });
 
-            // نظام المستخدم والآدمن
+            // حسابات الدخول ولوحة التحكم
             const loginModal = document.getElementById("loginModal");
             const adminModal = document.getElementById("adminModal");
             const openLoginBtn = document.getElementById("openLoginBtn");
@@ -435,7 +544,7 @@
             openLoginBtn.addEventListener("click", (e) => {
                 e.preventDefault();
                 if (localStorage.getItem("techgear_user")) {
-                    if (confirm("هل ترغب في تسجيل الخروج؟")) {
+                    if (confirm("هل ترغب في تسجيل الخروج من حسابك؟")) {
                         localStorage.removeItem("techgear_user");
                         localStorage.removeItem("techgear_is_admin");
                         syncUserUI();
@@ -487,7 +596,7 @@
                 showToast(`مرحباً بك في TechGear يا ${name}!`);
             });
 
-            // منطق سلة الشراء
+            // السلة وتطبيق الخصم
             let cart = [];
             let discountRate = 0;
             const cartModal = document.getElementById("cartModal");
@@ -534,10 +643,10 @@
 
                     cartItemsList.innerHTML = cart.map(item => `
                         <div class="cart-item-row">
-                            <img src="${item.img}" alt="${item.name}" onerror="this.src='https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=120&q=80'">
+                            <img src="${item.img}" alt="${item.name}" onerror="this.src='https://pngimg.com/d/iphone16_PNG38.png'">
                             <div class="cart-item-info">
                                 <h5>${item.name}</h5>
-                                <p class="cart-item-price">${item.price} ر.س</p>
+                                <p class="cart-item-price">${item.price.toLocaleString()} ر.س</p>
                             </div>
                             <div class="cart-item-qty">
                                 <button type="button" onclick="modifyQty(${item.id}, -1)">-</button>
@@ -594,7 +703,7 @@
                             cart.push({ id, name, price, img, qty: 1 });
                         }
                         refreshCartUI();
-                        showToast(`<i class='fa-solid fa-cart-arrow-down text-blue'></i> أضيف "${name}" إلى سلتك بنجاح!`);
+                        showToast(`<i class='fa-solid fa-cart-arrow-down text-blue'></i> أضيف "${name}" إلى السلة!`);
                     };
                 });
             }
@@ -615,14 +724,13 @@
             closeCartModal.addEventListener("click", () => cartModal.style.display = "none");
             startShoppingBtn.addEventListener("click", () => cartModal.style.display = "none");
 
-            // تأكيد الطلب وتحديث الإحصائيات
             checkoutBtn.addEventListener("click", () => {
                 const subtotal = cart.reduce((s, i) => s + (i.price * i.qty), 0);
                 const finalTotal = subtotal - Math.round(subtotal * discountRate);
 
                 storeStats.totalRevenue += finalTotal;
                 storeStats.ordersCount += 1;
-                localStorage.setItem("techgear_stats_v2", JSON.stringify(storeStats));
+                localStorage.setItem("techgear_stats_v3", JSON.stringify(storeStats));
                 syncUserUI();
 
                 showToast("<i class='fa-solid fa-circle-check text-green'></i> تم استلام طلبك بنجاح وسيتواصل معك المندوب قريباً!");
