@@ -12,7 +12,7 @@
 
     <!-- الشريط العلوي الإعلاني -->
     <div class="top-announcement-bar">
-        <span>🚚 شحن فوري ومجاني لكافة مدن المملكة للطلبات فوق 300 ر.س | استخدم الكود: <strong>KSA96</strong> لخصم 15%</span>
+        <span>🚚 شحن فوري ومجاني لكافة مدن المملكة للطلبات فوق 300 ر.س | كود الخصم: <strong>KSA96</strong> لخصم 15%</span>
     </div>
 
     <!-- نافذة تسجيل الدخول والحساب -->
@@ -42,7 +42,6 @@
                 <button id="closeAdminModal" class="btn-close" type="button">&times;</button>
             </div>
 
-            <!-- إحصائيات المتجر -->
             <div class="admin-stats-grid">
                 <div class="stat-card">
                     <i class="fa-solid fa-sack-dollar text-green"></i>
@@ -67,7 +66,6 @@
                 </div>
             </div>
 
-            <!-- نموذج إضافة منتج جديد -->
             <div class="add-product-box">
                 <h4><i class="fa-solid fa-circle-plus"></i> إضافة منتج جديد إلى المتجر</h4>
                 <form id="addProductForm" class="add-product-form">
@@ -77,15 +75,15 @@
                     </div>
                     <div class="form-row">
                         <select id="newProdCategory" required>
+                            <option value="gaming">القيمنق والبكجات</option>
                             <option value="national-day">عروض اليوم الوطني</option>
                             <option value="smart-devices">الهواتف الذكية</option>
                             <option value="sony">أجهزة السوني</option>
-                            <option value="gaming">القيمنق والبكجات</option>
                             <option value="tables">طاولات السيت أب</option>
                         </select>
-                        <input type="text" id="newProdImg" placeholder="رابط صورة المنتج المباشر" required>
+                        <input type="text" id="newProdImg" placeholder="رابط صورة المنتج" required>
                     </div>
-                    <button type="submit" class="btn btn-gold btn-block"><i class="fa-solid fa-upload"></i> نشر المنتج مباشرة في المتجر</button>
+                    <button type="submit" class="btn btn-gold btn-block"><i class="fa-solid fa-upload"></i> نشر المنتج مباشرة</button>
                 </form>
             </div>
         </div>
@@ -112,7 +110,7 @@
                 <div class="cart-items-list" id="cartItemsList"></div>
                 
                 <div class="coupon-box">
-                    <input type="text" id="couponInput" placeholder="أدخل كود الخصم (مثال: KSA96)">
+                    <input type="text" id="couponInput" placeholder="كود الخصم: KSA96">
                     <button id="applyCouponBtn" class="btn btn-gold" type="button">تطبيق الخصم</button>
                 </div>
                 <p id="couponMsg" class="coupon-message"></p>
@@ -126,7 +124,7 @@
                 </div>
 
                 <button class="btn btn-checkout btn-block" id="checkoutBtn" type="button">
-                    <i class="fa-solid fa-circle-check"></i> تأكيد وإتمام عملية الشراء
+                    <i class="fa-solid fa-circle-check"></i> تأكيد وإتمام الشراء
                 </button>
             </div>
         </div>
@@ -142,7 +140,7 @@
 
             <div class="search-bar-box">
                 <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" id="searchInput" placeholder="ابحث عن أجهزة، سوني، هواتف، سيت أب...">
+                <input type="text" id="searchInput" placeholder="ابحث عن بكج، سوني، هواتف، سيت أب...">
             </div>
 
             <nav>
@@ -172,17 +170,17 @@
         </div>
     </header>
 
-    <!-- الهيرو سيكشن الفخم (Hero Banner) -->
+    <!-- الهيرو سيكشن -->
     <section class="hero green-hero">
         <div class="hero-content glass-panel">
             <div class="hero-badge">
                 <i class="fa-solid fa-award"></i> احتفالات اليوم الوطني السعودي 96 🇸🇦
             </div>
-            <h2>ارتقِ بتجربة ألعابك وتقنيتك للقمة</h2>
-            <p>أحدث أجهزة البلايستيشن، الهواتف الذكية، وملحقات السيت أب الاحترافية بأسعار استثنائية مع كود خصم <strong>KSA96</strong>.</p>
+            <h2>ارتقِ بتجربة ألعابك وسيت أب أحلامك</h2>
+            <p>أقوى بكجات القيمنق المتكاملة وأجهزة البلايستيشن بأفضل الأسعار مع كود خصم <strong>KSA96</strong>.</p>
             <div class="hero-btns">
-                <a href="#national-day" class="btn btn-national"><i class="fa-solid fa-fire"></i> استكشف العروض الخضراء</a>
-                <a href="#categories" class="btn btn-secondary"><i class="fa-solid fa-compass"></i> تصفح المنتجات</a>
+                <a href="#gaming" class="btn btn-national"><i class="fa-solid fa-gamepad"></i> تصفح بكجات القيمنق</a>
+                <a href="#categories" class="btn btn-secondary"><i class="fa-solid fa-compass"></i> كل الفئات</a>
             </div>
         </div>
     </section>
@@ -193,29 +191,29 @@
             <div class="feature-item">
                 <i class="fa-solid fa-truck-fast"></i>
                 <div>
-                    <h5>توصيل فائق السرعة</h5>
-                    <p>شحن لجميع مدن المملكة</p>
+                    <h5>توصيل سريع مجاني</h5>
+                    <p>لكافة مناطق المملكة</p>
                 </div>
             </div>
             <div class="feature-item">
                 <i class="fa-solid fa-shield-check"></i>
                 <div>
-                    <h5>ضمان ذهبي سنتين</h5>
-                    <p>ضمان الوكيل الرسمي المعتمد</p>
+                    <h5>ضمان سنتين معتمد</h5>
+                    <p>ضمان الوكيل الرسمي</p>
                 </div>
             </div>
             <div class="feature-item">
                 <i class="fa-solid fa-credit-card"></i>
                 <div>
-                    <h5>دفع آمن 100%</h5>
+                    <h5>خيارات دفع متعددة</h5>
                     <p>مدى، فيزا، تابي وتمارا</p>
                 </div>
             </div>
             <div class="feature-item">
                 <i class="fa-solid fa-headset"></i>
                 <div>
-                    <h5>دعم فني 24/7</h5>
-                    <p>فريق متخصص لخدمتك دوماً</p>
+                    <h5>خدمة عملاء 24/7</h5>
+                    <p>مساعدة فورية عبر الواتساب</p>
                 </div>
             </div>
         </div>
@@ -225,16 +223,16 @@
     <section id="categories" class="categories-tabs-section">
         <div class="categories-nav">
             <ul>
-                <li><button class="cat-tab active-tab" data-target="all" type="button">🔥 كل المنتجات</button></li>
-                <li><button class="cat-tab" data-target="smart-devices" type="button">📱 الهواتف الذكية</button></li>
+                <li><button class="cat-tab" data-target="all" type="button">🔥 كل المنتجات</button></li>
+                <li><button class="cat-tab active-tab" data-target="gaming" type="button">⚡ بكجات القيمنق</button></li>
                 <li><button class="cat-tab" data-target="sony" type="button">🎮 سوني وبلايستيشن</button></li>
-                <li><button class="cat-tab" data-target="gaming" type="button">⚡ بكجات القيمنق</button></li>
+                <li><button class="cat-tab" data-target="smart-devices" type="button">📱 الهواتف الذكية</button></li>
                 <li><button class="cat-tab" data-target="tables" type="button">🖥️ طاولات السيت أب</button></li>
             </ul>
         </div>
     </section>
 
-    <!-- حاوية المنتجات الديناميكية -->
+    <!-- حاوية المنتجات -->
     <main id="productsContainer"></main>
 
     <!-- الفوتر -->
@@ -245,26 +243,25 @@
                     <div class="logo-badge"><i class="fa-solid fa-bolt"></i></div>
                     <span>Tech<span class="logo-accent">Gear</span></span>
                 </div>
-                <p class="footer-desc">الوجهة السعودية الأولى لعشاق الألعاب والعتاد التقني الأحدث عالمياً بأعلى معايير الجودة والضمان.</p>
+                <p class="footer-desc">متجرك السعودي المتكامل لأحدث عتاد وسيت أب ألعاب القيمنق الاحترافية بأعلى جودة وضمان.</p>
             </div>
             <div class="footer-col">
                 <h5>روابط سريعة</h5>
                 <ul>
                     <li><a href="#">الرئيسية</a></li>
+                    <li><a href="#gaming">بكجات القيمنق</a></li>
                     <li><a href="#national-day">عروض اليوم الوطني</a></li>
-                    <li><a href="#categories">أقسام المنتجات</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h5>خدمة العملاء</h5>
                 <ul>
                     <li><a href="#">سياسة الاسترجاع والضمان</a></li>
-                    <li><a href="#">الشحن والتوصيل</a></li>
-                    <li><a href="#">الأسئلة الشائعة</a></li>
+                    <li><a href="#">الشحن والتوصيل السريع</a></li>
                 </ul>
             </div>
             <div class="footer-col">
-                <h5>طرق الدفع المعتمدة</h5>
+                <h5>طرق الدفع</h5>
                 <div class="payment-methods">
                     <span class="pay-badge"><i class="fa-brands fa-apple-pay"></i> Apple Pay</span>
                     <span class="pay-badge"><i class="fa-regular fa-credit-card"></i> Mada</span>
@@ -273,20 +270,95 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 متجر TechGear. جميع الحقوق محفوظة بالمملكة العربية السعودية 🇸🇦.</p>
+            <p>&copy; 2026 متجر TechGear. جميع الحقوق محفوظة 🇸🇦.</p>
         </div>
     </footer>
 
-    <!-- زر واتساب خدمة العملاء -->
+    <!-- زر واتساب -->
     <a href="https://wa.me/" target="_blank" class="customer-service-btn" title="تواصل مع خدمة العملاء">
         <i class="fa-brands fa-whatsapp"></i> <span>مساعدة فورية</span>
     </a>
 
-    <!-- المحرك البرمجي المحدث بالصور الاحترافية المفرغة -->
+    <!-- المحرك البرمجي المحدث بالبكجات المتكاملة -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            // بيانات المنتجات مع صور شفافة عالية الجودة وبدائل جاهزة
             const defaultProducts = [
+                // بكجات القيمنق المتكاملة
+                { 
+                    id: 101, 
+                    name: "بكج قيمنق PS5 Slim متكامل + شاشة احترافية + كرسي وطاولة سيت أب", 
+                    price: 4799, 
+                    oldPrice: 5299, 
+                    category: "gaming", 
+                    img: "./ps5_setup.png", 
+                    fallback: "https://ayos.com.sa/storage/products/1700000000_setup.png", 
+                    rating: 5, 
+                    reviews: 42, 
+                    tag: "البكج الأكثر طلباً" 
+                },
+                { 
+                    id: 102, 
+                    name: "بكج محاكاة السباقات دركسون G29 + شاشة 120Hz + طاولة وكرسي قيمنق", 
+                    price: 1899, 
+                    oldPrice: 2199, 
+                    category: "gaming", 
+                    img: "https://m.media-amazon.com/images/I/61Iym3td6ST._AC_SL1500_.jpg", 
+                    fallback: "./ps5_setup.png", 
+                    rating: 5, 
+                    reviews: 35, 
+                    tag: "عشاق الهجولة والسباقات" 
+                },
+                { 
+                    id: 103, 
+                    name: "بكج سيت أب القيمنق الاقتصادي (شاشة 24 بوصة 120Hz + طاولة 100سم + كرسي + كيبورد وماوس)", 
+                    price: 999, 
+                    oldPrice: 1200, 
+                    category: "gaming", 
+                    img: "https://m.media-amazon.com/images/I/71cngLX2xuL._AC_SL1500_.jpg", 
+                    fallback: "./table_pro.png", 
+                    rating: 4.5, 
+                    reviews: 58, 
+                    tag: "أفضل قيمة توفير" 
+                },
+                { 
+                    id: 104, 
+                    name: "بكج إكسسوارات القيمنق 4 في 1 (سماعة محيطية + كيبورد ميكانيكي + ماوس احترافي + ماوس باد)", 
+                    price: 249, 
+                    oldPrice: 350, 
+                    category: "gaming", 
+                    img: "https://m.media-amazon.com/images/I/71YyMknV6HL._AC_SL1500_.jpg", 
+                    fallback: "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=400&q=80", 
+                    rating: 5, 
+                    reviews: 76, 
+                    tag: "ملحقات RGB" 
+                },
+
+                // سوني وبلايستيشن
+                { 
+                    id: 6, 
+                    name: "جهاز بلايستيشن 5 ديجيتال سليم (Slim)", 
+                    price: 2599, 
+                    oldPrice: 2899, 
+                    category: "sony", 
+                    img: "./ps5_digital_new.png", 
+                    fallback: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Black_and_white_Playstation_5_base_edition_with_controller.png/640px-Black_and_white_Playstation_5_base_edition_with_controller.png", 
+                    rating: 5, 
+                    reviews: 45, 
+                    tag: "الأكثر طلباً" 
+                },
+                { 
+                    id: 7, 
+                    name: "جهاز بلايستيشن 5 إصدار قارئ الأقراص", 
+                    price: 2099, 
+                    oldPrice: 2280, 
+                    category: "sony", 
+                    img: "./ps5_standard_new.png", 
+                    fallback: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Black_and_white_Playstation_5_base_edition_with_controller.png/640px-Black_and_white_Playstation_5_base_edition_with_controller.png", 
+                    rating: 4.5, 
+                    reviews: 112 
+                },
+
+                // عروض اليوم الوطني
                 { 
                     id: 1, 
                     name: "آيفون 17 برو ماكس - تيتانيوم طبيعي", 
@@ -297,7 +369,7 @@
                     fallback: "https://pngimg.com/d/iphone16_PNG38.png", 
                     rating: 5, 
                     reviews: 142, 
-                    tag: "أقوى خصم" 
+                    tag: "خصم اليوم الوطني" 
                 },
                 { 
                     id: 2, 
@@ -309,8 +381,10 @@
                     fallback: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Black_and_white_Playstation_5_base_edition_with_controller.png/640px-Black_and_white_Playstation_5_base_edition_with_controller.png", 
                     rating: 5, 
                     reviews: 98, 
-                    tag: "عرض اليوم الوطني" 
+                    tag: "عرض محدود" 
                 },
+
+                // الهواتف الذكية
                 { 
                     id: 3, 
                     name: "آيفون 17 الجديد كلياً - سعة 256GB", 
@@ -335,52 +409,8 @@
                     reviews: 88, 
                     tag: "الأكثر مبيعاً" 
                 },
-                { 
-                    id: 5, 
-                    name: "آيفون 15 برو ماكس - تيتانيوم أسود", 
-                    price: 3200, 
-                    oldPrice: 3500, 
-                    category: "smart-devices", 
-                    img: "https://pngimg.com/d/iphone16_PNG14.png", 
-                    fallback: "https://pngimg.com/d/iphone16_PNG38.png", 
-                    rating: 4.5, 
-                    reviews: 52 
-                },
-                { 
-                    id: 6, 
-                    name: "جهاز بلايستيشن 5 ديجيتال سليم (Slim)", 
-                    price: 2599, 
-                    oldPrice: 2899, 
-                    category: "sony", 
-                    img: "./ps5_digital_new.png", 
-                    fallback: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Black_and_white_Playstation_5_base_edition_with_controller.png/640px-Black_and_white_Playstation_5_base_edition_with_controller.png", 
-                    rating: 5, 
-                    reviews: 45, 
-                    tag: "الأكثر طلباً" 
-                },
-                { 
-                    id: 7, 
-                    name: "جهاز بلايستيشن 5 إصدار قارئ الأقراص", 
-                    price: 2099, 
-                    oldPrice: 2280, 
-                    category: "sony", 
-                    img: "./ps5_standard_new.png", 
-                    fallback: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Black_and_white_Playstation_5_base_edition_with_controller.png/640px-Black_and_white_Playstation_5_base_edition_with_controller.png", 
-                    rating: 4.5, 
-                    reviews: 112 
-                },
-                { 
-                    id: 8, 
-                    name: "بكج قيمنق بلايستيشن 5 سليم + شاشة وشاحن يدين", 
-                    price: 4799, 
-                    oldPrice: 5299, 
-                    category: "gaming", 
-                    img: "./ps5_setup.png", 
-                    fallback: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/PlayStation_5_and_DualSense_with_transparent_background.png/640px-PlayStation_5_and_DualSense_with_transparent_background.png", 
-                    rating: 5, 
-                    reviews: 31, 
-                    tag: "بكج متكامل" 
-                },
+
+                // طاولات السيت أب
                 { 
                     id: 9, 
                     name: "طاولة قيمنق Pro الاحترافية مع إضاءة RGB مدمجة", 
@@ -406,20 +436,19 @@
                 }
             ];
 
-            // مسح الكاش القديم وتثبيت المنتجات المحدثة
             let products = defaultProducts;
-            localStorage.setItem("techgear_inventory_v3", JSON.stringify(products));
+            localStorage.setItem("techgear_inventory_bundles", JSON.stringify(products));
 
             let storeStats = JSON.parse(localStorage.getItem("techgear_stats_v3")) || { totalRevenue: 15400, ordersCount: 11 };
 
-            // توليد وعرض المنتجات
+            // عرض المنتجات
             function renderProducts() {
                 const container = document.getElementById("productsContainer");
                 const categoryNames = {
+                    "gaming": { title: '<i class="fa-solid fa-gamepad text-gold"></i> بكجات وعُتاد ألعاب القيمنق المتكاملة', class: '' },
                     "national-day": { title: '<i class="fa-solid fa-flag text-green"></i> عروض اليوم الوطني KSA96 الحصرية', class: 'national-bg' },
-                    "smart-devices": { title: '<i class="fa-solid fa-mobile-screen-button text-blue"></i> الهواتف الذكية والأجهزة الذكية', class: '' },
-                    "sony": { title: '<i class="fa-brands fa-playstation text-blue"></i> منصات وأجهزة سوني الأصلية', class: '' },
-                    "gaming": { title: '<i class="fa-solid fa-gamepad text-gold"></i> بكجات وعُتاد ألعاب القيمنق', class: '' },
+                    "sony": { title: '<i class="fa-brands fa-playstation text-blue"></i> أجهزة ومنصات سوني الأصلية', class: '' },
+                    "smart-devices": { title: '<i class="fa-solid fa-mobile-screen-button text-blue"></i> الهواتف والأجهزة الذكية', class: '' },
                     "tables": { title: '<i class="fa-solid fa-couch text-blue"></i> طاولات السيت أب الاحترافية', class: '' }
                 };
 
@@ -476,11 +505,11 @@
                 attachAddToCartEvents();
             }
 
-            // حذف منتج للمدير
+            // حذف منتج
             window.deleteProduct = (id) => {
                 if (confirm("هل تريد حذف هذا المنتج نهائياً من المتجر؟")) {
                     products = products.filter(p => p.id !== id);
-                    localStorage.setItem("techgear_inventory_v3", JSON.stringify(products));
+                    localStorage.setItem("techgear_inventory_bundles", JSON.stringify(products));
                     renderProducts();
                     showToast("<i class='fa-solid fa-trash-can'></i> تم حذف المنتج بنجاح.");
                 }
@@ -497,21 +526,21 @@
                     oldPrice: null,
                     category: document.getElementById("newProdCategory").value,
                     img: document.getElementById("newProdImg").value.trim(),
-                    fallback: "https://pngimg.com/d/iphone16_PNG38.png",
+                    fallback: "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=400&q=80",
                     rating: 5,
                     reviews: 1,
                     tag: "مضاف حديثاً"
                 };
 
                 products.unshift(newProd);
-                localStorage.setItem("techgear_inventory_v3", JSON.stringify(products));
+                localStorage.setItem("techgear_inventory_bundles", JSON.stringify(products));
                 renderProducts();
                 addProductForm.reset();
                 document.getElementById("adminModal").style.display = "none";
                 showToast(`<i class='fa-solid fa-circle-check'></i> تم نشر "${newProd.name}" بنجاح!`);
             });
 
-            // حسابات الدخول ولوحة التحكم
+            // حسابات الدخول والآدمن
             const loginModal = document.getElementById("loginModal");
             const adminModal = document.getElementById("adminModal");
             const openLoginBtn = document.getElementById("openLoginBtn");
@@ -643,7 +672,7 @@
 
                     cartItemsList.innerHTML = cart.map(item => `
                         <div class="cart-item-row">
-                            <img src="${item.img}" alt="${item.name}" onerror="this.src='https://pngimg.com/d/iphone16_PNG38.png'">
+                            <img src="${item.img}" alt="${item.name}" onerror="this.src='./ps5_setup.png'">
                             <div class="cart-item-info">
                                 <h5>${item.name}</h5>
                                 <p class="cart-item-price">${item.price.toLocaleString()} ر.س</p>
@@ -774,6 +803,10 @@
 
             syncUserUI();
             renderProducts();
+
+            // الفلتر الافتراضي عند الفتح ليكون على القيمنق
+            const defaultTab = document.querySelector('.cat-tab[data-target="gaming"]');
+            if(defaultTab) defaultTab.click();
         });
     </script>
 </body>
