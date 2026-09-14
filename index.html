@@ -7,9 +7,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
     <style>
-        /* ===================================================
-           TechGear Store - Unified Core Styles
-           =================================================== */
         :root {
             --bg-dark: #070a10;
             --bg-card: #0d131f;
@@ -18,7 +15,6 @@
             --saudi-green: #00e676;
             --saudi-glow: rgba(0, 230, 118, 0.3);
             --gold: #ffb300;
-            --gold-glow: rgba(255, 179, 0, 0.3);
             --text-main: #f1f5f9;
             --text-muted: #94a3b8;
             --border-glass: rgba(255, 255, 255, 0.08);
@@ -53,14 +49,13 @@
         .glass-panel {
             background: var(--bg-card);
             border: 1px solid var(--border-glass);
-            border-radius: 20px;
+            border-radius: 18px;
         }
 
         .text-green { color: var(--saudi-green) !important; }
         .text-blue { color: var(--primary) !important; }
         .text-gold { color: var(--gold) !important; }
 
-        /* Announcement Bar */
         .top-announcement-bar {
             background: linear-gradient(90deg, #094022, #008744, #094022);
             color: #fff;
@@ -71,7 +66,6 @@
             border-bottom: 1px solid rgba(255,255,255,0.1);
         }
 
-        /* Navbar */
         .dark-navbar {
             position: sticky;
             top: 0;
@@ -161,7 +155,7 @@
             color: var(--text-muted);
             text-decoration: none;
             font-weight: 700;
-            font-size: 15px;
+            font-size: 14.5px;
             transition: 0.25s;
             padding: 8px 14px;
             border-radius: 12px;
@@ -170,12 +164,6 @@
         .nav-links a:hover, .nav-links a.active-link {
             color: #fff;
             background: rgba(255, 255, 255, 0.05);
-        }
-
-        .nav-offer-link {
-            color: var(--saudi-green) !important;
-            background: rgba(0, 230, 118, 0.1) !important;
-            border: 1px solid rgba(0, 230, 118, 0.25);
         }
 
         .sign-in-btn, .cart-btn, .admin-nav-btn {
@@ -230,12 +218,10 @@
             border: 2px solid var(--bg-dark);
         }
 
-        /* ===================================================
-           القائمة التكتيكية المصغرة والمضبوطة بعناية
-           =================================================== */
+        /* القائمة التكتيكية المصغرة والأنيقة */
         .categories-tabs-section {
             max-width: 1400px;
-            margin: 16px auto 10px;
+            margin: 15px auto 10px;
             padding: 0 24px;
             display: flex;
             justify-content: center;
@@ -249,8 +235,8 @@
             flex-wrap: wrap;
             gap: 10px;
             background: #050a08 !important;
-            padding: 8px 14px;
-            border-radius: 14px;
+            padding: 7px 12px;
+            border-radius: 12px;
             border: 1px solid rgba(0, 230, 118, 0.25);
             box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
         }
@@ -261,24 +247,23 @@
             background: #060e0a !important;
             border: 1.2px solid rgba(0, 230, 118, 0.4) !important;
             color: #ffffff !important;
-            padding: 8px 16px !important; /* حجم متوازن وأنيق */
+            padding: 7px 15px !important;
             border-radius: 8px !important;
             cursor: pointer;
-            font-size: 14.5px !important; /* تصغير الخط وضبطه */
+            font-size: 14px !important;
             font-weight: 800 !important;
             display: inline-flex !important;
             align-items: center !important;
             justify-content: center !important;
-            gap: 8px !important;
+            gap: 7px !important;
             position: relative;
             outline: none !important;
             transition: all 0.22s ease;
         }
 
         .tactical-tab i {
-            font-size: 15px !important;
+            font-size: 14px !important;
             color: #00e676 !important;
-            transition: transform 0.2s ease;
         }
 
         .tactical-tab span {
@@ -341,7 +326,7 @@
         .feature-item h5 { font-size: 15px; font-weight: 800; color: #fff; margin-bottom: 2px; }
         .feature-item p { font-size: 13px; color: var(--text-muted); }
 
-        /* Hero Split Section */
+        /* Hero Section */
         .hero-split-section {
             max-width: 1400px;
             margin: 20px auto 35px;
@@ -352,7 +337,7 @@
             display: grid;
             grid-template-columns: 1.2fr 0.8fr;
             gap: 35px;
-            padding: 45px;
+            padding: 40px;
             align-items: center;
             background: radial-gradient(circle at top right, rgba(0, 230, 118, 0.12) 0%, rgba(13, 19, 31, 0.98) 75%);
             border: 1px solid rgba(0, 230, 118, 0.25);
@@ -363,90 +348,66 @@
             background: rgba(0, 230, 118, 0.15);
             color: var(--saudi-green);
             border: 1px solid rgba(0, 230, 118, 0.4);
-            padding: 6px 18px;
+            padding: 6px 16px;
             border-radius: 30px;
-            font-size: 13.5px;
+            font-size: 13px;
             font-weight: 800;
             display: inline-block;
-            margin-bottom: 16px;
+            margin-bottom: 14px;
         }
 
         .hero-text-side h2 {
-            font-size: 38px;
+            font-size: 36px;
             font-weight: 900;
             line-height: 1.3;
-            margin-bottom: 15px;
+            margin-bottom: 14px;
             color: #fff;
         }
 
         .hero-text-side p {
             color: #cbd5e1;
-            font-size: 16px;
-            margin-bottom: 22px;
+            font-size: 15.5px;
+            margin-bottom: 20px;
             line-height: 1.7;
         }
 
         .countdown-container {
             background: rgba(7, 10, 16, 0.7);
             border: 1px solid var(--border-glass);
-            padding: 12px 18px;
-            border-radius: 14px;
+            padding: 12px 16px;
+            border-radius: 12px;
             display: inline-flex;
             flex-direction: column;
             gap: 8px;
-            margin-bottom: 22px;
+            margin-bottom: 20px;
         }
 
-        .cd-title { font-size: 13.5px; color: var(--gold); font-weight: 700; }
-        .countdown-boxes { display: flex; gap: 10px; }
+        .cd-title { font-size: 13px; color: var(--gold); font-weight: 700; }
+        .countdown-boxes { display: flex; gap: 8px; }
         .cd-box {
             background: #0f1622;
             border: 1px solid var(--border-glass);
-            padding: 5px 12px;
-            border-radius: 8px;
+            padding: 4px 12px;
+            border-radius: 6px;
             text-align: center;
         }
-        .cd-box span { font-size: 19px; font-weight: 900; color: #fff; display: block; }
-        .cd-box small { font-size: 10.5px; color: var(--text-muted); }
+        .cd-box span { font-size: 18px; font-weight: 900; color: #fff; display: block; }
+        .cd-box small { font-size: 10px; color: var(--text-muted); }
 
-        .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+        .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
         .hero-image-card {
-            border-radius: 18px;
+            border-radius: 16px;
             overflow: hidden;
             position: relative;
             border: 1px solid var(--border-glass);
             box-shadow: 0 15px 35px rgba(0,0,0,0.6);
         }
-        .hero-image-card img { width: 100%; height: 320px; object-fit: cover; display: block; }
+        .hero-image-card img { width: 100%; height: 310px; object-fit: cover; display: block; }
 
-        /* Buttons */
-        .btn {
-            padding: 12px 26px;
-            border-radius: 30px;
-            font-weight: 800;
-            cursor: pointer;
-            border: none;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            font-size: 15px;
-            transition: all 0.3s;
-        }
-
-        .btn-block { width: 100%; justify-content: center; }
-        .btn-primary { background: linear-gradient(135deg, #00d2ff, #0077b6); color: #040910; }
-        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 25px var(--primary-glow); }
-        .btn-national { background: linear-gradient(135deg, #00e676, #009640); color: #040910; box-shadow: 0 4px 15px var(--saudi-glow); }
-        .btn-national:hover { transform: translateY(-3px); box-shadow: 0 10px 30px var(--saudi-glow); }
-        .btn-gold { background: linear-gradient(135deg, #ffb300, #ff8f00); color: #040910; font-weight: 900; }
-        .btn-secondary { background: rgba(255, 255, 255, 0.05); color: #fff; border: 1px solid var(--border-glass); }
-
-        /* Products Grid */
+        /* Products Layout */
         .main-products-container {
             max-width: 1400px;
-            margin: 35px auto;
+            margin: 30px auto;
             padding: 0 24px;
             width: 100%;
         }
@@ -461,29 +422,29 @@
             justify-content: space-between;
             align-items: center;
             border-bottom: 1px solid var(--border-glass);
-            padding-bottom: 14px;
-            margin-bottom: 25px;
+            padding-bottom: 12px;
+            margin-bottom: 24px;
         }
 
         .section-title {
-            font-size: 24px;
+            font-size: 23px;
             font-weight: 900;
             color: #fff;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
         }
 
         .section-subtitle {
             color: var(--text-muted);
-            font-size: 14px;
+            font-size: 13.5px;
             font-weight: 600;
         }
 
         .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 22px;
+            gap: 20px;
             width: 100%;
         }
 
@@ -512,7 +473,7 @@
             color: #fff;
             padding: 4px 10px;
             border-radius: 8px;
-            font-size: 11.5px;
+            font-size: 11px;
             font-weight: 800;
             z-index: 2;
         }
@@ -521,7 +482,7 @@
             position: absolute;
             top: 12px;
             right: 12px;
-            background: rgba(13, 19, 31, 0.8);
+            background: rgba(13, 19, 31, 0.85);
             border: 1px solid var(--border-glass);
             color: #fff;
             width: 34px;
@@ -533,7 +494,7 @@
             justify-content: center;
             z-index: 2;
             transition: 0.25s;
-            font-size: 15px;
+            font-size: 14px;
         }
 
         .btn-fav.active {
@@ -562,12 +523,12 @@
 
         .product-img-wrapper {
             width: 100%;
-            height: 230px;
+            height: 220px;
             display: flex;
             align-items: center;
             justify-content: center;
             background: #121a29;
-            padding: 22px;
+            padding: 20px;
             border-bottom: 1px solid var(--border-glass);
         }
 
@@ -584,47 +545,47 @@
         }
 
         .product-card-body {
-            padding: 18px;
+            padding: 16px;
             display: flex;
             flex-direction: column;
             flex: 1;
         }
 
         .product-card-body h4 {
-            font-size: 16.5px;
+            font-size: 15.5px;
             font-weight: 800;
             color: #fff;
             margin-bottom: 8px;
             line-height: 1.4;
-            min-height: 46px;
+            min-height: 44px;
         }
 
         .rating {
             display: flex;
             align-items: center;
-            gap: 8px;
-            margin-bottom: 14px;
+            gap: 6px;
+            margin-bottom: 12px;
         }
 
-        .stars { color: var(--gold); font-size: 13.5px; display: flex; align-items: center; gap: 4px; }
-        .rating-score { color: #fff; font-weight: 800; font-size: 13.5px; }
-        .review-count { color: var(--text-muted); font-size: 12.5px; }
+        .stars { color: var(--gold); font-size: 13px; display: flex; align-items: center; gap: 4px; }
+        .rating-score { color: #fff; font-weight: 800; font-size: 13px; }
+        .review-count { color: var(--text-muted); font-size: 12px; }
 
         .price-container {
             display: flex;
             align-items: baseline;
             gap: 10px;
-            margin-bottom: 16px;
+            margin-bottom: 15px;
         }
 
         .current-price {
-            font-size: 23px;
+            font-size: 22px;
             font-weight: 900;
             color: var(--saudi-green);
         }
 
         .current-price small { font-size: 14px; font-weight: 700; }
-        .price-container del { color: #64748b; font-size: 14px; }
+        .price-container del { color: #64748b; font-size: 13.5px; }
 
         .btn-add {
             margin-top: auto;
@@ -632,9 +593,9 @@
             background: rgba(0, 210, 255, 0.08);
             color: var(--primary);
             border: 1px solid rgba(0, 210, 255, 0.3);
-            border-radius: 12px;
+            border-radius: 10px;
             padding: 11px;
-            font-size: 14.5px;
+            font-size: 14px;
             font-weight: 800;
         }
 
@@ -643,6 +604,28 @@
             color: #040910;
             box-shadow: 0 4px 15px var(--primary-glow);
         }
+
+        /* Buttons */
+        .btn {
+            padding: 11px 24px;
+            border-radius: 30px;
+            font-weight: 800;
+            cursor: pointer;
+            border: none;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 14.5px;
+            transition: all 0.25s;
+        }
+
+        .btn-block { width: 100%; justify-content: center; }
+        .btn-primary { background: linear-gradient(135deg, #00d2ff, #0077b6); color: #040910; }
+        .btn-national { background: linear-gradient(135deg, #00e676, #009640); color: #040910; box-shadow: 0 4px 15px var(--saudi-glow); }
+        .btn-gold { background: linear-gradient(135deg, #ffb300, #ff8f00); color: #040910; font-weight: 900; }
+        .btn-secondary { background: rgba(255, 255, 255, 0.05); color: #fff; border: 1px solid var(--border-glass); }
 
         /* Modals */
         .modal-overlay {
@@ -661,29 +644,29 @@
 
         .modal-content {
             width: 92%;
-            max-width: 450px;
-            padding: 32px 28px;
+            max-width: 440px;
+            padding: 30px 26px;
             position: relative;
-            border-radius: 22px;
+            border-radius: 20px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
             background: #0d131f;
             border: 1px solid var(--border-glass);
         }
 
-        .admin-modal-content { max-width: 750px !important; }
-        .cart-modal-content, .invoice-modal-content { max-width: 600px; }
+        .admin-modal-content { max-width: 780px !important; }
+        .cart-modal-content, .invoice-modal-content { max-width: 580px; }
 
         .modal-header-custom {
             display: flex;
             justify-content: space-between;
             align-items: center;
             border-bottom: 1px solid var(--border-glass);
-            padding-bottom: 16px;
-            margin-bottom: 18px;
+            padding-bottom: 14px;
+            margin-bottom: 16px;
         }
 
         .modal-header-custom h2 {
-            font-size: 21px;
+            font-size: 20px;
             color: #fff;
             display: flex;
             align-items: center;
@@ -692,8 +675,8 @@
 
         .btn-close {
             position: absolute;
-            top: 18px;
-            left: 18px;
+            top: 16px;
+            left: 16px;
             background: none;
             border: none;
             color: var(--text-muted);
@@ -706,13 +689,13 @@
 
         .login-form input, .add-product-form input, .add-product-form select {
             width: 100%;
-            padding: 13px 16px;
+            padding: 12px 16px;
             margin-bottom: 12px;
             background: #070a10;
             border: 1px solid var(--border-glass);
-            border-radius: 12px;
+            border-radius: 10px;
             color: #fff;
-            font-size: 14.5px;
+            font-size: 14px;
             outline: none;
         }
 
@@ -721,38 +704,38 @@
             box-shadow: 0 0 12px rgba(0, 230, 118, 0.4);
         }
 
-        /* Admin Dashboard & Visitor Logs Table */
+        /* لوحة التحكم وسجل الزوار */
         .admin-stats-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 12px;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
         }
 
         .stat-card {
             background: #070a10;
             border: 1px solid var(--border-glass);
             padding: 14px;
-            border-radius: 14px;
+            border-radius: 12px;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
         }
 
-        .stat-card i { font-size: 24px; }
-        .stat-label { font-size: 12px; color: var(--text-muted); }
-        .stat-card h4 { font-size: 17px; color: #fff; font-weight: 900; }
+        .stat-card i { font-size: 22px; }
+        .stat-label { font-size: 11.5px; color: var(--text-muted); }
+        .stat-card h4 { font-size: 16px; color: #fff; font-weight: 900; }
 
         .admin-logs-box {
             background: #070a10;
             padding: 16px;
-            border-radius: 16px;
+            border-radius: 14px;
             border: 1px solid var(--border-glass);
-            margin-bottom: 20px;
+            margin-bottom: 18px;
         }
 
         .admin-logs-box h4 {
-            font-size: 15px;
+            font-size: 14.5px;
             color: var(--primary);
             margin-bottom: 12px;
             display: flex;
@@ -772,7 +755,7 @@
         }
 
         .logs-table th, .logs-table td {
-            padding: 9px 12px;
+            padding: 8px 10px;
             text-align: right;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
@@ -781,55 +764,55 @@
 
         .add-product-box {
             background: #070a10;
-            padding: 18px;
-            border-radius: 16px;
+            padding: 16px;
+            border-radius: 14px;
             border: 1px solid var(--border-glass);
         }
 
         .add-product-box h4 {
-            font-size: 15px;
+            font-size: 14.5px;
             color: #fff;
             margin-bottom: 12px;
         }
 
-        .form-row { display: flex; gap: 12px; }
+        .form-row { display: flex; gap: 10px; }
 
-        /* Cart & Invoice */
+        /* Cart */
         .cart-items-list {
-            max-height: 260px;
+            max-height: 250px;
             overflow-y: auto;
-            margin-bottom: 16px;
+            margin-bottom: 15px;
         }
 
         .cart-item-row {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 12px;
+            padding: 10px;
             background: #070a10;
             border: 1px solid var(--border-glass);
-            border-radius: 14px;
+            border-radius: 12px;
             margin-bottom: 10px;
         }
 
         .cart-item-row img {
-            width: 50px;
-            height: 50px;
+            width: 48px;
+            height: 48px;
             object-fit: contain;
             border-radius: 8px;
         }
 
-        .cart-item-info { flex: 1; padding: 0 14px; }
-        .cart-item-info h5 { font-size: 15px; color: #fff; margin-bottom: 4px; }
-        .cart-item-price { color: var(--saudi-green); font-size: 14px; font-weight: 800; }
+        .cart-item-info { flex: 1; padding: 0 12px; }
+        .cart-item-info h5 { font-size: 14px; color: #fff; margin-bottom: 3px; }
+        .cart-item-price { color: var(--saudi-green); font-size: 13.5px; font-weight: 800; }
 
         .cart-item-qty {
             display: flex;
             align-items: center;
             gap: 8px;
             background: #0d131f;
-            padding: 4px 10px;
-            border-radius: 20px;
+            padding: 3px 8px;
+            border-radius: 15px;
             border: 1px solid var(--border-glass);
         }
 
@@ -837,7 +820,7 @@
             background: none;
             color: var(--primary);
             border: none;
-            font-size: 16px;
+            font-size: 15px;
             cursor: pointer;
             font-weight: bold;
         }
@@ -846,23 +829,23 @@
             background: none;
             border: none;
             color: var(--danger);
-            margin-right: 12px;
+            margin-right: 10px;
             cursor: pointer;
-            font-size: 15px;
+            font-size: 14px;
         }
 
         .coupon-box {
             display: flex;
-            gap: 10px;
-            margin: 16px 0 10px;
+            gap: 8px;
+            margin: 15px 0 10px;
         }
 
         .coupon-box input {
             flex: 1;
-            padding: 11px 14px;
+            padding: 10px 14px;
             background: #070a10;
             border: 1px solid var(--border-glass);
-            border-radius: 12px;
+            border-radius: 10px;
             color: #fff;
             outline: none;
             text-transform: uppercase;
@@ -870,10 +853,10 @@
 
         .cart-summary-box {
             background: #070a10;
-            padding: 16px;
-            border-radius: 14px;
+            padding: 14px;
+            border-radius: 12px;
             border: 1px solid var(--border-glass);
-            margin-bottom: 16px;
+            margin-bottom: 14px;
         }
 
         .summary-row {
@@ -881,30 +864,30 @@
             justify-content: space-between;
             margin-bottom: 8px;
             color: var(--text-muted);
-            font-size: 14px;
+            font-size: 13.5px;
         }
 
         .total-row {
-            font-size: 20px;
+            font-size: 19px;
             font-weight: 900;
             color: #fff;
             border-top: 1px solid var(--border-glass);
             padding-top: 10px;
-            margin-top: 8px;
+            margin-top: 6px;
         }
 
         .btn-checkout {
             background: linear-gradient(135deg, #00e676, #009640);
             color: #040910;
-            font-size: 17px;
-            padding: 14px;
-            border-radius: 14px;
-            box-shadow: 0 4px 20px var(--saudi-glow);
+            font-size: 16px;
+            padding: 13px;
+            border-radius: 12px;
+            box-shadow: 0 4px 18px var(--saudi-glow);
         }
 
         .empty-cart-container {
             text-align: center;
-            padding: 35px 20px;
+            padding: 30px 15px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -912,15 +895,15 @@
         }
 
         .empty-cart-icon {
-            font-size: 60px;
+            font-size: 55px;
             color: var(--gold);
-            margin-bottom: 6px;
+            margin-bottom: 5px;
         }
 
         .printable-invoice {
             background: #070a10;
-            padding: 22px;
-            border-radius: 16px;
+            padding: 20px;
+            border-radius: 14px;
             border: 1px solid var(--border-glass);
         }
 
@@ -928,47 +911,47 @@
             display: flex;
             justify-content: space-between;
             border-bottom: 1px solid var(--border-glass);
-            padding-bottom: 14px;
-            margin-bottom: 18px;
+            padding-bottom: 12px;
+            margin-bottom: 15px;
         }
 
-        .invoice-brand h3 { color: var(--primary); font-size: 22px; }
-        .invoice-brand p { color: var(--text-muted); font-size: 13px; }
-        .invoice-meta p { font-size: 13px; color: var(--text-muted); }
+        .invoice-brand h3 { color: var(--primary); font-size: 20px; }
+        .invoice-brand p { color: var(--text-muted); font-size: 12.5px; }
+        .invoice-meta p { font-size: 12.5px; color: var(--text-muted); }
 
         .invoice-table {
             width: 100%;
             border-collapse: collapse;
-            margin-bottom: 18px;
+            margin-bottom: 15px;
         }
 
         .invoice-table th, .invoice-table td {
-            padding: 10px;
+            padding: 9px;
             text-align: right;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            font-size: 14px;
+            font-size: 13.5px;
         }
 
         .invoice-table th { color: var(--text-muted); }
 
         .invoice-totals {
             border-top: 1px dashed var(--border-glass);
-            padding-top: 12px;
+            padding-top: 10px;
         }
 
         .inv-row {
             display: flex;
             justify-content: space-between;
-            font-size: 14px;
+            font-size: 13.5px;
             margin-bottom: 6px;
         }
 
         .inv-final {
-            font-size: 18px;
+            font-size: 17px;
             color: #fff;
-            margin-top: 8px;
+            margin-top: 6px;
             border-top: 1px solid var(--border-glass);
-            padding-top: 8px;
+            padding-top: 6px;
         }
 
         /* Toast */
@@ -979,17 +962,17 @@
             transform: translateX(-50%);
             background: var(--primary);
             color: #040910;
-            padding: 13px 26px;
+            padding: 12px 24px;
             border-radius: 40px;
             font-weight: 800;
-            font-size: 14.5px;
+            font-size: 14px;
             z-index: 99999;
             box-shadow: 0 8px 30px rgba(0, 210, 255, 0.45);
             opacity: 0;
             transition: all 0.35s;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
         }
 
         .custom-toast.show { bottom: 30px; opacity: 1; }
@@ -1000,13 +983,13 @@
             right: 25px;
             background: #25d366;
             color: #fff;
-            width: 50px;
-            height: 50px;
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 26px;
+            font-size: 24px;
             text-decoration: none;
             box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
             z-index: 900;
@@ -1017,12 +1000,11 @@
             transform: scale(1.1);
         }
 
-        /* Footer */
         .main-footer {
             background: #04060a;
             border-top: 1px solid var(--border-glass);
-            padding: 60px 24px 25px;
-            margin-top: 70px;
+            padding: 55px 24px 25px;
+            margin-top: 60px;
         }
 
         .footer-grid {
@@ -1030,42 +1012,44 @@
             margin: auto;
             display: grid;
             grid-template-columns: 2fr 1fr 1fr 1.5fr;
-            gap: 35px;
-            margin-bottom: 40px;
+            gap: 30px;
+            margin-bottom: 35px;
         }
 
         .footer-desc {
             color: var(--text-muted);
-            font-size: 14.5px;
-            margin-top: 14px;
+            font-size: 14px;
+            margin-top: 12px;
             max-width: 320px;
             line-height: 1.7;
         }
 
         .footer-col h5 {
-            font-size: 17px;
+            font-size: 16.5px;
             color: #fff;
             font-weight: 800;
-            margin-bottom: 18px;
+            margin-bottom: 16px;
         }
 
         .footer-col ul { list-style: none; }
-        .footer-col ul li { margin-bottom: 12px; }
+        .footer-col ul li { margin-bottom: 10px; }
         .footer-col ul li a {
             color: var(--text-muted);
             text-decoration: none;
-            font-size: 14px;
+            font-size: 13.5px;
             transition: 0.2s;
         }
 
         .footer-col ul li a:hover { color: var(--primary); }
 
+        .payment-methods { display: flex; flex-wrap: wrap; gap: 8px; }
+
         .pay-badge {
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid var(--border-glass);
-            padding: 7px 12px;
-            border-radius: 10px;
-            font-size: 13px;
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 12.5px;
             color: #fff;
             display: inline-flex;
             align-items: center;
@@ -1079,11 +1063,11 @@
             border-top: 1px solid rgba(255, 255, 255, 0.05);
             text-align: center;
             color: #64748b;
-            font-size: 13.5px;
+            font-size: 13px;
         }
 
         @media (max-width: 992px) {
-            .nav-container { flex-direction: column; gap: 14px; }
+            .nav-container { flex-direction: column; gap: 12px; }
             .search-bar-box { width: 100%; max-width: 100%; }
             .hero-grid-wrapper { grid-template-columns: 1fr; padding: 25px; }
             .footer-grid { grid-template-columns: 1fr 1fr; }
@@ -1099,18 +1083,18 @@
 </head>
 <body>
 
-    <!-- الشريط العلوي الإعلاني -->
+    <!-- الشريط الإعلاني -->
     <div class="top-announcement-bar">
-        <span>🚚 شحن فوري ومجاني لجميع مدن المملكة للطلبات فوق 300 ر.س | كود الخصم: <strong>KSA96</strong> لخصم 15%</span>
+        <span>🚚 شحن سريع ومجاني لجميع مدن المملكة للطلبات فوق 300 ر.س | استخدم الكود: <strong>KSA96</strong> لخصم 15%</span>
     </div>
 
-    <!-- نافذة تسجيل الدخول مع خيار "سجّل الآن" -->
+    <!-- نافذة تسجيل الدخول وسجّل الآن -->
     <div id="loginModal" class="modal-overlay" style="display: flex;">
         <div class="modal-content" style="border: 2px solid rgba(0, 230, 118, 0.45); box-shadow: 0 0 35px rgba(0, 230, 118, 0.2);">
             <div style="text-align: center; margin-bottom: 15px;">
-                <div class="logo-badge" style="margin: 0 auto 10px; width: 48px; height: 48px; font-size: 22px;"><i class="fa-solid fa-lock"></i></div>
-                <h2 id="authMainTitle" style="font-size: 22px; color: #fff;">تسجيل الدخول للمتجر</h2>
-                <p id="authSubTitle" style="color: var(--text-muted); font-size: 13.5px; margin-top: 4px;">سجّل دخولك أو أنشئ حساباً لمتابعة التسوق</p>
+                <div class="logo-badge" style="margin: 0 auto 10px; width: 46px; height: 46px; font-size: 20px;"><i class="fa-solid fa-lock"></i></div>
+                <h2 id="authMainTitle" style="font-size: 21px; color: #fff;">تسجيل الدخول للمتجر</h2>
+                <p id="authSubTitle" style="color: var(--text-muted); font-size: 13px; margin-top: 4px;">سجّل دخولك أو أنشئ حساباً للمتابعة</p>
             </div>
             
             <form class="login-form" id="authForm">
@@ -1133,13 +1117,13 @@
                     <i class="fa-solid fa-triangle-exclamation"></i> اسم المستخدم أو كلمة المرور غير صحيحة!
                 </p>
 
-                <button type="submit" id="authSubmitBtn" class="btn btn-national btn-block" style="font-size: 16px; padding: 11px;">
+                <button type="submit" id="authSubmitBtn" class="btn btn-national btn-block" style="font-size: 15.5px; padding: 11px;">
                     <i class="fa-solid fa-right-to-bracket"></i> دخول المتجر
                 </button>
             </form>
 
             <div style="text-align: center; margin-top: 15px; border-top: 1px solid var(--border-glass); padding-top: 12px;">
-                <span id="authToggleQuestion" style="color: var(--text-muted); font-size: 13.5px;">ليس لديك حساب؟</span>
+                <span id="authToggleQuestion" style="color: var(--text-muted); font-size: 13px;">ليس لديك حساب؟</span>
                 <button type="button" id="authToggleBtn" style="background: none; border: none; color: var(--primary); font-weight: 800; cursor: pointer; text-decoration: underline; margin-right: 5px;">
                     سجّل الآن
                 </button>
@@ -1187,9 +1171,9 @@
                 </div>
             </div>
 
-            <!-- سجل الزوار المباشر (من دخل وبالاسم وبالوقت ورقم الزائر) -->
+            <!-- سجل الزوار المباشر -->
             <div class="admin-logs-box">
-                <h4><i class="fa-solid fa-clock-rotate-left"></i> سجل حركة دخول الزوار المباشر للمتجر</h4>
+                <h4><i class="fa-solid fa-clock-rotate-left"></i> سجل حركة دخول الزوار الفعلي للمتجر</h4>
                 <div class="logs-table-wrapper">
                     <table class="logs-table">
                         <thead>
@@ -1197,7 +1181,7 @@
                                 <th># ترتيب الزائر</th>
                                 <th>اسم الزائر</th>
                                 <th>تاريخ ووقت الدخول</th>
-                                <th>حالة الحساب</th>
+                                <th>الصفة</th>
                             </tr>
                         </thead>
                         <tbody id="visitorLogsBody"></tbody>
@@ -1205,7 +1189,7 @@
                 </div>
             </div>
 
-            <!-- إضافة منتج -->
+            <!-- إضافة منتج جديد -->
             <div class="add-product-box">
                 <h4><i class="fa-solid fa-circle-plus"></i> إضافة منتج جديد إلى المتجر</h4>
                 <form id="addProductForm" class="add-product-form">
@@ -1307,7 +1291,7 @@
                 </div>
             </div>
 
-            <div style="margin-top: 18px;">
+            <div style="margin-top: 16px;">
                 <button class="btn btn-primary btn-block" onclick="window.print()"><i class="fa-solid fa-print"></i> طباعة الفاتورة / حفظ PDF</button>
             </div>
         </div>
@@ -1353,7 +1337,7 @@
         </div>
     </header>
 
-    <!-- القائمة التكتيكية المصغرة والمضبوطة (فوق مباشرة تحت البحث) -->
+    <!-- القائمة التكتيكية المصغرة والمضبوطة (في القمة تحت البحث مباشرة) -->
     <section id="categories" class="categories-tabs-section">
         <div class="tactical-nav">
             <button class="tactical-tab active-tab" data-target="all" type="button">
@@ -1379,7 +1363,7 @@
         </div>
     </section>
 
-    <!-- شريط الثقة -->
+    <!-- شريط الثقة المعتمد -->
     <section class="features-bar">
         <div class="features-container">
             <div class="feature-item">
@@ -1446,7 +1430,7 @@
         </div>
     </section>
 
-    <!-- حاوية المنتجات الموسعة -->
+    <!-- حاوية المنتجات الموسعة بالأسماء الحقيقية والواقعية -->
     <main id="productsContainer" class="main-products-container"></main>
 
     <!-- الفوتر -->
@@ -1493,17 +1477,17 @@
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
-    <!-- المحرك البرمجي المكتمل والمطور -->
+    <!-- المحرك البرمجي المكتمل والمطور بالأسماء الواقعية -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            // قائمة المنتجات الموسعة بصور استوديو نقية ومفرغة
+            // قائمة المنتجات الواقعية بالأسماء الرسمية وأسعار السوق الدقيقة
             const defaultProducts = [
                 // 1. عروض اليوم الوطني
                 { 
                     id: 1, 
-                    name: "آيفون 17 برو ماكس - تيتانيوم صحراوي طبيعي (256GB)", 
-                    price: 4500, 
-                    oldPrice: 5000, 
+                    name: "Apple iPhone 16 Pro Max سعة 256GB - تيتانيوم صحراوي طبيعي", 
+                    price: 4899, 
+                    oldPrice: 5399, 
                     category: "national-day", 
                     img: "https://pngimg.com/d/iphone_14_PNG21.png", 
                     rating: "4.9", 
@@ -1512,9 +1496,9 @@
                 },
                 { 
                     id: 2, 
-                    name: "بلايستيشن 5 برو مع شاحن يدين أصلي مزدوج", 
-                    price: 2100, 
-                    oldPrice: 2500, 
+                    name: "Sony PlayStation 5 Pro مع وحدة شحن DualSense Charging Station الأصلية", 
+                    price: 2999, 
+                    oldPrice: 3349, 
                     category: "national-day", 
                     img: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Black_and_white_Playstation_5_base_edition_with_controller.png/640px-Black_and_white_Playstation_5_base_edition_with_controller.png", 
                     rating: "4.8", 
@@ -1522,114 +1506,125 @@
                     tag: "عرض اليوم الوطني 🇸🇦" 
                 },
 
-                // 2. بكجات وعُتاد القيمنق
+                // 2. بكجات وعُتاد القيمنق الاحترافي
                 { 
                     id: 101, 
-                    name: "بكج قيمنق PS5 Slim متكامل (شاشة قيمنق 144Hz + كرسي + سماعة محيطية)", 
-                    price: 4799, 
-                    oldPrice: 5299, 
+                    name: "بكج ألعاب متكامل: شاشة AOC 165Hz + كرسي Cougar طبي + سماعة HyperX Cloud II", 
+                    price: 3699, 
+                    oldPrice: 4199, 
                     category: "gaming", 
                     img: "https://m.media-amazon.com/images/I/61PZuE+eA3L._AC_SL1200_.jpg", 
                     rating: "4.9", 
                     reviews: 42, 
-                    tag: "الأكثر طلباً" 
+                    tag: "البكج الأكثر طلباً" 
                 },
                 { 
                     id: 102, 
-                    name: "بكج محاكاة السباقات والهجولة (دركسون Logitech G29 + دواسات وقير احترافي)", 
-                    price: 1899, 
-                    oldPrice: 2199, 
+                    name: "دركسون Logitech G29 Driving Force مع بدالات ألمنيوم وقير Driving Force Shifter", 
+                    price: 1099, 
+                    oldPrice: 1350, 
                     category: "gaming", 
                     img: "https://m.media-amazon.com/images/I/61Iym3td6ST._AC_SL1500_.jpg", 
                     rating: "4.7", 
-                    reviews: 35, 
-                    tag: "عشاق السباقات" 
+                    reviews: 65, 
+                    tag: "عشاق المحاكاة والهجولة" 
                 },
                 { 
                     id: 103, 
-                    name: "مايك ديناميكي احترافي للبثوث مع مكسر صوتي رقمي وأذرع RGB", 
-                    price: 489, 
-                    oldPrice: 620, 
+                    name: "ميكروفون Fifine AmpliGame AM8 ديناميكي RGB (منافذ XLR & USB) للبث والألعاب", 
+                    price: 249, 
+                    oldPrice: 320, 
                     category: "gaming", 
                     img: "https://m.media-amazon.com/images/I/61b7U2Q-fHL._AC_SL1500_.jpg", 
                     rating: "4.9", 
-                    reviews: 64, 
-                    tag: "عشاق البث والتسجيل" 
+                    reviews: 84, 
+                    tag: "مايك البثوث الأفضل" 
                 },
                 { 
                     id: 104, 
-                    name: "شاشة قيمنق منحنية 27 بوصة 165Hz بدقة 2K فائقة السرعة 1ms", 
-                    price: 1050, 
-                    oldPrice: 1299, 
+                    name: "مكسر صوت الألعاب Fifine SC3 Gaming Audio Mixer مع تحكم بقنوات المايك وسماعة الرأس", 
+                    price: 219, 
+                    oldPrice: 280, 
                     category: "gaming", 
-                    img: "https://m.media-amazon.com/images/I/81xU9dJ52eL._AC_SL1500_.jpg", 
+                    img: "https://m.media-amazon.com/images/I/61S15P+mI2L._AC_SL1500_.jpg", 
                     rating: "4.8", 
-                    reviews: 82, 
-                    tag: "أعلى أداء شاشات" 
+                    reviews: 51, 
+                    tag: "تحكم صوتي فوري" 
                 },
                 { 
                     id: 105, 
-                    name: "كرسي قيمنق احترافي طبي مريح مع مسند للقدمين ووسائد طبية", 
-                    price: 999, 
-                    oldPrice: 1200, 
+                    name: "شاشة ألعاب AOC Gaming C27G2Z منحنية 27 بوصة - معدل تحديث 240Hz وسرعة 0.5ms", 
+                    price: 949, 
+                    oldPrice: 1199, 
                     category: "gaming", 
-                    img: "https://m.media-amazon.com/images/I/61k1jE9bFSL._AC_SL1500_.jpg", 
-                    rating: "4.6", 
-                    reviews: 58, 
-                    tag: "راحة فائقة" 
+                    img: "https://m.media-amazon.com/images/I/81xU9dJ52eL._AC_SL1500_.jpg", 
+                    rating: "4.9", 
+                    reviews: 73, 
+                    tag: "أعلى أداء شاشات" 
                 },
                 { 
                     id: 106, 
-                    name: "بكج إكسسوارات القيمنق 4 في 1 (كيبورد ميكانيكي + ماوس دقيق + سماعة + باد)", 
-                    price: 249, 
-                    oldPrice: 350, 
+                    name: "كيبورد ألعاب ميكانيكي SteelSeries Apex Pro TKL مع أسرع سويتش مغناطيسي بالعالم وشاشة OLED", 
+                    price: 829, 
+                    oldPrice: 999, 
                     category: "gaming", 
                     img: "https://m.media-amazon.com/images/I/71YyMknV6HL._AC_SL1500_.jpg", 
-                    rating: "4.8", 
-                    reviews: 76, 
-                    tag: "ملحقات RGB" 
+                    rating: "4.9", 
+                    reviews: 62, 
+                    tag: "احتراف الإيسبورت" 
+                },
+                { 
+                    id: 107, 
+                    name: "كرسي قيمنق احترافي Cougar Armor One Black مريح للظهر مع وسائد طبية وقاعدة فولاذية", 
+                    price: 889, 
+                    oldPrice: 1050, 
+                    category: "gaming", 
+                    img: "https://m.media-amazon.com/images/I/61k1jE9bFSL._AC_SL1500_.jpg", 
+                    rating: "4.7", 
+                    reviews: 58, 
+                    tag: "جلسة صحية مريحة" 
                 },
 
-                // 3. أجهزة ومنصات سوني
+                // 3. أجهزة ومنصات سوني الأصلية
                 { 
                     id: 6, 
-                    name: "جهاز بلايستيشن 5 سليم - الإصدار الرقمي (Digital Slim)", 
-                    price: 2599, 
-                    oldPrice: 2899, 
+                    name: "جهاز Sony PlayStation 5 Slim Digital Edition (المعالج المحسن وتخزين 1TB)", 
+                    price: 1849, 
+                    oldPrice: 2049, 
                     category: "sony", 
                     img: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/PlayStation_5_and_DualSense_with_transparent_background.png/640px-PlayStation_5_and_DualSense_with_transparent_background.png", 
                     rating: "4.8", 
-                    reviews: 45, 
+                    reviews: 145, 
                     tag: "الأكثر طلباً" 
                 },
                 { 
                     id: 7, 
-                    name: "جهاز بلايستيشن 5 إصدار قارئ الأقراص (Disc Edition)", 
-                    price: 2099, 
-                    oldPrice: 2280, 
+                    name: "جهاز Sony PlayStation 5 Slim Disc Edition مع محرك أقراص Blu-ray ويد DualSense", 
+                    price: 2199, 
+                    oldPrice: 2399, 
                     category: "sony", 
                     img: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Black_and_white_Playstation_5_base_edition_with_controller.png/640px-Black_and_white_Playstation_5_base_edition_with_controller.png", 
-                    rating: "4.7", 
-                    reviews: 112 
+                    rating: "4.9", 
+                    reviews: 210 
                 },
                 { 
                     id: 8, 
-                    name: "يد تحكم بلايستيشن 5 DualSense أصلية - لون أسود كربوني Midnight", 
+                    name: "يد تحكم Sony DualSense Wireless Controller الأصلية للبلايستيشن 5 - Midnight Black", 
                     price: 289, 
                     oldPrice: 349, 
                     category: "sony", 
                     img: "https://m.media-amazon.com/images/I/61b7U+Fh-ZL._AC_SL1500_.jpg", 
-                    rating: "4.9", 
+                    rating: "4.8", 
                     reviews: 89, 
                     tag: "ملحقات أصلية" 
                 },
 
-                // 4. الأجهزة الذكية
+                // 4. الهواتف الذكية المعتمدة
                 { 
                     id: 3, 
-                    name: "آيفون 17 الإصدار القياسي - أزرق سماوي جديد (128GB)", 
-                    price: 4100, 
-                    oldPrice: null, 
+                    name: "Apple iPhone 16 سعة 128GB - أزرق مائي فائق النقاء مع شريحة A18 Bionic", 
+                    price: 3699, 
+                    oldPrice: 3999, 
                     category: "smart-devices", 
                     img: "https://pngimg.com/d/iphone_14_PNG33.png", 
                     rating: "4.9", 
@@ -1638,9 +1633,9 @@
                 },
                 { 
                     id: 4, 
-                    name: "آيفون 16 برو - تيتانيوم رمادي فضي (256GB)", 
-                    price: 3800, 
-                    oldPrice: 4200, 
+                    name: "Apple iPhone 15 Pro سعة 256GB - تيتانيوم أزرق طبيعي مع منفذ Type-C", 
+                    price: 4150, 
+                    oldPrice: 4500, 
                     category: "smart-devices", 
                     img: "https://pngimg.com/d/iphone16_PNG38.png", 
                     rating: "4.8", 
@@ -1651,30 +1646,30 @@
                 // 5. طاولات السيت أب
                 { 
                     id: 9, 
-                    name: "طاولة قيمنق Pro مستقيمة بسطح كربون فايبر مع إضاءة RGB مدمجة", 
-                    price: 750, 
-                    oldPrice: 950, 
+                    name: "طاولة قيمنق Pro Carbon Fiber مستقيمة 140سم بسطح ألياف كربون وإضاءة RGB مدمجة", 
+                    price: 649, 
+                    oldPrice: 850, 
                     category: "tables", 
                     img: "https://m.media-amazon.com/images/I/61-97V-iZRL._AC_SL1500_.jpg", 
-                    rating: "4.5", 
-                    reviews: 29 
+                    rating: "4.6", 
+                    reviews: 38 
                 },
                 { 
                     id: 10, 
-                    name: "طاولة سيت أب زاوية حرف L قيمنق هيدروليك للشاشات المتعددة", 
-                    price: 1100, 
-                    oldPrice: 1350, 
+                    name: "طاولة سيت أب زاوية L-Shaped مقاس 160سم مخصصة لحمل شاشتين والبي سي مع حامل أكواب", 
+                    price: 980, 
+                    oldPrice: 1250, 
                     category: "tables", 
                     img: "https://m.media-amazon.com/images/I/71uVv8R9dSL._AC_SL1500_.jpg", 
                     rating: "4.8", 
-                    reviews: 44, 
+                    reviews: 49, 
                     tag: "الأكثر اتساعاً" 
                 }
             ];
 
             let products = defaultProducts;
             let favorites = JSON.parse(localStorage.getItem("techgear_favs")) || [];
-            let storeStats = JSON.parse(localStorage.getItem("techgear_stats_clean")) || { totalRevenue: 15400, ordersCount: 11 };
+            let storeStats = JSON.parse(localStorage.getItem("techgear_stats_clean")) || { totalRevenue: 18600, ordersCount: 14 };
             
             // سجل الزوار الدائم المخزن محلياً
             let visitorLogs = JSON.parse(localStorage.getItem("techgear_visitor_logs")) || [
@@ -1820,13 +1815,12 @@
             const adminTotalVisitors = document.getElementById("adminTotalVisitors");
             const visitorLogsBody = document.getElementById("visitorLogsBody");
 
-            // التبديل بين تسجيل الدخول وسجّل الآن
             authToggleBtn.addEventListener("click", () => {
                 isRegisterMode = !isRegisterMode;
                 loginErrorMsg.style.display = "none";
                 if (isRegisterMode) {
                     authMainTitle.innerText = "إنشاء حساب جديد في المتجر";
-                    authSubTitle.innerText = "سجّل الآن وانضم لعائلة متجر TechGear";
+                    authSubTitle.innerText = "سجّل الآن وانضم لمتجر TechGear";
                     authSubmitBtn.innerHTML = '<i class="fa-solid fa-user-plus"></i> إتمام التسجيل والدخول';
                     nameFieldContainer.style.display = "block";
                     authToggleQuestion.innerText = "لديك حساب بالفعل؟";
@@ -1893,7 +1887,7 @@
                 const pass = authPassword.value.trim();
                 const fullName = authFullName.value.trim();
 
-                // 1. الدخول بحساب المدير بدر
+                // الدخول بحساب الآدمن بدر
                 if (user === "Badr1122" && pass === "Badr1122") {
                     localStorage.setItem("techgear_logged_in", "true");
                     localStorage.setItem("techgear_is_admin", "true");
@@ -1907,7 +1901,7 @@
                     return;
                 }
 
-                // 2. نمط "سجّل الآن" لأي زائر جديد
+                // تسجيل زائر جديد
                 if (isRegisterMode) {
                     const finalName = fullName || user;
                     localStorage.setItem("techgear_logged_in", "true");
@@ -1922,7 +1916,6 @@
                     return;
                 }
 
-                // خطأ في الدخول
                 loginErrorMsg.style.display = "block";
                 authPassword.value = "";
             });
@@ -2110,10 +2103,10 @@
                 couponInput.value = "";
                 couponMsg.innerText = "";
                 refreshCartUI();
-                showToast("<i class='fa-solid fa-circle-check text-green'></i> تم تأكيد طلبك بنجاح!");
+                showToast("<i class='fa-solid fa-circle-check text-green'></i> تم تأكيد طلبك وإصدار الفاتورة بنجاح!");
             });
 
-            // فلترة التبويبات التكتيكية
+            // فلترة التبويبات
             const tabs = document.querySelectorAll(".tactical-tab");
             tabs.forEach(tab => {
                 tab.addEventListener("click", function() {
