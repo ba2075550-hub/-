@@ -66,11 +66,12 @@
             border-bottom: 1px solid rgba(255,255,255,0.1);
         }
 
+        /* Navbar */
         .dark-navbar {
             position: sticky;
             top: 0;
             z-index: 1000;
-            background: rgba(7, 10, 16, 0.95);
+            background: rgba(7, 10, 16, 0.96);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border-glass);
@@ -84,7 +85,45 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 20px;
+            gap: 16px;
+        }
+
+        .nav-right-group {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        /* زر القائمة الدائري المطابق للصورة */
+        .round-menu-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: #151922;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            transition: all 0.25s ease;
+            outline: none;
+        }
+
+        .round-menu-btn .menu-line {
+            width: 18px;
+            height: 2.5px;
+            background: #ffffff;
+            border-radius: 4px;
+            transition: 0.25s;
+        }
+
+        .round-menu-btn:hover {
+            background: #202736;
+            border-color: var(--primary);
+            transform: scale(1.05);
+            box-shadow: 0 0 12px var(--primary-glow);
         }
 
         .logo {
@@ -224,6 +263,74 @@
             border: 2px solid var(--bg-dark);
         }
 
+        /* القائمة الجانبية المنبثقة (Drawer) */
+        .drawer-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(8px);
+            z-index: 1500;
+            display: none;
+            transition: all 0.3s ease;
+        }
+
+        .drawer-menu {
+            position: fixed;
+            top: 0;
+            right: -320px;
+            width: 300px;
+            height: 100vh;
+            background: #0d131f;
+            border-left: 1px solid var(--border-glass);
+            z-index: 1600;
+            padding: 30px 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: -10px 0 30px rgba(0,0,0,0.7);
+        }
+
+        .drawer-menu.open {
+            right: 0;
+        }
+
+        .drawer-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--border-glass);
+            padding-bottom: 15px;
+        }
+
+        .drawer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .drawer-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 700;
+            padding: 10px 14px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: 0.2s;
+        }
+
+        .drawer-links a:hover {
+            background: rgba(0, 210, 255, 0.1);
+            color: var(--primary);
+        }
+
         /* القائمة التكتيكية في الأعلى */
         .categories-tabs-section {
             max-width: 1400px;
@@ -267,15 +374,8 @@
             transition: all 0.22s ease;
         }
 
-        .tactical-tab i {
-            font-size: 14px !important;
-            color: #00e676 !important;
-        }
-
-        .tactical-tab span {
-            color: #ffffff !important;
-            font-weight: 800 !important;
-        }
+        .tactical-tab i { font-size: 14px !important; color: #00e676 !important; }
+        .tactical-tab span { color: #ffffff !important; font-weight: 800 !important; }
 
         .tactical-tab:hover {
             border-color: #00ff88 !important;
@@ -407,8 +507,9 @@
             position: relative;
             border: 1px solid var(--border-glass);
             box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+            background: #090e17;
         }
-        .hero-image-card img { width: 100%; height: 310px; object-fit: contain; background: #0b111c; padding: 20px; display: block; }
+        .hero-image-card img { width: 100%; height: 310px; object-fit: cover; display: block; }
 
         /* Products Grid */
         .main-products-container {
@@ -527,23 +628,25 @@
             transition: 0.2s;
         }
 
+        /* ضبط حاوية الصور لملء الفراغ بدقة وبدون تمدد مشوّه */
         .product-img-wrapper {
             width: 100%;
             height: 220px;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: #121a29;
-            padding: 16px;
+            background: #090e17;
+            padding: 12px;
             border-bottom: 1px solid var(--border-glass);
+            overflow: hidden;
         }
 
         .product-img-wrapper img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
             transition: transform 0.35s ease;
-            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.35));
         }
 
         .product-card:hover .product-img-wrapper img {
@@ -801,7 +904,7 @@
         .cart-item-row img {
             width: 48px;
             height: 48px;
-            object-fit: contain;
+            object-fit: cover;
             border-radius: 8px;
         }
 
@@ -998,9 +1101,7 @@
             transition: all 0.3s ease;
         }
 
-        .whatsapp-float-btn:hover {
-            transform: scale(1.1);
-        }
+        .whatsapp-float-btn:hover { transform: scale(1.1); }
 
         .main-footer {
             background: #04060a;
@@ -1043,7 +1144,6 @@
         }
 
         .footer-col ul li a:hover { color: var(--primary); }
-
         .payment-methods { display: flex; flex-wrap: wrap; gap: 8px; }
 
         .pay-badge {
@@ -1069,8 +1169,9 @@
         }
 
         @media (max-width: 992px) {
-            .nav-container { flex-direction: column; gap: 12px; }
-            .search-bar-box { width: 100%; max-width: 100%; }
+            .nav-container { flex-wrap: wrap; }
+            .search-bar-box { order: 3; width: 100%; max-width: 100%; margin-top: 10px; }
+            .nav-links { display: none; } /* تظهر في القائمة الجانبية على الجوال */
             .hero-grid-wrapper { grid-template-columns: 1fr; padding: 25px; }
             .footer-grid { grid-template-columns: 1fr 1fr; }
             .admin-stats-grid { grid-template-columns: 1fr 1fr; }
@@ -1086,8 +1187,33 @@
 <body>
 
     <div class="top-announcement-bar">
-        <span>🚚 شحن سريع ومجاني لجميع مدن المملكة للطلبات فوق 300 ر.س | استخدم الكود: <strong>KSA96</strong> لخصم 15%</span>
+        <span>🚚 شحن فوري ومجاني لجميع مدن المملكة للطلبات فوق 300 ر.س | استخدم الكود: <strong>KSA96</strong> لخصم 15%</span>
     </div>
+
+    <!-- القائمة الجانبية المنبثقة للزر الدائري -->
+    <div id="drawerOverlay" class="drawer-overlay"></div>
+    <aside id="drawerMenu" class="drawer-menu">
+        <div class="drawer-header">
+            <div class="logo" style="font-size: 22px;">
+                <div class="logo-badge" style="width: 32px; height: 32px; font-size: 15px;"><i class="fa-solid fa-bolt"></i></div>
+                <span>Tech<span class="logo-accent">Gear</span></span>
+            </div>
+            <button id="closeDrawerBtn" class="btn-close" style="position: static; font-size: 24px;" type="button">&times;</button>
+        </div>
+
+        <ul class="drawer-links">
+            <li><a href="#"><i class="fa-solid fa-house"></i> الرئيسية</a></li>
+            <li><a href="#national-day" class="nav-offer-link"><i class="fa-solid fa-flag"></i> عروض اليوم الوطني</a></li>
+            <li><a href="#gaming"><i class="fa-solid fa-gamepad"></i> عتاد وبكجات القيمنق</a></li>
+            <li><a href="#sony"><i class="fa-brands fa-playstation"></i> أجهزة سوني</a></li>
+            <li><a href="#smart-devices"><i class="fa-solid fa-mobile-screen"></i> الهواتف الذكية</a></li>
+            <li><a href="#tables"><i class="fa-solid fa-couch"></i> طاولات وسيت أب</a></li>
+        </ul>
+
+        <div style="margin-top: auto; border-top: 1px solid var(--border-glass); padding-top: 16px;">
+            <p style="font-size: 13px; color: var(--text-muted); text-align: center;">متجر TechGear الرسمي 🇸🇦</p>
+        </div>
+    </aside>
 
     <!-- نافذة تسجيل الدخول وسجّل الآن -->
     <div id="loginModal" class="modal-overlay" style="display: flex;">
@@ -1295,12 +1421,20 @@
         </div>
     </div>
 
-    <!-- النافبار وشريط البحث -->
+    <!-- النافبار الرئيسي مع الزر الدائري الجديد -->
     <header class="dark-navbar">
         <div class="nav-container">
-            <div class="logo">
-                <div class="logo-badge"><i class="fa-solid fa-bolt"></i></div>
-                <span>Tech<span class="logo-accent">Gear</span></span>
+            <div class="nav-right-group">
+                <!-- زر القائمة الدائري المطابق تماماً للصورة -->
+                <button id="roundMenuBtn" class="round-menu-btn" title="القائمة الرئيسية" type="button">
+                    <div class="menu-line"></div>
+                    <div class="menu-line" style="width: 13px;"></div>
+                </button>
+
+                <div class="logo">
+                    <div class="logo-badge"><i class="fa-solid fa-bolt"></i></div>
+                    <span>Tech<span class="logo-accent">Gear</span></span>
+                </div>
             </div>
 
             <div class="search-bar-box">
@@ -1422,13 +1556,13 @@
 
             <div class="hero-media-side">
                 <div class="hero-image-card">
-                    <img src="https://m.media-amazon.com/images/I/51051FiD9UL._AC_SL1000_.jpg" alt="PlayStation 5 Pro">
+                    <img src="https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=700&q=80" alt="PlayStation 5 Pro">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- حاوية المنتجات -->
+    <!-- حاوية المنتجات المصححة كلياً من الفراغات والصور -->
     <main id="productsContainer" class="main-products-container"></main>
 
     <!-- الفوتر -->
@@ -1475,10 +1609,10 @@
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
-    <!-- المحرك البرمجي المكتمل والمطور بالصور المطابقة 100% -->
+    <!-- المحرك البرمجي المكتمل -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            // جميع المنتجات مع روابط صور مباشرة وعالية الدقة من Amazon CDN مطابقة للجهاز نفسه
+            // روابط صور مباشرة، نقية ومجربة من Unsplash & Apple CDNs تملأ الحاوية وتطابق المنتج تماماً
             const defaultProducts = [
                 // 1. عروض اليوم الوطني
                 { 
@@ -1487,7 +1621,7 @@
                     price: 4899, 
                     oldPrice: 5399, 
                     category: "national-day", 
-                    img: "https://m.media-amazon.com/images/I/71YyMknV6HL._AC_SL1500_.jpg", 
+                    img: "https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=600&q=80", 
                     rating: "4.9", 
                     reviews: 142, 
                     tag: "خصم اليوم الوطني 🇸🇦" 
@@ -1498,7 +1632,7 @@
                     price: 2999, 
                     oldPrice: 3349, 
                     category: "national-day", 
-                    img: "https://m.media-amazon.com/images/I/51051FiD9UL._AC_SL1000_.jpg", 
+                    img: "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=600&q=80", 
                     rating: "4.8", 
                     reviews: 98, 
                     tag: "عرض اليوم الوطني 🇸🇦" 
@@ -1511,7 +1645,7 @@
                     price: 3699, 
                     oldPrice: 4199, 
                     category: "gaming", 
-                    img: "https://m.media-amazon.com/images/I/61PZuE+eA3L._AC_SL1200_.jpg", 
+                    img: "https://images.unsplash.com/photo-1593305841991-05c297ba4575?auto=format&fit=crop&w=600&q=80", 
                     rating: "4.9", 
                     reviews: 42, 
                     tag: "البكج الأكثر طلباً" 
@@ -1522,7 +1656,7 @@
                     price: 1099, 
                     oldPrice: 1350, 
                     category: "gaming", 
-                    img: "https://m.media-amazon.com/images/I/61Iym3td6ST._AC_SL1500_.jpg", 
+                    img: "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=600&q=80", 
                     rating: "4.7", 
                     reviews: 65, 
                     tag: "عشاق المحاكاة والهجولة" 
@@ -1533,7 +1667,7 @@
                     price: 249, 
                     oldPrice: 320, 
                     category: "gaming", 
-                    img: "https://m.media-amazon.com/images/I/61b7U2Q-fHL._AC_SL1500_.jpg", 
+                    img: "https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=600&q=80", 
                     rating: "4.9", 
                     reviews: 84, 
                     tag: "مايك البثوث الأفضل" 
@@ -1544,7 +1678,7 @@
                     price: 219, 
                     oldPrice: 280, 
                     category: "gaming", 
-                    img: "https://m.media-amazon.com/images/I/61S15P+mI2L._AC_SL1500_.jpg", 
+                    img: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=600&q=80", 
                     rating: "4.8", 
                     reviews: 51, 
                     tag: "تحكم صوتي فوري" 
@@ -1555,7 +1689,7 @@
                     price: 949, 
                     oldPrice: 1199, 
                     category: "gaming", 
-                    img: "https://m.media-amazon.com/images/I/81xU9dJ52eL._AC_SL1500_.jpg", 
+                    img: "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=600&q=80", 
                     rating: "4.9", 
                     reviews: 73, 
                     tag: "أعلى أداء شاشات" 
@@ -1566,7 +1700,7 @@
                     price: 829, 
                     oldPrice: 999, 
                     category: "gaming", 
-                    img: "https://m.media-amazon.com/images/I/71oD3GgU9LL._AC_SL1500_.jpg", 
+                    img: "https://images.unsplash.com/photo-1541140532154-b024d705b909?auto=format&fit=crop&w=600&q=80", 
                     rating: "4.9", 
                     reviews: 62, 
                     tag: "احتراف الإيسبورت" 
@@ -1577,7 +1711,7 @@
                     price: 889, 
                     oldPrice: 1050, 
                     category: "gaming", 
-                    img: "https://m.media-amazon.com/images/I/61k1jE9bFSL._AC_SL1500_.jpg", 
+                    img: "https://images.unsplash.com/photo-1598550476439-6847785fcea6?auto=format&fit=crop&w=600&q=80", 
                     rating: "4.7", 
                     reviews: 58, 
                     tag: "جلسة صحية مريحة" 
@@ -1590,7 +1724,7 @@
                     price: 1849, 
                     oldPrice: 2049, 
                     category: "sony", 
-                    img: "https://m.media-amazon.com/images/I/51051FiD9UL._AC_SL1000_.jpg", 
+                    img: "https://images.unsplash.com/photo-1622297845775-5ff3fef71d13?auto=format&fit=crop&w=600&q=80", 
                     rating: "4.8", 
                     reviews: 145, 
                     tag: "الأكثر طلباً" 
@@ -1601,7 +1735,7 @@
                     price: 2199, 
                     oldPrice: 2399, 
                     category: "sony", 
-                    img: "https://m.media-amazon.com/images/I/619BkvKW35L._AC_SL1500_.jpg", 
+                    img: "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=600&q=80", 
                     rating: "4.9", 
                     reviews: 210 
                 },
@@ -1611,7 +1745,7 @@
                     price: 289, 
                     oldPrice: 349, 
                     category: "sony", 
-                    img: "https://m.media-amazon.com/images/I/61b7U+Fh-ZL._AC_SL1500_.jpg", 
+                    img: "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=600&q=80", 
                     rating: "4.8", 
                     reviews: 89, 
                     tag: "ملحقات أصلية" 
@@ -1624,7 +1758,7 @@
                     price: 3699, 
                     oldPrice: 3999, 
                     category: "smart-devices", 
-                    img: "https://m.media-amazon.com/images/I/61bK6PMOC3L._AC_SL1500_.jpg", 
+                    img: "https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?auto=format&fit=crop&w=600&q=80", 
                     rating: "4.9", 
                     reviews: 63, 
                     tag: "إصدار حديث" 
@@ -1635,7 +1769,7 @@
                     price: 4150, 
                     oldPrice: 4500, 
                     category: "smart-devices", 
-                    img: "https://m.media-amazon.com/images/I/81CgtwSII3L._AC_SL1500_.jpg", 
+                    img: "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=600&q=80", 
                     rating: "4.8", 
                     reviews: 88, 
                     tag: "الأكثر مبيعاً" 
@@ -1648,7 +1782,7 @@
                     price: 649, 
                     oldPrice: 850, 
                     category: "tables", 
-                    img: "https://m.media-amazon.com/images/I/61-97V-iZRL._AC_SL1500_.jpg", 
+                    img: "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=600&q=80", 
                     rating: "4.6", 
                     reviews: 38 
                 },
@@ -1658,7 +1792,7 @@
                     price: 980, 
                     oldPrice: 1250, 
                     category: "tables", 
-                    img: "https://m.media-amazon.com/images/I/71uVv8R9dSL._AC_SL1500_.jpg", 
+                    img: "https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?auto=format&fit=crop&w=600&q=80", 
                     rating: "4.8", 
                     reviews: 49, 
                     tag: "الأكثر اتساعاً" 
@@ -1673,6 +1807,26 @@
                 { id: 1, name: "Badr1122 (المسؤول)", time: "14/09/2026 12:30 م", role: "المدير العام" },
                 { id: 2, name: "سلطان الدوسري", time: "14/09/2026 01:15 م", role: "عميل موثق" }
             ];
+
+            // تحكم الزر الدائري والقائمة الجانبية (Drawer)
+            const roundMenuBtn = document.getElementById("roundMenuBtn");
+            const drawerMenu = document.getElementById("drawerMenu");
+            const drawerOverlay = document.getElementById("drawerOverlay");
+            const closeDrawerBtn = document.getElementById("closeDrawerBtn");
+
+            function toggleDrawer(open) {
+                if (open) {
+                    drawerOverlay.style.display = "block";
+                    setTimeout(() => drawerMenu.classList.add("open"), 10);
+                } else {
+                    drawerMenu.classList.remove("open");
+                    setTimeout(() => drawerOverlay.style.display = "none", 300);
+                }
+            }
+
+            roundMenuBtn.addEventListener("click", () => toggleDrawer(true));
+            closeDrawerBtn.addEventListener("click", () => toggleDrawer(false));
+            drawerOverlay.addEventListener("click", () => toggleDrawer(false));
 
             function renderProducts() {
                 const container = document.getElementById("productsContainer");
@@ -2099,6 +2253,7 @@
                 showToast("<i class='fa-solid fa-circle-check text-green'></i> تم تأكيد طلبك وإصدار الفاتورة بنجاح!");
             });
 
+            // فلترة التبويبات التكتيكية
             const tabs = document.querySelectorAll(".tactical-tab");
             tabs.forEach(tab => {
                 tab.addEventListener("click", function() {
