@@ -3,1169 +3,2103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>متجر TechGear | عتاد القيمنق الأول</title>
+    <title>TechGear | متجر الألعاب والإلكترونيات الأول</title>
+    <!-- استدعاء خطوط Tajawal للعناوين و Cairo للنصوص -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&family=Tajawal:wght@700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    
     <style>
         :root {
-            --bg-body: #05070a;
-            --bg-card: #0a0e17;
-            --bg-card-hover: #0f1523;
-            --bg-img: #060911;
-            
-            /* ألوان نيون سايبر تكتيكية */
-            --cyan-neon: #00f0ff;
-            --cyan-glow: rgba(0, 240, 255, 0.25);
-            --green-neon: #00ff88;
-            --green-glow: rgba(0, 255, 136, 0.22);
-            --gold-neon: #ffb703;
-            
-            --text-main: #f8fafc;
-            --text-muted: #8492a6;
-            --border-glass: rgba(255, 255, 255, 0.07);
-            --border-highlight: rgba(0, 240, 255, 0.2);
-            --danger: #ff3366;
+            --bg-base: #050B12;
+            --bg-card: #0B111C;
+            --border-card: #1B2937;
+            --primary-cyan: #00CFF5;
+            --cyan-glow: rgba(0, 207, 245, 0.2);
+            --danger-coral: #FF4D5A;
+            --accent-green: #00E890;
+            --text-main: #F4F7FA;
+            --text-secondary: #8493A3;
+            --gold-admin: #FFB703;
+            --border-glass: rgba(27, 41, 55, 0.8);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Tajawal', sans-serif;
             scroll-behavior: smooth;
         }
 
         body {
-            background-color: var(--bg-body);
+            background-color: var(--bg-base);
             color: var(--text-main);
+            font-family: 'Cairo', sans-serif;
             min-height: 100vh;
-            overflow-x: hidden;
-            font-size: 15px;
             line-height: 1.6;
-            background-image: 
-                radial-gradient(circle at 10% 10%, rgba(0, 240, 255, 0.04) 0%, transparent 40%),
-                radial-gradient(circle at 90% 90%, rgba(0, 255, 136, 0.04) 0%, transparent 40%);
+            overflow-x: hidden;
         }
 
-        ::-webkit-scrollbar { width: 7px; }
-        ::-webkit-scrollbar-track { background: var(--bg-body); }
-        ::-webkit-scrollbar-thumb { background: #1a2234; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: var(--cyan-neon); }
+        h1, h2, h3, h4, .price-value, .logo span {
+            font-family: 'Tajawal', sans-serif;
+            font-weight: 800;
+        }
 
-        .text-green { color: var(--green-neon) !important; }
-        .text-cyan { color: var(--cyan-neon) !important; }
-        .text-gold { color: var(--gold-neon) !important; }
-
-        /* Announcement Bar */
-        .top-announcement-bar {
-            background: linear-gradient(90deg, #021a11, #004d2e, #021a11);
-            color: #fff;
+        /* شريط التنبيهات العلوي */
+        .top-banner {
+            background: #081622;
+            color: var(--primary-cyan);
+            border-bottom: 1px solid var(--border-card);
             text-align: center;
-            padding: 9px 15px;
+            padding: 8px 16px;
             font-size: 13.5px;
-            font-weight: 700;
-            border-bottom: 1px solid rgba(0, 255, 136, 0.15);
-            letter-spacing: 0.3px;
+            font-weight: 600;
         }
 
-        /* Navbar */
-        .dark-navbar {
+        .top-banner strong {
+            color: var(--accent-green);
+        }
+
+        /* شريط التنقل */
+        .navbar {
             position: sticky;
             top: 0;
             z-index: 1000;
-            background: rgba(5, 7, 10, 0.94);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border-glass);
-            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.6);
+            background: rgba(5, 11, 18, 0.95);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border-card);
         }
 
-        .nav-container {
+        .nav-inner {
             max-width: 1400px;
             margin: auto;
-            padding: 12px 24px;
+            padding: 14px 24px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 16px;
-        }
-
-        .nav-right-group {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-        }
-
-        /* زر القائمة الدائري */
-        .round-menu-btn {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            background: #0d121c;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 5px;
-            transition: all 0.25s ease;
-        }
-
-        .round-menu-btn .menu-line {
-            width: 18px;
-            height: 2.5px;
-            background: #ffffff;
-            border-radius: 4px;
-        }
-
-        .round-menu-btn:hover {
-            background: #151d2d;
-            border-color: var(--cyan-neon);
-            box-shadow: 0 0 12px var(--cyan-glow);
-            transform: scale(1.05);
+            gap: 20px;
         }
 
         .logo {
             display: flex;
             align-items: center;
             gap: 10px;
-            font-size: 25px;
+            text-decoration: none;
+            color: var(--text-main);
+            font-size: 24px;
             font-weight: 900;
-            color: #fff;
-            user-select: none;
-            letter-spacing: 0.5px;
         }
 
-        .logo-badge {
-            background: linear-gradient(135deg, var(--cyan-neon), #0077b6);
-            color: #040910;
-            width: 38px;
-            height: 38px;
-            border-radius: 10px;
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            background: #0B111C;
+            border: 1px solid var(--primary-cyan);
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 18px;
-            box-shadow: 0 0 16px var(--cyan-glow);
+            color: var(--primary-cyan);
+            box-shadow: 0 0 10px var(--cyan-glow);
         }
 
-        .logo-accent { color: var(--cyan-neon); }
+        .logo span span {
+            color: var(--primary-cyan);
+        }
 
-        .search-bar-box {
+        .search-container {
             flex: 1;
-            max-width: 480px;
+            max-width: 440px;
             position: relative;
         }
 
-        .search-bar-box i {
+        .search-container i {
             position: absolute;
-            right: 18px;
+            right: 16px;
             top: 50%;
             transform: translateY(-50%);
-            color: var(--text-muted);
-            font-size: 15px;
+            color: var(--text-secondary);
+            font-size: 14px;
         }
 
-        .search-bar-box input {
+        .search-input {
             width: 100%;
-            padding: 12px 48px 12px 18px;
-            background: rgba(13, 18, 28, 0.85);
-            border: 1px solid var(--border-glass);
+            padding: 10px 44px 10px 16px;
+            background: #0B111C;
+            border: 1px solid var(--border-card);
             border-radius: 30px;
-            color: #fff;
+            color: var(--text-main);
             font-size: 14px;
             outline: none;
-            transition: all 0.3s ease;
-        }
-
-        .search-bar-box input:focus {
-            border-color: var(--cyan-neon);
-            box-shadow: 0 0 16px var(--cyan-glow);
-            background: rgba(18, 25, 38, 0.95);
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .nav-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 14.5px;
-            padding: 8px 14px;
-            border-radius: 12px;
             transition: 0.25s;
         }
 
-        .nav-links a:hover, .nav-links a.active-link {
-            color: #fff;
-            background: rgba(255, 255, 255, 0.05);
+        .search-input:focus {
+            border-color: var(--primary-cyan);
+            box-shadow: 0 0 12px var(--cyan-glow);
         }
 
-        .sign-in-btn, .cart-btn, .admin-nav-btn {
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid var(--border-glass);
-            color: #fff;
-            padding: 9px 18px;
-            border-radius: 30px;
-            cursor: pointer;
-            font-weight: 700;
-            font-size: 14px;
+        .nav-actions {
             display: flex;
             align-items: center;
-            gap: 8px;
-            transition: all 0.3s ease;
-        }
-
-        .admin-nav-btn {
-            background: rgba(255, 183, 3, 0.12);
-            border-color: rgba(255, 183, 3, 0.3);
-            color: var(--gold-neon);
-        }
-
-        .admin-nav-btn:hover {
-            background: var(--gold-neon);
-            color: #040910;
-            box-shadow: 0 0 16px rgba(255, 183, 3, 0.4);
-        }
-
-        .sign-in-btn:hover, .cart-btn:hover {
-            background: rgba(0, 240, 255, 0.12);
-            border-color: var(--cyan-neon);
-            box-shadow: 0 0 15px var(--cyan-glow);
-            transform: translateY(-2px);
-        }
-
-        .cart-badge {
-            position: absolute;
-            top: -5px;
-            right: -5px;
-            background: var(--danger);
-            color: #fff;
-            font-size: 11px;
-            border-radius: 50%;
-            width: 20px;
-            height: 20px;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            font-weight: 900;
-        }
-
-        /* القائمة الجانبية (Drawer) */
-        .drawer-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: rgba(0, 0, 0, 0.75);
-            backdrop-filter: blur(8px);
-            z-index: 1500;
-            display: none;
-        }
-
-        .drawer-menu {
-            position: fixed;
-            top: 0;
-            right: -320px;
-            width: 300px;
-            height: 100vh;
-            background: #090d15;
-            border-left: 1px solid var(--border-glass);
-            z-index: 1600;
-            padding: 30px 24px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: -10px 0 35px rgba(0,0,0,0.8);
-        }
-
-        .drawer-menu.open { right: 0; }
-
-        .drawer-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-bottom: 1px solid var(--border-glass);
-            padding-bottom: 15px;
-        }
-
-        .drawer-links {
+            gap: 12px;
             list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
         }
 
-        .drawer-links a {
-            color: var(--text-muted);
+        .nav-link {
+            color: var(--text-secondary);
             text-decoration: none;
-            font-size: 15.5px;
-            font-weight: 700;
-            padding: 10px 14px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 8px 12px;
+            border-radius: 8px;
             transition: 0.2s;
         }
 
-        .drawer-links a:hover {
-            background: rgba(0, 240, 255, 0.08);
-            color: var(--cyan-neon);
+        .nav-link:hover, .nav-link.active {
+            color: var(--text-main);
         }
 
-        /* القائمة التكتيكية */
-        .categories-tabs-section {
-            max-width: 1400px;
-            margin: 18px auto 10px;
-            padding: 0 24px;
+        .nav-link.deal-link {
+            color: var(--accent-green);
+            background: rgba(0, 232, 144, 0.08);
+            border: 1px solid rgba(0, 232, 144, 0.2);
+        }
+
+        .admin-nav-btn {
+            background: rgba(255, 183, 3, 0.1);
+            color: var(--gold-admin);
+            border: 1px solid rgba(255, 183, 3, 0.3);
+            border-radius: 20px;
+            padding: 7px 16px;
+            font-size: 13.5px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex !important;
+            align-items: center;
+            gap: 8px;
+            transition: 0.2s;
+        }
+
+        .admin-nav-btn:hover {
+            background: var(--gold-admin);
+            color: #050B12;
+        }
+
+        .icon-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #0B111C;
+            border: 1px solid var(--border-card);
+            color: var(--text-main);
             display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            position: relative;
+            transition: 0.2s;
+        }
+
+        .icon-btn:hover {
+            border-color: var(--primary-cyan);
+            color: var(--primary-cyan);
+        }
+
+        .badge-count {
+            position: absolute;
+            top: -4px;
+            right: -4px;
+            background: var(--danger-coral);
+            color: #fff;
+            font-size: 11px;
+            font-weight: 700;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: none;
+            align-items: center;
             justify-content: center;
         }
 
-        .tactical-nav {
+        /* الحاوية الرئيسية ومحددات الأقسام */
+        .main-container {
+            max-width: 1400px;
+            margin: auto;
+            padding: 30px 24px;
+        }
+
+        .section-block {
+            margin-bottom: 50px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--border-card);
+            padding-bottom: 14px;
+            margin-bottom: 24px;
+        }
+
+        .section-title {
+            font-size: 22px;
+            color: var(--text-main);
             display: flex;
             align-items: center;
             gap: 10px;
-            background: #070a10;
-            padding: 7px 12px;
-            border-radius: 12px;
-            border: 1px solid rgba(0, 255, 136, 0.25);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
         }
 
-        .tactical-tab {
-            background: #0a0f18;
-            border: 1.2px solid rgba(0, 255, 136, 0.35);
-            color: #ffffff;
-            padding: 7px 16px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: 800;
-            display: inline-flex;
-            align-items: center;
-            gap: 7px;
-            transition: all 0.22s ease;
+        .section-title i {
+            color: var(--primary-cyan);
+            font-size: 18px;
         }
 
-        .tactical-tab i { font-size: 14px; color: var(--green-neon); }
-
-        .tactical-tab:hover {
-            border-color: var(--green-neon);
-            background: rgba(0, 255, 136, 0.12);
-            box-shadow: 0 0 10px var(--green-glow);
-            transform: translateY(-2px);
+        .section-count {
+            color: var(--text-secondary);
+            font-size: 13.5px;
         }
 
-        .tactical-tab.active-tab {
-            background: #005a30;
-            border-color: var(--green-neon);
-            box-shadow: 0 0 15px var(--green-glow);
-        }
-
-        .tactical-tab.active-tab i { color: #ffffff; }
-
-        /* شريط الثقة */
-        .features-bar {
-            max-width: 1400px;
-            margin: 15px auto 10px;
-            padding: 0 24px;
-        }
-
-        .features-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 16px;
-            background: var(--bg-card);
-            border: 1px solid var(--border-glass);
-            border-radius: 18px;
-            padding: 18px 25px;
-        }
-
-        .feature-item {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-        }
-
-        .feature-item i { font-size: 26px; color: var(--cyan-neon); }
-        .feature-item h5 { font-size: 15px; font-weight: 800; color: #fff; margin-bottom: 2px; }
-        .feature-item p { font-size: 13px; color: var(--text-muted); }
-
-        /* Hero Section */
-        .hero-split-section {
-            max-width: 1400px;
-            margin: 20px auto 35px;
-            padding: 0 24px;
-        }
-
-        .hero-grid-wrapper {
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 35px;
-            padding: 40px;
-            align-items: center;
-            background: radial-gradient(circle at top right, rgba(0, 255, 136, 0.1) 0%, rgba(10, 14, 23, 0.98) 75%);
-            border: 1px solid rgba(0, 255, 136, 0.2);
-            border-radius: 20px;
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.7);
-        }
-
-        .hero-badge {
-            background: rgba(0, 255, 136, 0.12);
-            color: var(--green-neon);
-            border: 1px solid rgba(0, 255, 136, 0.35);
-            padding: 6px 16px;
-            border-radius: 30px;
-            font-size: 13px;
-            font-weight: 800;
-            display: inline-block;
-            margin-bottom: 14px;
-        }
-
-        .hero-text-side h2 {
-            font-size: 36px;
-            font-weight: 900;
-            line-height: 1.3;
-            margin-bottom: 14px;
-            color: #fff;
-        }
-
-        .hero-text-side p {
-            color: #cbd5e1;
-            font-size: 15.5px;
-            margin-bottom: 20px;
-            line-height: 1.7;
-        }
-
-        .countdown-container {
-            background: rgba(5, 7, 10, 0.75);
-            border: 1px solid var(--border-glass);
-            padding: 12px 16px;
-            border-radius: 12px;
-            display: inline-flex;
-            flex-direction: column;
-            gap: 8px;
-            margin-bottom: 20px;
-        }
-
-        .cd-title { font-size: 13px; color: var(--gold-neon); font-weight: 700; }
-        .countdown-boxes { display: flex; gap: 8px; }
-        .cd-box {
-            background: #0d121c;
-            border: 1px solid var(--border-glass);
-            padding: 4px 12px;
-            border-radius: 6px;
-            text-align: center;
-        }
-        .cd-box span { font-size: 18px; font-weight: 900; color: #fff; display: block; }
-        .cd-box small { font-size: 10px; color: var(--text-muted); }
-
-        .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
-        .hero-image-card {
-            border-radius: 16px;
-            overflow: hidden;
-            border: 1px solid var(--border-glass);
-            background: var(--bg-img);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
-        }
-        .hero-image-card img { width: 100%; height: 310px; object-fit: cover; display: block; }
-
-        /* شبكة المنتجات وتنسيق الصور العالي */
-        .main-products-container {
-            max-width: 1400px;
-            margin: 30px auto;
-            padding: 0 24px;
-        }
-
+        /* شبكة المنتجات والبطاقات الموحدة */
         .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 22px;
+            gap: 20px;
         }
 
         .product-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-glass);
-            border-radius: 18px;
-            overflow: hidden;
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 14px;
             display: flex;
             flex-direction: column;
-            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
         }
 
         .product-card:hover {
-            transform: translateY(-6px);
-            background: var(--bg-card-hover);
-            border-color: var(--border-highlight);
-            box-shadow: 0 14px 35px rgba(0, 0, 0, 0.6);
+            transform: translateY(-4px);
+            border-color: var(--primary-cyan);
+            box-shadow: 0 8px 24px var(--cyan-glow);
         }
 
-        .product-badge {
-            position: absolute;
-            top: 12px;
-            left: 12px;
-            background: linear-gradient(135deg, #ff3366, #ff5e3a);
-            color: #fff;
-            padding: 4px 10px;
-            border-radius: 8px;
-            font-size: 11px;
-            font-weight: 800;
-            z-index: 2;
-        }
-
-        .btn-fav {
+        /* شارة العرض بلون أحمر مرجاني موحد */
+        .card-badge {
             position: absolute;
             top: 12px;
             right: 12px;
-            background: rgba(10, 14, 23, 0.85);
-            border: 1px solid var(--border-glass);
+            background: var(--danger-coral);
             color: #fff;
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-size: 11.5px;
+            font-weight: 700;
+            z-index: 2;
+        }
+
+        /* أيقونة المفضلة داخل دائرة داكنة */
+        .btn-favorite {
+            position: absolute;
+            top: 12px;
+            left: 12px;
             width: 34px;
             height: 34px;
             border-radius: 50%;
-            cursor: pointer;
+            background: #080E17;
+            border: 1px solid var(--border-card);
+            color: var(--text-secondary);
             display: flex;
             align-items: center;
             justify-content: center;
+            cursor: pointer;
             z-index: 2;
-            transition: 0.25s;
+            transition: 0.2s;
             font-size: 14px;
         }
 
-        .btn-fav:hover { color: var(--danger); border-color: var(--danger); }
+        .btn-favorite:hover, .btn-favorite.active {
+            color: var(--danger-coral);
+            border-color: var(--danger-coral);
+            background: rgba(255, 77, 90, 0.1);
+        }
 
-        /* الحاوية المعزولة للصور مع خلفية داكنة موحدة */
-        .product-img-wrapper {
-            position: relative;
+        /* مساحة الصورة الموحدة بدقة */
+        .product-image-box {
             width: 100%;
-            height: 220px;
-            background: var(--bg-img);
+            height: 210px;
+            background: #080E17;
+            border-bottom: 1px solid var(--border-card);
             padding: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-bottom: 1px solid var(--border-glass);
             overflow: hidden;
         }
 
-        .product-img-wrapper img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain; /* إظهار الجهاز كاملاً بدون أي قص */
-            filter: drop-shadow(0 8px 16px rgba(0,0,0,0.5));
-            transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        .product-image-box img {
+            max-width: 85%;
+            max-height: 85%;
+            object-fit: contain;
+            transition: transform 0.3s ease;
         }
 
-        .product-card:hover .product-img-wrapper img {
-            transform: scale(1.08);
+        .product-card:hover .product-image-box img {
+            transform: scale(1.06);
         }
 
+        /* جسم البطاقة والمحتوى المتناسق */
         .product-card-body {
-            padding: 18px;
+            padding: 16px;
             display: flex;
             flex-direction: column;
             flex: 1;
         }
 
-        .product-card-body h4 {
-            font-size: 15.5px;
-            font-weight: 800;
-            color: #fff;
-            margin-bottom: 8px;
-            line-height: 1.4;
-            min-height: 44px;
+        .product-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 10px;
+            line-height: 1.45;
+            height: 44px;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
         }
 
-        .price-container {
+        /* الأسعار كأكبر عنصر بصري */
+        .price-section {
             display: flex;
             align-items: baseline;
             gap: 10px;
-            margin: 12px 0 16px;
-        }
-
-        .current-price {
-            font-size: 22px;
-            font-weight: 900;
-            color: var(--green-neon);
-        }
-
-        .current-price small { font-size: 14px; font-weight: 700; }
-        .price-container del { color: #526077; font-size: 13.5px; }
-
-        .btn-add {
+            margin-bottom: 16px;
             margin-top: auto;
-            width: 100%;
-            background: rgba(0, 240, 255, 0.08);
-            color: var(--cyan-neon);
-            border: 1px solid rgba(0, 240, 255, 0.3);
-            border-radius: 10px;
-            padding: 11px;
+        }
+
+        .price-value {
+            color: var(--accent-green);
+            font-size: 24px;
+            font-weight: 900;
+            letter-spacing: -0.5px;
+        }
+
+        .price-value small {
             font-size: 14px;
-            font-weight: 800;
-            cursor: pointer;
-            transition: all 0.25s ease;
+            font-weight: 700;
+            margin-right: 2px;
         }
 
-        .btn-add:hover {
-            background: var(--cyan-neon);
-            color: #040910;
-            box-shadow: 0 4px 20px var(--cyan-glow);
+        .price-old {
+            color: var(--text-secondary);
+            font-size: 13.5px;
+            text-decoration: line-through;
         }
 
-        .btn {
-            padding: 11px 24px;
-            border-radius: 30px;
-            font-weight: 800;
+        /* الزر الأساسي الشفاف مع حدود سماوية */
+        .btn-add-cart {
+            width: 100%;
+            background: transparent;
+            border: 1px solid var(--primary-cyan);
+            color: var(--primary-cyan);
+            padding: 11px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 700;
             cursor: pointer;
-            border: none;
-            text-decoration: none;
-            display: inline-flex;
+            display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
-            font-size: 14.5px;
-            transition: all 0.25s;
+            transition: all 0.22s ease;
         }
 
-        .btn-national { 
-            background: linear-gradient(135deg, #00ff88, #009640); 
-            color: #040910; 
-            box-shadow: 0 4px 18px var(--green-glow); 
+        .btn-add-cart:hover {
+            background: var(--primary-cyan);
+            color: #050B12;
+            box-shadow: 0 0 14px var(--cyan-glow);
         }
 
-        .btn-national:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 25px var(--green-glow);
-        }
-
-        .btn-secondary { 
-            background: rgba(255, 255, 255, 0.05); 
-            color: #fff; 
-            border: 1px solid var(--border-glass); 
-        }
-
-        .btn-secondary:hover { background: rgba(255, 255, 255, 0.1); }
-
-        /* Modals */
+        /* النوافذ العائمة (Modals) */
         .modal-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100vw;
             height: 100vh;
-            background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(12px);
+            background: rgba(5, 11, 18, 0.85);
+            backdrop-filter: blur(8px);
             display: none;
             align-items: center;
             justify-content: center;
             z-index: 2000;
         }
 
-        .modal-content {
+        .modal-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 16px;
             width: 92%;
             max-width: 440px;
-            padding: 30px 26px;
+            padding: 28px;
             position: relative;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.85);
-            background: #0c101a;
-            border: 1px solid var(--border-glass);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8);
         }
 
-        .admin-modal-content { max-width: 780px !important; }
-        .cart-modal-content { max-width: 580px; }
+        .modal-box.admin-box {
+            max-width: 720px;
+        }
 
-        .btn-close {
+        .modal-close {
             position: absolute;
             top: 16px;
             left: 16px;
             background: none;
             border: none;
-            color: var(--text-muted);
-            font-size: 26px;
+            color: var(--text-secondary);
+            font-size: 22px;
             cursor: pointer;
         }
 
-        .btn-close:hover { color: #fff; }
+        .modal-close:hover {
+            color: var(--text-main);
+        }
 
-        .login-form input {
+        .form-control {
             width: 100%;
-            padding: 12px 16px;
-            margin-bottom: 12px;
-            background: #060910;
-            border: 1px solid var(--border-glass);
-            border-radius: 10px;
-            color: #fff;
+            padding: 11px 14px;
+            background: #080E17;
+            border: 1px solid var(--border-card);
+            border-radius: 8px;
+            color: var(--text-main);
             font-size: 14px;
+            margin-bottom: 12px;
             outline: none;
         }
 
-        .login-form input:focus {
-            border-color: var(--green-neon);
-            box-shadow: 0 0 12px var(--green-glow);
+        .form-control:focus {
+            border-color: var(--primary-cyan);
         }
 
-        .custom-toast {
+        .btn-submit {
+            width: 100%;
+            background: var(--primary-cyan);
+            color: #050B12;
+            border: none;
+            padding: 11px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 15px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .btn-submit:hover {
+            box-shadow: 0 0 14px var(--cyan-glow);
+        }
+
+        /* جدول سجل الزوار داخل لوحة الإدارة */
+        .logs-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+            margin-top: 10px;
+        }
+
+        .logs-table th, .logs-table td {
+            padding: 9px 12px;
+            text-align: right;
+            border-bottom: 1px solid var(--border-card);
+        }
+
+        .logs-table th {
+            color: var(--text-secondary);
+            background: #080E17;
+        }
+
+        /* Toast الإشعار السريع */
+        .toast-notify {
             position: fixed;
-            bottom: -80px;
+            bottom: -70px;
             left: 50%;
             transform: translateX(-50%);
-            background: var(--cyan-neon);
-            color: #040910;
-            padding: 12px 24px;
-            border-radius: 40px;
-            font-weight: 800;
+            background: var(--primary-cyan);
+            color: #050B12;
+            padding: 10px 22px;
+            border-radius: 30px;
+            font-weight: 700;
             font-size: 14px;
-            z-index: 99999;
-            box-shadow: 0 8px 30px var(--cyan-glow);
+            z-index: 3000;
+            box-shadow: 0 8px 24px var(--cyan-glow);
             opacity: 0;
-            transition: all 0.35s ease;
+            transition: all 0.3s ease;
             display: flex;
             align-items: center;
             gap: 8px;
         }
 
-        .custom-toast.show { bottom: 30px; opacity: 1; }
-
-        .whatsapp-float-btn {
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-            background: #25d366;
-            color: #fff;
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            text-decoration: none;
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
-            z-index: 900;
-            transition: all 0.3s ease;
+        .toast-notify.active {
+            bottom: 24px;
+            opacity: 1;
         }
 
-        .whatsapp-float-btn:hover { transform: scale(1.1); }
+        /* القائمة الجانبية المنسدلة للزر الدائري */
+        .drawer-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1500;
+            display: none;
+        }
 
-        .main-footer {
-            background: #030407;
-            border-top: 1px solid var(--border-glass);
-            padding: 55px 24px 25px;
-            margin-top: 60px;
+        .side-drawer {
+            position: fixed;
+            top: 0;
+            left: -300px;
+            width: 280px;
+            height: 100vh;
+            background: #080E17;
+            border-right: 1px solid var(--border-card);
+            z-index: 1600;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            transition: left 0.3s ease;
+        }
+
+        .side-drawer.open {
+            left: 0;
+        }
+
+        .side-drawer a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 600;
+            padding: 8px 12px;
+            border-radius: 6px;
+            transition: 0.2s;
+        }
+
+        .side-drawer a:hover {
+            color: var(--primary-cyan);
+            background: rgba(0, 207, 245, 0.08);
+        }
+
+        .footer {
+            background: #04080D;
+            border-top: 1px solid var(--border-card);
+            padding: 40px 24px 20px;
+            margin-top: 50px;
             text-align: center;
-            color: var(--text-muted);
+            color: var(--text-secondary);
+            font-size: 13.5px;
         }
 
         @media (max-width: 992px) {
-            .nav-container { flex-wrap: wrap; }
-            .search-bar-box { order: 3; width: 100%; max-width: 100%; margin-top: 10px; }
-            .nav-links { display: none; }
-            .hero-grid-wrapper { grid-template-columns: 1fr; padding: 25px; }
+            .nav-actions .nav-link { display: none; }
+            .search-container { max-width: 100%; order: 3; margin-top: 10px; }
+            .nav-inner { flex-wrap: wrap; }
         }
     </style>
 </head>
 <body>
 
-    <div class="top-announcement-bar">
-        <span>🚚 شحن فوري ومجاني لجميع مدن المملكة للطلبات فوق 300 ر.س | استخدم الكود: <strong>KSA96</strong> لخصم 15%</span>
+    <div class="top-banner">
+        <span>🚚 شحن سريع ومجاني للطلبات فوق 300 ر.س | استخدم الكود: <strong>KSA96</strong> لخصم 15%</span>
     </div>
 
-    <!-- القائمة الجانبية المنبثقة -->
+    <!-- القائمة الجانبية المنبثقة من اليسار للزر الدائري -->
     <div id="drawerOverlay" class="drawer-overlay"></div>
-    <aside id="drawerMenu" class="drawer-menu">
-        <div class="drawer-header">
-            <div class="logo" style="font-size: 22px;">
-                <div class="logo-badge" style="width: 32px; height: 32px; font-size: 15px;"><i class="fa-solid fa-bolt"></i></div>
-                <span>Tech<span class="logo-accent">Gear</span></span>
-            </div>
-            <button id="closeDrawerBtn" class="btn-close" style="position: static; font-size: 24px;" type="button">&times;</button>
+    <aside id="sideDrawer" class="side-drawer">
+        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-card); padding-bottom: 12px;">
+            <span style="font-weight: 800; color: var(--text-main);">أقسام المتجر</span>
+            <button id="closeDrawer" style="background: none; border: none; color: var(--text-secondary); font-size: 20px; cursor: pointer;">&times;</button>
         </div>
-
-        <ul class="drawer-links">
-            <li><a href="#"><i class="fa-solid fa-house"></i> الرئيسية</a></li>
-            <li><a href="#national-day"><i class="fa-solid fa-flag text-green"></i> عروض اليوم الوطني</a></li>
-            <li><a href="#gaming"><i class="fa-solid fa-gamepad text-cyan"></i> عتاد وبكجات القيمنق</a></li>
-            <li><a href="#sony"><i class="fa-brands fa-playstation text-cyan"></i> أجهزة سوني</a></li>
-            <li><a href="#smart-devices"><i class="fa-solid fa-mobile-screen"></i> الهواتف الذكية</a></li>
-            <li><a href="#tables"><i class="fa-solid fa-couch"></i> طاولات وسيت أب</a></li>
-        </ul>
+        <a href="#daily-deals"><i class="fa-solid fa-fire"></i> عروض اليوم</a>
+        <a href="#consoles"><i class="fa-brands fa-playstation"></i> أجهزة الألعاب</a>
+        <a href="#accessories"><i class="fa-solid fa-headset"></i> ملحقات الكمبيوتر</a>
+        <a href="#setups"><i class="fa-solid fa-couch"></i> الطاولات والكراسي</a>
     </aside>
 
-    <!-- نافذة تسجيل الدخول وسجّل الآن -->
-    <div id="loginModal" class="modal-overlay" style="display: flex;">
-        <div class="modal-content" style="border: 2px solid rgba(0, 255, 136, 0.4);">
-            <div style="text-align: center; margin-bottom: 15px;">
-                <div class="logo-badge" style="margin: 0 auto 10px; width: 46px; height: 46px; font-size: 20px;"><i class="fa-solid fa-lock"></i></div>
-                <h2 id="authMainTitle" style="font-size: 21px; color: #fff;">تسجيل الدخول للمتجر</h2>
-                <p id="authSubTitle" style="color: var(--text-muted); font-size: 13px; margin-top: 4px;">سجّل دخولك لمتابعة التسوق وإدارة العتاد</p>
-            </div>
-            
-            <form class="login-form" id="authForm">
-                <div id="nameFieldContainer" style="margin-bottom: 10px; display: none;">
-                    <input type="text" id="authFullName" placeholder="الاسم الكريم" autocomplete="off">
-                </div>
-                <input type="text" id="authUsername" placeholder="اسم المستخدم (Badr1122)" required autocomplete="off">
-                <input type="password" id="authPassword" placeholder="كلمة المرور (Badr1122)" required>
-                
-                <p id="loginErrorMsg" style="color: var(--danger); font-size: 12.5px; font-weight: bold; text-align: center; display: none; margin-bottom: 10px;">
-                    اسم المستخدم أو كلمة المرور غير صحيحة!
-                </p>
+    <!-- شريط التنقل الرئيسي: زر الإدارة، الحساب، السلة، والزر الدائري في أقصى اليسار -->
+    <header class="navbar">
+        <div class="nav-inner">
+            <a href="#" class="logo">
+                <div class="logo-icon"><i class="fa-solid fa-bolt"></i></div>
+                <span>Tech<span>Gear</span></span>
+            </a>
 
-                <button type="submit" id="authSubmitBtn" class="btn btn-national" style="width: 100%;">دخول المتجر</button>
-            </form>
-
-            <div style="text-align: center; margin-top: 15px; border-top: 1px solid var(--border-glass); padding-top: 12px;">
-                <span id="authToggleQuestion" style="color: var(--text-muted); font-size: 13px;">ليس لديك حساب؟</span>
-                <button type="button" id="authToggleBtn" style="background: none; border: none; color: var(--cyan-neon); font-weight: 800; cursor: pointer; text-decoration: underline; margin-right: 5px;">
-                    سجّل الآن
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- النافبار الرئيسي -->
-    <header class="dark-navbar">
-        <div class="nav-container">
-            <div class="nav-right-group">
-                <button id="roundMenuBtn" class="round-menu-btn" title="القائمة الرئيسية" type="button">
-                    <div class="menu-line"></div>
-                    <div class="menu-line" style="width: 13px;"></div>
-                </button>
-
-                <div class="logo">
-                    <div class="logo-badge"><i class="fa-solid fa-bolt"></i></div>
-                    <span>Tech<span class="logo-accent">Gear</span></span>
-                </div>
-            </div>
-
-            <div class="search-bar-box">
+            <div class="search-container">
                 <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" id="searchInput" placeholder="ابحث عن بكج قيمنق، سوني، مايك، آيفون، سيت أب...">
+                <input type="text" id="searchInput" class="search-input" placeholder="ابحث في الأجهزة وملحقات القيمنق...">
             </div>
 
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="#" class="active-link">الرئيسية</a></li>
-                    <li><a href="#national-day" class="text-green"><i class="fa-solid fa-flag"></i> عروض KSA96</a></li>
-                    <li>
-                        <button class="sign-in-btn" id="openLoginBtn" type="button">
-                            <i class="fa-solid fa-user"></i> <span id="userBtnText">تسجيل الدخول</span>
-                        </button>
-                    </li>
-                    <li>
-                        <button class="cart-btn" id="cartLink" type="button">
-                            <i class="fa-solid fa-cart-shopping"></i>
-                            <span id="cartBadge" class="cart-badge">0</span>
-                        </button>
-                    </li>
-                </ul>
-            </nav>
+            <ul class="nav-actions">
+                <li><a href="#" class="nav-link active">الرئيسية</a></li>
+                <li><a href="#daily-deals" class="nav-link deal-link"><i class="fa-solid fa-tag"></i> عروض KSA96</a></li>
+                
+                <!-- زر لوحة الإدارة الذهبي دائم الظهور -->
+                <li>
+                    <button id="openAdmin" class="admin-nav-btn"><i class="fa-solid fa-crown"></i> لوحة الإدارة</button>
+                </li>
+
+                <!-- اسم المستخدم وتسجيل الدخول -->
+                <li>
+                    <button id="openLogin" class="nav-link" style="background: rgba(255,255,255,0.06); border: 1px solid var(--border-card); border-radius: 20px; padding: 7px 14px; cursor: pointer; color: var(--text-main);">
+                        <i class="fa-solid fa-user"></i> <span id="userLabel">Badr1122</span>
+                    </button>
+                </li>
+
+                <!-- أيقونة السلة -->
+                <li>
+                    <div class="icon-btn" id="cartBtn" style="cursor: pointer;">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span id="cartCount" class="badge-count">0</span>
+                    </div>
+                </li>
+
+                <!-- الزر الدائري في أقصى اليسار -->
+                <li>
+                    <div class="icon-btn" id="menuToggle" title="القائمة" style="cursor: pointer;">
+                        <div style="display:flex; flex-direction:column; gap:4px;">
+                            <span style="width:16px; height:2px; background:#fff; border-radius:2px;"></span>
+                            <span style="width:11px; height:2px; background:#fff; border-radius:2px;"></span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
         </div>
     </header>
 
-    <!-- القائمة التكتيكية في الأعلى -->
-    <section class="categories-tabs-section">
-        <div class="tactical-nav">
-            <button class="tactical-tab active-tab" data-target="all" type="button">
-                <i class="fa-solid fa-table-cells-large"></i> <span>الكل</span>
-            </button>
-            <button class="tactical-tab" data-target="gaming" type="button">
-                <i class="fa-solid fa-gamepad"></i> <span>القيمنق</span>
-            </button>
-            <button class="tactical-tab" data-target="sony" type="button">
-                <i class="fa-brands fa-playstation"></i> <span>السوني</span>
-            </button>
-            <button class="tactical-tab" data-target="smart-devices" type="button">
-                <i class="fa-solid fa-mobile-screen-button"></i> <span>الأجهزة الذكية</span>
-            </button>
-            <button class="tactical-tab" data-target="tables" type="button">
-                <i class="fa-solid fa-couch"></i> <span>الطاولات</span>
-            </button>
-        </div>
-    </section>
-
-    <!-- الهيرو بانر -->
-    <section class="hero-split-section">
-        <div class="hero-grid-wrapper">
-            <div class="hero-text-side">
-                <div class="hero-badge"><i class="fa-solid fa-bolt"></i> عتاد وسيت أب القيمنق الأول 🇸🇦</div>
-                <h2>أحدث منصات الألعاب وعُتاد القيمنق الاحترافي</h2>
-                <p>منصات بلايستيشن الأصلية، مايكات البثوث، شاشات ألعاب سريعة وبكجات متكاملة مع شحن فوري وضمان سنتين معتمد.</p>
-                
-                <div class="countdown-container">
-                    <span class="cd-title"><i class="fa-regular fa-clock"></i> ينتهي عرض اليوم الوطني خلال:</span>
-                    <div class="countdown-boxes">
-                        <div class="cd-box"><span id="cd-hours">18</span><small>ساعة</small></div>
-                        <div class="cd-box"><span id="cd-minutes">42</span><small>دقيقة</small></div>
-                        <div class="cd-box"><span id="cd-seconds">15</span><small>ثانية</small></div>
+    <!-- الأقسام الأربعة للمنتجات -->
+    <main class="main-container" id="productsContainer">
+        
+        <!-- 1. عروض اليوم -->
+        <section id="daily-deals" class="section-block">
+            <div class="section-header">
+                <h2 class="section-title"><i class="fa-solid fa-fire"></i> عروض اليوم</h2>
+                <span class="section-count">خصومات استثنائية</span>
+            </div>
+            <div class="products-grid">
+                <div class="product-card" data-title="Apple iPhone 16 Pro Max سعة 256GB تيتانيوم">
+                    <span class="card-badge">عرض اليوم</span>
+                    <button class="btn-favorite" onclick="toggleFav(this)"><i class="fa-regular fa-heart"></i></button>
+                    <div class="product-image-box">
+                        <img src="https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=600&q=80" alt="iPhone 16 Pro Max">
+                    </div>
+                    <div class="product-card-body">
+                        <h3 class="product-title">Apple iPhone 16 Pro Max سعة 256GB تيتانيوم</h3>
+                        <div class="price-section">
+                            <span class="price-value">4,899 <small>ر.س</small></span>
+                            <span class="price-old">5,399 ر.س</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="addToCart('iPhone 16 Pro Max')">أضف إلى السلة</button>
                     </div>
                 </div>
 
-                <div class="hero-btns">
-                    <a href="#national-day" class="btn btn-national"><i class="fa-solid fa-fire"></i> تصفح عروض KSA96</a>
-                    <a href="#gaming" class="btn btn-secondary"><i class="fa-solid fa-gamepad"></i> بكجات القيمنق</a>
+                <div class="product-card" data-title="Sony PlayStation 5 Pro مع وحدة التحكم الأصلية">
+                    <span class="card-badge">خصم حصري</span>
+                    <button class="btn-favorite" onclick="toggleFav(this)"><i class="fa-regular fa-heart"></i></button>
+                    <div class="product-image-box">
+                        <img src="https://m.media-amazon.com/images/I/51051FiD9UL._AC_SL1000_.jpg" alt="PS5 Pro">
+                    </div>
+                    <div class="product-card-body">
+                        <h3 class="product-title">Sony PlayStation 5 Pro مع وحدة التحكم الأصلية</h3>
+                        <div class="price-section">
+                            <span class="price-value">2,999 <small>ر.س</small></span>
+                            <span class="price-old">3,349 ر.س</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="addToCart('PlayStation 5 Pro')">أضف إلى السلة</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. أجهزة الألعاب -->
+        <section id="consoles" class="section-block">
+            <div class="section-header">
+                <h2 class="section-title"><i class="fa-brands fa-playstation"></i> أجهزة الألعاب</h2>
+                <span class="section-count">الأجهزة والمنصات الأصلية</span>
+            </div>
+            <div class="products-grid">
+                <div class="product-card" data-title="Sony PlayStation 5 Slim Digital Edition 1TB">
+                    <button class="btn-favorite" onclick="toggleFav(this)"><i class="fa-regular fa-heart"></i></button>
+                    <div class="product-image-box">
+                        <img src="https://m.media-amazon.com/images/I/51051FiD9UL._AC_SL1000_.jpg" alt="PS5 Digital">
+                    </div>
+                    <div class="product-card-body">
+                        <h3 class="product-title">جهاز Sony PlayStation 5 Slim Digital Edition بسعة 1TB</h3>
+                        <div class="price-section">
+                            <span class="price-value">1,849 <small>ر.س</small></span>
+                            <span class="price-old">2,049 ر.س</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="addToCart('PS5 Slim Digital')">أضف إلى السلة</button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-title="يد تحكم Sony DualSense اللاسلكية الأصلية Midnight Black">
+                    <button class="btn-favorite" onclick="toggleFav(this)"><i class="fa-regular fa-heart"></i></button>
+                    <div class="product-image-box">
+                        <img src="https://m.media-amazon.com/images/I/61b7U+Fh-ZL._AC_SL1500_.jpg" alt="DualSense Black">
+                    </div>
+                    <div class="product-card-body">
+                        <h3 class="product-title">يد تحكم Sony DualSense اللاسلكية الأصلية - Midnight Black</h3>
+                        <div class="price-section">
+                            <span class="price-value">289 <small>ر.س</small></span>
+                            <span class="price-old">349 ر.س</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="addToCart('DualSense Controller')">أضف إلى السلة</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. ملحقات الكمبيوتر -->
+        <section id="accessories" class="section-block">
+            <div class="section-header">
+                <h2 class="section-title"><i class="fa-solid fa-headset"></i> ملحقات الكمبيوتر</h2>
+                <span class="section-count">عُتاد احترافي عالي الأداء</span>
+            </div>
+            <div class="products-grid">
+                <div class="product-card" data-title="كيبورد ألعاب SteelSeries Apex Pro TKL بسويتش مغناطيسي">
+                    <span class="card-badge">الأكثر طلباً</span>
+                    <button class="btn-favorite" onclick="toggleFav(this)"><i class="fa-regular fa-heart"></i></button>
+                    <div class="product-image-box">
+                        <img src="https://m.media-amazon.com/images/I/71oD3GgU9LL._AC_SL1500_.jpg" alt="Apex Pro TKL">
+                    </div>
+                    <div class="product-card-body">
+                        <h3 class="product-title">كيبورد ميكانيكي SteelSeries Apex Pro TKL مع شاشة OLED</h3>
+                        <div class="price-section">
+                            <span class="price-value">829 <small>ر.س</small></span>
+                            <span class="price-old">999 ر.س</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="addToCart('Apex Pro TKL')">أضف إلى السلة</button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-title="ميكروفون ألعاب Fifine AmpliGame AM8 ديناميكي RGB">
+                    <button class="btn-favorite" onclick="toggleFav(this)"><i class="fa-regular fa-heart"></i></button>
+                    <div class="product-image-box">
+                        <img src="https://m.media-amazon.com/images/I/61b7U2Q-fHL._AC_SL1500_.jpg" alt="Fifine AM8">
+                    </div>
+                    <div class="product-card-body">
+                        <h3 class="product-title">ميكروفون بثوث وألعاب Fifine AM8 ديناميكي XLR & USB</h3>
+                        <div class="price-section">
+                            <span class="price-value">249 <small>ر.س</small></span>
+                            <span class="price-old">320 ر.س</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="addToCart('Fifine AM8')">أضف إلى السلة</button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-title="مكسر صوت الألعاب Fifine SC3 Gaming Audio Mixer">
+                    <button class="btn-favorite" onclick="toggleFav(this)"><i class="fa-regular fa-heart"></i></button>
+                    <div class="product-image-box">
+                        <img src="https://m.media-amazon.com/images/I/61S15P+mI2L._AC_SL1500_.jpg" alt="Fifine SC3">
+                    </div>
+                    <div class="product-card-body">
+                        <h3 class="product-title">مكسر صوت الألعاب Fifine SC3 بتحكم قنوات مباشر وإضاءة RGB</h3>
+                        <div class="price-section">
+                            <span class="price-value">219 <small>ر.س</small></span>
+                            <span class="price-old">280 ر.س</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="addToCart('Fifine SC3 Mixer')">أضف إلى السلة</button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-title="شاشة ألعاب منحنية AOC Gaming C27G2Z بمعدل 240Hz">
+                    <button class="btn-favorite" onclick="toggleFav(this)"><i class="fa-regular fa-heart"></i></button>
+                    <div class="product-image-box">
+                        <img src="https://m.media-amazon.com/images/I/81xU9dJ52eL._AC_SL1500_.jpg" alt="AOC 240Hz Monitor">
+                    </div>
+                    <div class="product-card-body">
+                        <h3 class="product-title">شاشة قيمنق منحنية AOC 27 بوصة - سرعة 0.5ms ومعدل 240Hz</h3>
+                        <div class="price-section">
+                            <span class="price-value">949 <small>ر.س</small></span>
+                            <span class="price-old">1,199 ر.س</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="addToCart('AOC 240Hz Monitor')">أضف إلى السلة</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. الطاولات والكراسي -->
+        <section id="setups" class="section-block">
+            <div class="section-header">
+                <h2 class="section-title"><i class="fa-solid fa-couch"></i> الطاولات والكراسي</h2>
+                <span class="section-count">بيئة لعب مريحة وصحية</span>
+            </div>
+            <div class="products-grid">
+                <div class="product-card" data-title="كرسي قيمنق احترافي Cougar Armor One Black">
+                    <button class="btn-favorite" onclick="toggleFav(this)"><i class="fa-regular fa-heart"></i></button>
+                    <div class="product-image-box">
+                        <img src="https://m.media-amazon.com/images/I/61k1jE9bFSL._AC_SL1500_.jpg" alt="Cougar Armor One">
+                    </div>
+                    <div class="product-card-body">
+                        <h3 class="product-title">كرسي قيمنق احترافي Cougar Armor One مريح بهيكل فولاذي</h3>
+                        <div class="price-section">
+                            <span class="price-value">889 <small>ر.س</small></span>
+                            <span class="price-old">1,050 ر.س</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="addToCart('Cougar Gaming Chair')">أضف إلى السلة</button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-title="طاولة قيمنق Pro Carbon Fiber 140cm">
+                    <button class="btn-favorite" onclick="toggleFav(this)"><i class="fa-regular fa-heart"></i></button>
+                    <div class="product-image-box">
+                        <img src="https://m.media-amazon.com/images/I/61-97V-iZRL._AC_SL1500_.jpg" alt="Carbon Desk">
+                    </div>
+                    <div class="product-card-body">
+                        <h3 class="product-title">طاولة قيمنق Pro Carbon Fiber مقاس 140سم بسطح ألياف كربون</h3>
+                        <div class="price-section">
+                            <span class="price-value">649 <small>ر.س</small></span>
+                            <span class="price-old">850 ر.س</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="addToCart('Carbon Fiber Desk')">أضف إلى السلة</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- نافذة تسجيل الدخول -->
+    <div id="loginModal" class="modal-overlay">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeModal('loginModal')">&times;</button>
+            <h3 style="font-size: 19px; margin-bottom: 6px;">تسجيل الدخول للمتجر</h3>
+            <p style="color: var(--text-secondary); font-size: 13px; margin-bottom: 16px;">أدخل بياناتك للمتابعة وإدارة الطلبات</p>
+            <form id="loginForm">
+                <input type="text" id="username" class="form-control" placeholder="اسم المستخدم (Badr1122)" required>
+                <input type="password" id="password" class="form-control" placeholder="كلمة المرور (Badr1122)" required>
+                <button type="submit" class="btn-submit">تسجيل الدخول</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- نافذة لوحة الإدارة المتكاملة مع سجل الزوار -->
+    <div id="adminModal" class="modal-overlay">
+        <div class="modal-box admin-box">
+            <button class="modal-close" onclick="closeModal('adminModal')">&times;</button>
+            <h3 style="color: var(--gold-admin); font-size: 20px; margin-bottom: 16px;"><i class="fa-solid fa-crown"></i> لوحة تحكم إدارة المتجر</h3>
+            
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 18px;">
+                <div style="background: #080E17; border: 1px solid var(--border-card); padding: 12px; border-radius: 10px;">
+                    <div style="font-size: 12px; color: var(--text-secondary);">إجمالي الزوار</div>
+                    <div id="adminTotalVis" style="font-size: 18px; font-weight: 800; color: var(--primary-cyan); margin-top: 4px;">1 زائر</div>
+                </div>
+                <div style="background: #080E17; border: 1px solid var(--border-card); padding: 12px; border-radius: 10px;">
+                    <div style="font-size: 12px; color: var(--text-secondary);">إجمالي المبيعات</div>
+                    <div style="font-size: 18px; font-weight: 800; color: var(--accent-green); margin-top: 4px;">18,400 ر.س</div>
+                </div>
+                <div style="background: #080E17; border: 1px solid var(--border-card); padding: 12px; border-radius: 10px;">
+                    <div style="font-size: 12px; color: var(--text-secondary);">الطلبات المكتملة</div>
+                    <div style="font-size: 18px; font-weight: 800; color: var(--gold-admin); margin-top: 4px;">14 طلب</div>
                 </div>
             </div>
 
-            <div class="hero-media-side">
-                <div class="hero-image-card">
-                    <img src="https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=700&q=80" alt="PlayStation 5 Pro">
-                </div>
+            <h4 style="font-size: 14.5px; color: var(--text-main); margin-bottom: 8px;"><i class="fa-solid fa-clock-rotate-left"></i> سجل حركة دخول الزوار</h4>
+            <div style="max-height: 180px; overflow-y: auto; background: #080E17; border: 1px solid var(--border-card); border-radius: 10px;">
+                <table class="logs-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>الاسم</th>
+                            <th>وقت الدخول</th>
+                            <th>الصفة</th>
+                        </tr>
+                    </thead>
+                    <tbody id="logsTbody">
+                        <tr>
+                            <td>#1</td>
+                            <td style="color:#fff; font-weight:bold;">Badr1122</td>
+                            <td>الآن</td>
+                            <td><span style="color:var(--accent-green);">مدير المتجر</span></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- حاوية المنتجات مع صور أصلية ومفرغة ومطابقة 100% -->
-    <main id="productsContainer" class="main-products-container"></main>
+    <!-- عنصر الإشعار السريع -->
+    <div id="toast" class="toast-notify">
+        <i class="fa-solid fa-check"></i> <span id="toastMsg">تم الإجراء بنجاح</span>
+    </div>
 
-    <footer class="main-footer">
-        <p>&copy; 2026 متجر TechGear. جميع الحقوق محفوظة بالمملكة العربية السعودية 🇸🇦.</p>
+    <footer class="footer">
+        <p>&copy; 2026 TechGear Store. جميع الحقوق محفوظة بالمملكة العربية السعودية 🇸🇦.</p>
     </footer>
 
-    <a href="https://wa.me/" target="_blank" class="whatsapp-float-btn"><i class="fa-brands fa-whatsapp"></i></a>
+    <script>
+        let cartCount = 0;
+        let visitorLogs = JSON.parse(localStorage.getItem("techgear_final_logs")) || [
+            { id: 1, name: "Badr1122", time: "اليوم", role: "مدير المتجر" }
+        ];
+
+        function addToCart(name) {
+            cartCount++;
+            const badge = document.getElementById("cartCount");
+            badge.innerText = cartCount;
+            badge.style.display = "flex";
+            showToast(`تمت إضافة "${name}" إلى السلة`);
+        }
+
+        function toggleFav(btn) {
+            btn.classList.toggle('active');
+            const icon = btn.querySelector('i');
+            if (btn.classList.contains('active')) {
+                icon.classList.remove('fa-regular');
+                icon.classList.add('fa-solid');
+                showToast("تمت الإضافة للمفضلة");
+            } else {
+                icon.classList.remove('fa-solid');
+                icon.classList.add('fa-regular');
+            }
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById("toast");
+            document.getElementById("toastMsg").innerText = msg;
+            toast.classList.add("active");
+            setTimeout(() => toast.classList.remove("active"), 2600);
+        }
+
+        function openModal(id) { document.getElementById(id).style.display = "flex"; }
+        function closeModal(id) { document.getElementById(id).style.display = "none"; }
+
+        document.getElementById("openLogin").onclick = () => openModal("loginModal");
+        
+        // فتح لوحة الإدارة وتحديث السجل
+        document.getElementById("openAdmin").onclick = () => {
+            document.getElementById("adminTotalVis").innerText = `${visitorLogs.length} زائر`;
+            document.getElementById("logsTbody").innerHTML = visitorLogs.map(l => `
+                <tr>
+                    <td>#${l.id}</td>
+                    <td style="color:#fff; font-weight:bold;">${l.name}</td>
+                    <td>${l.time}</td>
+                    <td><span style="color:var(--accent-green);">${l.role}</span></td>
+                </tr>
+            `).reverse().join("");
+            openModal("adminModal");
+        };
+
+        // القائمة الجانبية بالزر الدائري
+        const sideDrawer = document.getElementById("sideDrawer");
+        const drawerOverlay = document.getElementById("drawerOverlay");
+
+        document.getElementById("menuToggle").onclick = () => {
+            sideDrawer.classList.add("open");
+            drawerOverlay.style.display = "block";
+        };
+
+        function closeNavDrawer() {
+            sideDrawer.classList.remove("open");
+            drawerOverlay.style.display = "none";
+        }
+
+        document.getElementById("closeDrawer").onclick = closeNavDrawer;
+        drawerOverlay.onclick = closeNavDrawer;
+
+        // تسجيل الدخول وإضافة الزائر للسجل
+        document.getElementById("loginForm").onsubmit = function(e) {
+            e.preventDefault();
+            const u = document.getElementById("username").value.trim();
+            const p = document.getElementById("password").value.trim();
+
+            if (u === "Badr1122" && p === "Badr1122") {
+                document.getElementById("userLabel").innerText = "Badr1122";
+                closeModal("loginModal");
+                showToast("أهلاً بك يا مدير المتجر (Badr1122)");
+            } else if (u) {
+                document.getElementById("userLabel").innerText = u;
+                visitorLogs.push({
+                    id: visitorLogs.length + 1,
+                    name: u,
+                    time: new Date().toLocaleTimeString('ar-SA', {hour: '2-digit', minute:'2-digit'}),
+                    role: "عميل مسجل"
+                });
+                localStorage.setItem("techgear_final_logs", JSON.stringify(visitorLogs));
+                closeModal("loginModal");
+                showToast(`أهلاً بك يا ${u}`);
+            }
+        };
+
+        // البحث المباشر
+        document.getElementById("searchInput").oninput = function() {
+            const val = this.value.toLowerCase().trim();
+            document.querySelectorAll(".product-card").forEach(card => {
+                const title = card.getAttribute("data-title").toLowerCase();
+                card.style.display = title.includes(val) ? "flex" : "none";
+            });
+        };
+
+        window.onclick = function(e) {
+            if (e.target.classList.contains("modal-overlay")) {
+                e.target.style.display = "none";
+            }
+        };
+    </script>
+</body>
+</html><!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechGear | متجر الألعاب والإلكترونيات الأول</title>
+    <!-- استدعاء خطوط Tajawal للعناوين و Cairo للنصوص -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&family=Tajawal:wght@700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-base: #050B12;
+            --bg-card: #0B111C;
+            --border-card: #1B2937;
+            --primary-cyan: #00CFF5;
+            --cyan-glow: rgba(0, 207, 245, 0.2);
+            --danger-coral: #FF4D5A;
+            --accent-green: #00E890;
+            --text-main: #F4F7FA;
+            --text-secondary: #8493A3;
+            --gold-admin: #FFB703;
+            --border-glass: rgba(27, 41, 55, 0.8);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            font-family: 'Cairo', sans-serif;
+            min-height: 100vh;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, .price-value, .logo span {
+            font-family: 'Tajawal', sans-serif;
+            font-weight: 800;
+        }
+
+        /* شريط التنبيهات العلوي */
+        .top-banner {
+            background: #081622;
+            color: var(--primary-cyan);
+            border-bottom: 1px solid var(--border-card);
+            text-align: center;
+            padding: 8px 16px;
+            font-size: 13.5px;
+            font-weight: 600;
+        }
+
+        .top-banner strong {
+            color: var(--accent-green);
+        }
+
+        /* شريط التنقل */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(5, 11, 18, 0.95);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border-card);
+        }
+
+        .nav-inner {
+            max-width: 1400px;
+            margin: auto;
+            padding: 14px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--text-main);
+            font-size: 24px;
+            font-weight: 900;
+        }
+
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            background: #0B111C;
+            border: 1px solid var(--primary-cyan);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-cyan);
+            box-shadow: 0 0 10px var(--cyan-glow);
+        }
+
+        .logo span span {
+            color: var(--primary-cyan);
+        }
+
+        .search-container {
+            flex: 1;
+            max-width: 440px;
+            position: relative;
+        }
+
+        .search-container i {
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 10px 44px 10px 16px;
+            background: #0B111C;
+            border: 1px solid var(--border-card);
+            border-radius: 30px;
+            color: var(--text-main);
+            font-size: 14px;
+            outline: none;
+            transition: 0.25s;
+        }
+
+        .search-input:focus {
+            border-color: var(--primary-cyan);
+            box-shadow: 0 0 12px var(--cyan-glow);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            list-style: none;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 8px 12px;
+            border-radius: 8px;
+            transition: 0.2s;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--text-main);
+        }
+
+        .nav-link.deal-link {
+            color: var(--accent-green);
+            background: rgba(0, 232, 144, 0.08);
+            border: 1px solid rgba(0, 232, 144, 0.2);
+        }
+
+        .admin-nav-btn {
+            background: rgba(255, 183, 3, 0.1);
+            color: var(--gold-admin);
+            border: 1px solid rgba(255, 183, 3, 0.3);
+            border-radius: 20px;
+            padding: 7px 16px;
+            font-size: 13.5px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex !important;
+            align-items: center;
+            gap: 8px;
+            transition: 0.2s;
+        }
+
+        .admin-nav-btn:hover {
+            background: var(--gold-admin);
+            color: #050B12;
+        }
+
+        .icon-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #0B111C;
+            border: 1px solid var(--border-card);
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            position: relative;
+            transition: 0.2s;
+        }
+
+        .icon-btn:hover {
+            border-color: var(--primary-cyan);
+            color: var(--primary-cyan);
+        }
+
+        .badge-count {
+            position: absolute;
+            top: -4px;
+            right: -4px;
+            background: var(--danger-coral);
+            color: #fff;
+            font-size: 11px;
+            font-weight: 700;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* الحاوية الرئيسية ومحددات الأقسام */
+        .main-container {
+            max-width: 1400px;
+            margin: auto;
+            padding: 30px 24px;
+        }
+
+        .section-block {
+            margin-bottom: 50px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--border-card);
+            padding-bottom: 14px;
+            margin-bottom: 24px;
+        }
+
+        .section-title {
+            font-size: 22px;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title i {
+            color: var(--primary-cyan);
+            font-size: 18px;
+        }
+
+        .section-count {
+            color: var(--text-secondary);
+            font-size: 13.5px;
+        }
+
+        /* شبكة المنتجات والبطاقات الموحدة */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .product-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 14px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--primary-cyan);
+            box-shadow: 0 8px 24px var(--cyan-glow);
+        }
+
+        /* شارة العرض بلون أحمر مرجاني موحد */
+        .card-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: var(--danger-coral);
+            color: #fff;
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-size: 11.5px;
+            font-weight: 700;
+            z-index: 2;
+        }
+
+        /* أيقونة المفضلة داخل دائرة داكنة */
+        .btn-favorite {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: #080E17;
+            border: 1px solid var(--border-card);
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 2;
+            transition: 0.2s;
+            font-size: 14px;
+        }
+
+        .btn-favorite:hover, .btn-favorite.active {
+            color: var(--danger-coral);
+            border-color: var(--danger-coral);
+            background: rgba(255, 77, 90, 0.1);
+        }
+
+        /* مساحة الصورة الموحدة بدقة */
+        .product-image-box {
+            width: 100%;
+            height: 210px;
+            background: #080E17;
+            border-bottom: 1px solid var(--border-card);
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .product-image-box img {
+            max-width: 85%;
+            max-height: 85%;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover .product-image-box img {
+            transform: scale(1.06);
+        }
+
+        /* جسم البطاقة والمحتوى المتناسق */
+        .product-card-body {
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .product-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 10px;
+            line-height: 1.45;
+            height: 44px;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+
+        /* الأسعار كأكبر عنصر بصري */
+        .price-section {
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+            margin-bottom: 16px;
+            margin-top: auto;
+        }
+
+        .price-value {
+            color: var(--accent-green);
+            font-size: 24px;
+            font-weight: 900;
+            letter-spacing: -0.5px;
+        }
+
+        .price-value small {
+            font-size: 14px;
+            font-weight: 700;
+            margin-right: 2px;
+        }
+
+        .price-old {
+            color: var(--text-secondary);
+            font-size: 13.5px;
+            text-decoration: line-through;
+        }
+
+        /* الزر الأساسي الشفاف مع حدود سماوية */
+        .btn-add-cart {
+            width: 100%;
+            background: transparent;
+            border: 1px solid var(--primary-cyan);
+            color: var(--primary-cyan);
+            padding: 11px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.22s ease;
+        }
+
+        .btn-add-cart:hover {
+            background: var(--primary-cyan);
+            color: #050B12;
+            box-shadow: 0 0 14px var(--cyan-glow);
+        }
+
+        /* النوافذ العائمة (Modals) */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(5, 11, 18, 0.85);
+            backdrop-filter: blur(8px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+        }
+
+        .modal-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 16px;
+            width: 92%;
+            max-width: 440px;
+            padding: 28px;
+            position: relative;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8);
+        }
+
+        .modal-box.admin-box {
+            max-width: 720px;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 22px;
+            cursor: pointer;
+        }
+
+        .modal-close:hover {
+            color: var(--text-main);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 11px 14px;
+            background: #080E17;
+            border: 1px solid var(--border-card);
+            border-radius: 8px;
+            color: var(--text-main);
+            font-size: 14px;
+            margin-bottom: 12px;
+            outline: none;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-cyan);
+        }
+
+        .btn-submit {
+            width: 100%;
+            background: var(--primary-cyan);
+            color: #050B12;
+            border: none;
+            padding: 11px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 15px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .btn-submit:hover {
+            box-shadow: 0 0 14px var(--cyan-glow);
+        }
+
+        /* جدول سجل الزوار داخل لوحة الإدارة */
+        .logs-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+            margin-top: 10px;
+        }
+
+        .logs-table th, .logs-table td {
+            padding: 9px 12px;
+            text-align: right;
+            border-bottom: 1px solid var(--border-card);
+        }
+
+        .logs-table th {
+            color: var(--text-secondary);
+            background: #080E17;
+        }
+
+        /* Toast الإشعار السريع */
+        .toast-notify {
+            position: fixed;
+            bottom: -70px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary-cyan);
+            color: #050B12;
+            padding: 10px 22px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 14px;
+            z-index: 3000;
+            box-shadow: 0 8px 24px var(--cyan-glow);
+            opacity: 0;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .toast-notify.active {
+            bottom: 24px;
+            opacity: 1;
+        }
+
+        /* القائمة الجانبية المنسدلة للزر الدائري */
+        .drawer-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1500;
+            display: none;
+        }
+
+        .side-drawer {
+            position: fixed;
+            top: 0;
+            left: -300px;
+            width: 280px;
+            height: 100vh;
+            background: #080E17;
+            border-right: 1px solid var(--border-card);
+            z-index: 1600;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            transition: left 0.3s ease;
+        }
+
+        .side-drawer.open {
+            left: 0;
+        }
+
+        .side-drawer a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 600;
+            padding: 8px 12px;
+            border-radius: 6px;
+            transition: 0.2s;
+        }
+
+        .side-drawer a:hover {
+            color: var(--primary-cyan);
+            background: rgba(0, 207, 245, 0.08);
+        }
+
+        .footer {
+            background: #04080D;
+            border-top: 1px solid var(--border-card);
+            padding: 40px 24px 20px;
+            margin-top: 50px;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 13.5px;
+        }
+
+        @media (max-width: 992px) {
+            .nav-actions .nav-link { display: none; }
+            .search-container { max-width: 100%; order: 3; margin-top: 10px; }
+            .nav-inner { flex-wrap: wrap; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-banner">
+        <span>🚚 شحن سريع ومجاني للطلبات فوق 300 ر.س | استخدم الكود: <strong>KSA96</strong> لخصم 15%</span>
+    </div>
+
+    <!-- القائمة الجانبية المنبثقة من اليسار للزر الدائري -->
+    <div id="drawerOverlay" class="drawer-overlay"></div>
+    <aside id="sideDrawer" class="side-drawer">
+        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-card); padding-bottom: 12px;">
+            <span style="font-weight: 800; color: var(--text-main);">أقسام المتجر</span>
+            <button id="closeDrawer" style="background: none; border: none; color: var(--text-secondary); font-size: 20px; cursor: pointer;">&times;</button>
+        </div>
+        <a href="#daily-deals"><i class="fa-solid fa-fire"></i> عروض اليوم</a>
+        <a href="#consoles"><i class="fa-brands fa-playstation"></i> أجهزة الألعاب</a>
+        <a href="#accessories"><i class="fa-solid fa-headset"></i> ملحقات الكمبيوتر</a>
+        <a href="#setups"><i class="fa-solid fa-couch"></i> الطاولات والكراسي</a>
+    </aside>
+
+    <!-- شريط التنقل الرئيسي: زر الإدارة، الحساب، السلة، والزر الدائري في أقصى اليسار -->
+    <header class="navbar">
+        <div class="nav-inner">
+            <a href="#" class="logo">
+                <div class="logo-icon"><i class="fa-solid fa-bolt"></i></div>
+                <span>Tech<span>Gear</span></span>
+            </a>
+
+            <div class="search-container">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="searchInput" class="search-input" placeholder="ابحث في الأجهزة وملحقات القيمنق...">
+            </div>
+
+            <ul class="nav-actions">
+                <li><a href="#" class="nav-link active">الرئيسية</a></li>
+                <li><a href="#daily-deals" class="nav-link deal-link"><i class="fa-solid fa-tag"></i> عروض KSA96</a></li>
+                
+                <!-- زر لوحة الإدارة الذهبي دائم الظهور -->
+                <li>
+                    <button id="openAdmin" class="admin-nav-btn"><i class="fa-solid fa-crown"></i> لوحة الإدارة</button>
+                </li>
+
+                <!-- اسم المستخدم وتسجيل الدخول -->
+                <li>
+                    <button id="openLogin" class="nav-link" style="background: rgba(255,255,255,0.06); border: 1px solid var(--border-card); border-radius: 20px; padding: 7px 14px; cursor: pointer; color: var(--text-main);">
+                        <i class="fa-solid fa-user"></i> <span id="userLabel">Badr1122</span>
+                    </button>
+                </li>
+
+                <!-- أيقونة السلة -->
+                <li>
+                    <div class="icon-btn" id="cartBtn" style="cursor: pointer;">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span id="cartCount" class="badge-count">0</span>
+                    </div>
+                </li>
+
+                <!-- الزر الدائري في أقصى اليسار -->
+                <li>
+                    <div class="icon-btn" id="menuToggle" title="القائمة" style="cursor: pointer;">
+                        <div style="display:flex; flex-direction:column; gap:4px;">
+                            <span style="width:16px; height:2px; background:#fff; border-radius:2px;"></span>
+                            <span style="width:11px; height:2px; background:#fff; border-radius:2px;"></span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- الأقسام الأربعة للمنتجات -->
+    <main class="main-container" id="productsContainer">
+        
+        <!-- 1. عروض اليوم -->
+        <section id="daily-deals" class="section-block">
+            <div class="section-header">
+                <h2 class="section-title"><i class="fa-solid fa-fire"></i> عروض اليوم</h2>
+                <span class="section-count">خصومات استثنائية</span>
+            </div>
+            <div class="products-grid">
+                <div class="product-card" data-title="Apple iPhone 16 Pro Max سعة 256GB تيتانيوم">
+                    <span class="card-badge">عرض اليوم</span>
+                    <button class="btn-favorite" onclick="toggleFav(this)"><i class="fa-regular fa-heart"></i></button>
+                    <div class="product-image-box">
+                        <img src="https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=600&q=80" alt="iPhone 16 Pro Max">
+                    </div>
+                    <div class="product-card-body">
+                        <h3 class="product-title">Apple iPhone 16 Pro Max سعة 256GB تيتانيوم</h3>
+                        <div class="price-section">
+                            <span class="price-value">4,899 <small>ر.س</small></span>
+                            <span class="price-old">5,399 ر.س</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="addToCart('iPhone 16 Pro Max')">أضف إلى السلة</button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-title="Sony PlayStation 5 Pro مع وحدة التحكم الأصلية">
+                    <span class="card-badge">خصم حصري</span>
+                    <button class="btn-favorite" onclick="toggleFav(this)"><i class="fa-regular fa-heart"></i></button>
+                    <div class="product-image-box">
+                        <img src="https://m.media-amazon.com/images/I/51051FiD9UL._AC_SL1000_.jpg" alt="PS5 Pro">
+                    </div>
+                    <div class="product-card-body">
+                        <h3 class="product-title">Sony PlayStation 5 Pro مع وحدة التحكم الأصلية</h3>
+                        <div class="price-section">
+                            <span class="price-value">2,999 <small>ر.س</small></span>
+                            <span class="price-old">3,349 ر.س</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="addToCart('PlayStation 5 Pro')">أضف إلى السلة</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. أجهزة الألعاب -->
+        <section id="consoles" class="section-block">
+            <div class="section-header">
+                <h2 class="section-title"><i class="fa-brands fa-playstation"></i> أجهزة الألعاب</h2>
+                <span class="section-count">الأجهزة والمنصات الأصلية</span>
+            </div>
+            <div class="products-grid">
+                <div class="product-card" data-title="Sony PlayStation 5 Slim Digital Edition 1TB">
+                    <button class="btn-favorite" onclick="toggleFav(this)"><i class="fa-regular fa-heart"></i></button>
+                    <div class="product-image-box">
+                        <img src="https://m.media-amazon.com/images/I/51051FiD9UL._AC_SL1000_.jpg" alt="PS5 Digital">
+                    </div>
+                    <div class="product-card-body">
+                        <h3 class="product-title">جهاز Sony PlayStation 5 Slim Digital Edition بسعة 1TB</h3>
+                        <div class="price-section">
+                            <span class="price-value">1,849 <small>ر.س</small></span>
+                            <span class="price-old">2,049 ر.س</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="addToCart('PS5 Slim Digital')">أضف إلى السلة</button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-title="يد تحكم Sony DualSense اللاسلكية الأصلية Midnight Black">
+                    <button class="btn-favorite" onclick="toggleFav(this)"><i class="fa-regular fa-heart"></i></button>
+                    <div class="product-image-box">
+                        <img src="https://m.media-amazon.com/images/I/61b7U+Fh-ZL._AC_SL1500_.jpg" alt="DualSense Black">
+                    </div>
+                    <div class="product-card-body">
+                        <h3 class="product-title">يد تحكم Sony DualSense اللاسلكية الأصلية - Midnight Black</h3>
+                        <div class="price-section">
+                            <span class="price-value">289 <small>ر.س</small></span>
+                            <span class="price-old">349 ر.س</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="addToCart('DualSense Controller')">أضف إلى السلة</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. ملحقات الكمبيوتر -->
+        <section id="accessories" class="section-block">
+            <div class="section-header">
+                <h2 class="section-title"><i class="fa-solid fa-headset"></i> ملحقات الكمبيوتر</h2>
+                <span class="section-count">عُتاد احترافي عالي الأداء</span>
+            </div>
+            <div class="products-grid">
+                <div class="product-card" data-title="كيبورد ألعاب SteelSeries Apex Pro TKL بسويتش مغناطيسي">
+                    <span class="card-badge">الأكثر طلباً</span>
+                    <button class="btn-favorite" onclick="toggleFav(this)"><i class="fa-regular fa-heart"></i></button>
+                    <div class="product-image-box">
+                        <img src="https://m.media-amazon.com/images/I/71oD3GgU9LL._AC_SL1500_.jpg" alt="Apex Pro TKL">
+                    </div>
+                    <div class="product-card-body">
+                        <h3 class="product-title">كيبورد ميكانيكي SteelSeries Apex Pro TKL مع شاشة OLED</h3>
+                        <div class="price-section">
+                            <span class="price-value">829 <small>ر.س</small></span>
+                            <span class="price-old">999 ر.س</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="addToCart('Apex Pro TKL')">أضف إلى السلة</button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-title="ميكروفون ألعاب Fifine AmpliGame AM8 ديناميكي RGB">
+                    <button class="btn-favorite" onclick="toggleFav(this)"><i class="fa-regular fa-heart"></i></button>
+                    <div class="product-image-box">
+                        <img src="https://m.media-amazon.com/images/I/61b7U2Q-fHL._AC_SL1500_.jpg" alt="Fifine AM8">
+                    </div>
+                    <div class="product-card-body">
+                        <h3 class="product-title">ميكروفون بثوث وألعاب Fifine AM8 ديناميكي XLR & USB</h3>
+                        <div class="price-section">
+                            <span class="price-value">249 <small>ر.س</small></span>
+                            <span class="price-old">320 ر.س</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="addToCart('Fifine AM8')">أضف إلى السلة</button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-title="مكسر صوت الألعاب Fifine SC3 Gaming Audio Mixer">
+                    <button class="btn-favorite" onclick="toggleFav(this)"><i class="fa-regular fa-heart"></i></button>
+                    <div class="product-image-box">
+                        <img src="https://m.media-amazon.com/images/I/61S15P+mI2L._AC_SL1500_.jpg" alt="Fifine SC3">
+                    </div>
+                    <div class="product-card-body">
+                        <h3 class="product-title">مكسر صوت الألعاب Fifine SC3 بتحكم قنوات مباشر وإضاءة RGB</h3>
+                        <div class="price-section">
+                            <span class="price-value">219 <small>ر.س</small></span>
+                            <span class="price-old">280 ر.س</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="addToCart('Fifine SC3 Mixer')">أضف إلى السلة</button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-title="شاشة ألعاب منحنية AOC Gaming C27G2Z بمعدل 240Hz">
+                    <button class="btn-favorite" onclick="toggleFav(this)"><i class="fa-regular fa-heart"></i></button>
+                    <div class="product-image-box">
+                        <img src="https://m.media-amazon.com/images/I/81xU9dJ52eL._AC_SL1500_.jpg" alt="AOC 240Hz Monitor">
+                    </div>
+                    <div class="product-card-body">
+                        <h3 class="product-title">شاشة قيمنق منحنية AOC 27 بوصة - سرعة 0.5ms ومعدل 240Hz</h3>
+                        <div class="price-section">
+                            <span class="price-value">949 <small>ر.س</small></span>
+                            <span class="price-old">1,199 ر.س</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="addToCart('AOC 240Hz Monitor')">أضف إلى السلة</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. الطاولات والكراسي -->
+        <section id="setups" class="section-block">
+            <div class="section-header">
+                <h2 class="section-title"><i class="fa-solid fa-couch"></i> الطاولات والكراسي</h2>
+                <span class="section-count">بيئة لعب مريحة وصحية</span>
+            </div>
+            <div class="products-grid">
+                <div class="product-card" data-title="كرسي قيمنق احترافي Cougar Armor One Black">
+                    <button class="btn-favorite" onclick="toggleFav(this)"><i class="fa-regular fa-heart"></i></button>
+                    <div class="product-image-box">
+                        <img src="https://m.media-amazon.com/images/I/61k1jE9bFSL._AC_SL1500_.jpg" alt="Cougar Armor One">
+                    </div>
+                    <div class="product-card-body">
+                        <h3 class="product-title">كرسي قيمنق احترافي Cougar Armor One مريح بهيكل فولاذي</h3>
+                        <div class="price-section">
+                            <span class="price-value">889 <small>ر.س</small></span>
+                            <span class="price-old">1,050 ر.س</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="addToCart('Cougar Gaming Chair')">أضف إلى السلة</button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-title="طاولة قيمنق Pro Carbon Fiber 140cm">
+                    <button class="btn-favorite" onclick="toggleFav(this)"><i class="fa-regular fa-heart"></i></button>
+                    <div class="product-image-box">
+                        <img src="https://m.media-amazon.com/images/I/61-97V-iZRL._AC_SL1500_.jpg" alt="Carbon Desk">
+                    </div>
+                    <div class="product-card-body">
+                        <h3 class="product-title">طاولة قيمنق Pro Carbon Fiber مقاس 140سم بسطح ألياف كربون</h3>
+                        <div class="price-section">
+                            <span class="price-value">649 <small>ر.س</small></span>
+                            <span class="price-old">850 ر.س</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="addToCart('Carbon Fiber Desk')">أضف إلى السلة</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- نافذة تسجيل الدخول -->
+    <div id="loginModal" class="modal-overlay">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeModal('loginModal')">&times;</button>
+            <h3 style="font-size: 19px; margin-bottom: 6px;">تسجيل الدخول للمتجر</h3>
+            <p style="color: var(--text-secondary); font-size: 13px; margin-bottom: 16px;">أدخل بياناتك للمتابعة وإدارة الطلبات</p>
+            <form id="loginForm">
+                <input type="text" id="username" class="form-control" placeholder="اسم المستخدم (Badr1122)" required>
+                <input type="password" id="password" class="form-control" placeholder="كلمة المرور (Badr1122)" required>
+                <button type="submit" class="btn-submit">تسجيل الدخول</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- نافذة لوحة الإدارة المتكاملة مع سجل الزوار -->
+    <div id="adminModal" class="modal-overlay">
+        <div class="modal-box admin-box">
+            <button class="modal-close" onclick="closeModal('adminModal')">&times;</button>
+            <h3 style="color: var(--gold-admin); font-size: 20px; margin-bottom: 16px;"><i class="fa-solid fa-crown"></i> لوحة تحكم إدارة المتجر</h3>
+            
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 18px;">
+                <div style="background: #080E17; border: 1px solid var(--border-card); padding: 12px; border-radius: 10px;">
+                    <div style="font-size: 12px; color: var(--text-secondary);">إجمالي الزوار</div>
+                    <div id="adminTotalVis" style="font-size: 18px; font-weight: 800; color: var(--primary-cyan); margin-top: 4px;">1 زائر</div>
+                </div>
+                <div style="background: #080E17; border: 1px solid var(--border-card); padding: 12px; border-radius: 10px;">
+                    <div style="font-size: 12px; color: var(--text-secondary);">إجمالي المبيعات</div>
+                    <div style="font-size: 18px; font-weight: 800; color: var(--accent-green); margin-top: 4px;">18,400 ر.س</div>
+                </div>
+                <div style="background: #080E17; border: 1px solid var(--border-card); padding: 12px; border-radius: 10px;">
+                    <div style="font-size: 12px; color: var(--text-secondary);">الطلبات المكتملة</div>
+                    <div style="font-size: 18px; font-weight: 800; color: var(--gold-admin); margin-top: 4px;">14 طلب</div>
+                </div>
+            </div>
+
+            <h4 style="font-size: 14.5px; color: var(--text-main); margin-bottom: 8px;"><i class="fa-solid fa-clock-rotate-left"></i> سجل حركة دخول الزوار</h4>
+            <div style="max-height: 180px; overflow-y: auto; background: #080E17; border: 1px solid var(--border-card); border-radius: 10px;">
+                <table class="logs-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>الاسم</th>
+                            <th>وقت الدخول</th>
+                            <th>الصفة</th>
+                        </tr>
+                    </thead>
+                    <tbody id="logsTbody">
+                        <tr>
+                            <td>#1</td>
+                            <td style="color:#fff; font-weight:bold;">Badr1122</td>
+                            <td>الآن</td>
+                            <td><span style="color:var(--accent-green);">مدير المتجر</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- عنصر الإشعار السريع -->
+    <div id="toast" class="toast-notify">
+        <i class="fa-solid fa-check"></i> <span id="toastMsg">تم الإجراء بنجاح</span>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2026 TechGear Store. جميع الحقوق محفوظة بالمملكة العربية السعودية 🇸🇦.</p>
+    </footer>
 
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            // منتجات واقعية بصور أصلية ومطابقة 100% للجهاز نفسه
-            const defaultProducts = [
-                { 
-                    id: 1, 
-                    name: "Apple iPhone 16 Pro Max سعة 256GB - تيتانيوم صحراوي طبيعي", 
-                    price: 4899, 
-                    oldPrice: 5399, 
-                    category: "national-day", 
-                    img: "https://m.media-amazon.com/images/I/71YyMknV6HL._AC_SL1500_.jpg", 
-                    tag: "خصم اليوم الوطني 🇸🇦" 
-                },
-                { 
-                    id: 2, 
-                    name: "Sony PlayStation 5 Pro مع قاعدة الشحن المزدوجة الأصلية", 
-                    price: 2999, 
-                    oldPrice: 3349, 
-                    category: "national-day", 
-                    img: "https://m.media-amazon.com/images/I/51051FiD9UL._AC_SL1000_.jpg", 
-                    tag: "عرض اليوم الوطني 🇸🇦" 
-                },
-                { 
-                    id: 101, 
-                    name: "بكج ألعاب متكامل: شاشة منحنية 165Hz + كرسي قيمنق طبي + سماعة محيطية", 
-                    price: 3699, 
-                    oldPrice: 4199, 
-                    category: "gaming", 
-                    img: "https://m.media-amazon.com/images/I/61PZuE+eA3L._AC_SL1200_.jpg", 
-                    tag: "البكج الأكثر طلباً" 
-                },
-                { 
-                    id: 102, 
-                    name: "دركسون Logitech G29 Driving Force مع بدالات ألمنيوم وقير Shifter", 
-                    price: 1099, 
-                    oldPrice: 1350, 
-                    category: "gaming", 
-                    img: "https://m.media-amazon.com/images/I/61Iym3td6ST._AC_SL1500_.jpg", 
-                    tag: "عشاق المحاكاة والهجولة" 
-                },
-                { 
-                    id: 103, 
-                    name: "ميكروفون Fifine AmpliGame AM8 ديناميكي RGB (منافذ XLR & USB) للبث والألعاب", 
-                    price: 249, 
-                    oldPrice: 320, 
-                    category: "gaming", 
-                    img: "https://m.media-amazon.com/images/I/61b7U2Q-fHL._AC_SL1500_.jpg", 
-                    tag: "مايك البثوث الأفضل" 
-                },
-                { 
-                    id: 104, 
-                    name: "مكسر صوت الألعاب Fifine SC3 Gaming Audio Mixer مع تحكم بقنوات الصوت والمايك", 
-                    price: 219, 
-                    oldPrice: 280, 
-                    category: "gaming", 
-                    img: "https://m.media-amazon.com/images/I/61S15P+mI2L._AC_SL1500_.jpg", 
-                    tag: "تحكم صوتي فوري" 
-                },
-                { 
-                    id: 105, 
-                    name: "شاشة ألعاب AOC Gaming C27G2Z منحنية 27 بوصة - معدل تحديث 240Hz وسرعة 0.5ms", 
-                    price: 949, 
-                    oldPrice: 1199, 
-                    category: "gaming", 
-                    img: "https://m.media-amazon.com/images/I/81xU9dJ52eL._AC_SL1500_.jpg", 
-                    tag: "أعلى أداء شاشات" 
-                },
-                { 
-                    id: 106, 
-                    name: "كيبورد ألعاب ميكانيكي SteelSeries Apex Pro TKL مع أسرع سويتش مغناطيسي وشاشة OLED", 
-                    price: 829, 
-                    oldPrice: 999, 
-                    category: "gaming", 
-                    img: "https://m.media-amazon.com/images/I/71oD3GgU9LL._AC_SL1500_.jpg", 
-                    tag: "احتراف الإيسبورت" 
-                },
-                { 
-                    id: 107, 
-                    name: "كرسي قيمنق احترافي Cougar Armor One Black مريح للظهر مع وسائد طبية وقاعدة فولاذية", 
-                    price: 889, 
-                    oldPrice: 1050, 
-                    category: "gaming", 
-                    img: "https://m.media-amazon.com/images/I/61k1jE9bFSL._AC_SL1500_.jpg", 
-                    tag: "جلسة صحية مريحة" 
-                },
-                { 
-                    id: 6, 
-                    name: "جهاز Sony PlayStation 5 Slim Digital Edition (المعالج المحسن وتخزين 1TB)", 
-                    price: 1849, 
-                    oldPrice: 2049, 
-                    category: "sony", 
-                    img: "https://m.media-amazon.com/images/I/51051FiD9UL._AC_SL1000_.jpg", 
-                    tag: "الأكثر طلباً" 
-                },
-                { 
-                    id: 7, 
-                    name: "جهاز Sony PlayStation 5 Slim Disc Edition مع محرك أقراص Blu-ray ويد DualSense", 
-                    price: 2199, 
-                    oldPrice: 2399, 
-                    category: "sony", 
-                    img: "https://m.media-amazon.com/images/I/619BkvKW35L._AC_SL1500_.jpg" 
-                },
-                { 
-                    id: 8, 
-                    name: "يد تحكم Sony DualSense Wireless Controller الأصلية للبلايستيشن 5 - Midnight Black", 
-                    price: 289, 
-                    oldPrice: 349, 
-                    category: "sony", 
-                    img: "https://m.media-amazon.com/images/I/61b7U+Fh-ZL._AC_SL1500_.jpg", 
-                    tag: "ملحقات أصلية" 
-                },
-                { 
-                    id: 9, 
-                    name: "طاولة قيمنق Pro Carbon Fiber مستقيمة 140سم بسطح ألياف كربون وإضاءة RGB مدمجة", 
-                    price: 649, 
-                    oldPrice: 850, 
-                    category: "tables", 
-                    img: "https://m.media-amazon.com/images/I/61-97V-iZRL._AC_SL1500_.jpg" 
-                },
-                { 
-                    id: 10, 
-                    name: "طاولة سيت أب زاوية L-Shaped مقاس 160سم مخصصة لحمل شاشتين والبي سي مع حامل أكواب", 
-                    price: 980, 
-                    oldPrice: 1250, 
-                    category: "tables", 
-                    img: "https://m.media-amazon.com/images/I/71uVv8R9dSL._AC_SL1500_.jpg", 
-                    tag: "الأكثر اتساعاً" 
-                }
-            ];
+        let cartCount = 0;
+        let visitorLogs = JSON.parse(localStorage.getItem("techgear_final_logs")) || [
+            { id: 1, name: "Badr1122", time: "اليوم", role: "مدير المتجر" }
+        ];
 
-            const container = document.getElementById("productsContainer");
-            const categoryOrder = [
-                { key: "national-day", title: '<i class="fa-solid fa-flag text-green"></i> عروض اليوم الوطني KSA96 الحصرية' },
-                { key: "gaming", title: '<i class="fa-solid fa-gamepad text-cyan"></i> عتاد وبكجات القيمنق الاحترافية' },
-                { key: "sony", title: '<i class="fa-brands fa-playstation text-cyan"></i> منصات وملحقات سوني الأصلية' },
-                { key: "smart-devices", title: '<i class="fa-solid fa-mobile-screen-button text-cyan"></i> الهواتف والأجهزة الذكية' },
-                { key: "tables", title: '<i class="fa-solid fa-couch text-cyan"></i> طاولات وكراسي السيت أب' }
-            ];
+        function addToCart(name) {
+            cartCount++;
+            const badge = document.getElementById("cartCount");
+            badge.innerText = cartCount;
+            badge.style.display = "flex";
+            showToast(`تمت إضافة "${name}" إلى السلة`);
+        }
 
-            let html = "";
-            categoryOrder.forEach(cat => {
-                const catProducts = defaultProducts.filter(p => p.category === cat.key);
-                if (catProducts.length > 0) {
-                    html += `
-                        <section id="${cat.key}" class="category-group" style="margin-bottom: 45px;">
-                            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-glass); padding-bottom: 12px; margin-bottom: 22px;">
-                                <h3 style="font-size: 22px; font-weight: 900; color: #fff;">${cat.title}</h3>
-                                <span style="color: var(--text-muted); font-size: 13.5px;">${catProducts.length} منتجات</span>
-                            </div>
-                            <div class="products-grid">
-                    `;
-
-                    catProducts.forEach(p => {
-                        html += `
-                            <div class="product-card" data-title="${p.name}">
-                                ${p.tag ? `<span class="product-badge">${p.tag}</span>` : ''}
-                                <button type="button" class="btn-fav"><i class="fa-regular fa-heart"></i></button>
-                                
-                                <div class="product-img-wrapper">
-                                    <img src="${p.img}" alt="${p.name}" loading="lazy">
-                                </div>
-
-                                <div class="product-card-body">
-                                    <h4>${p.name}</h4>
-                                    <div class="price-container">
-                                        <span class="current-price">${p.price.toLocaleString()} <small>ر.س</small></span>
-                                        ${p.oldPrice ? `<del>${p.oldPrice.toLocaleString()} ر.س</del>` : ''}
-                                    </div>
-                                    <button class="btn-add">أضف إلى السلة</button>
-                                </div>
-                            </div>
-                        `;
-                    });
-
-                    html += `</div></section>`;
-                }
-            });
-
-            container.innerHTML = html;
-
-            // تحكم الزر الدائري والقائمة الجانبية
-            const roundBtn = document.getElementById("roundMenuBtn");
-            const drawer = document.getElementById("drawerMenu");
-            const overlay = document.getElementById("drawerOverlay");
-            const closeBtn = document.getElementById("closeDrawerBtn");
-
-            function toggleDrawer(open) {
-                if (open) {
-                    overlay.style.display = "block";
-                    setTimeout(() => drawer.classList.add("open"), 10);
-                } else {
-                    drawer.classList.remove("open");
-                    setTimeout(() => overlay.style.display = "none", 300);
-                }
+        function toggleFav(btn) {
+            btn.classList.toggle('active');
+            const icon = btn.querySelector('i');
+            if (btn.classList.contains('active')) {
+                icon.classList.remove('fa-regular');
+                icon.classList.add('fa-solid');
+                showToast("تمت الإضافة للمفضلة");
+            } else {
+                icon.classList.remove('fa-solid');
+                icon.classList.add('fa-regular');
             }
+        }
 
-            roundBtn.addEventListener("click", () => toggleDrawer(true));
-            closeBtn.addEventListener("click", () => toggleDrawer(false));
-            overlay.addEventListener("click", () => toggleDrawer(false));
+        function showToast(msg) {
+            const toast = document.getElementById("toast");
+            document.getElementById("toastMsg").innerText = msg;
+            toast.classList.add("active");
+            setTimeout(() => toast.classList.remove("active"), 2600);
+        }
 
-            // تسجيل الدخول
-            const loginModal = document.getElementById("loginModal");
-            const authForm = document.getElementById("authForm");
-            const userBtnText = document.getElementById("userBtnText");
+        function openModal(id) { document.getElementById(id).style.display = "flex"; }
+        function closeModal(id) { document.getElementById(id).style.display = "none"; }
 
-            authForm.addEventListener("submit", (e) => {
-                e.preventDefault();
-                const user = document.getElementById("authUsername").value.trim();
-                const pass = document.getElementById("authPassword").value.trim();
+        document.getElementById("openLogin").onclick = () => openModal("loginModal");
+        
+        // فتح لوحة الإدارة وتحديث السجل
+        document.getElementById("openAdmin").onclick = () => {
+            document.getElementById("adminTotalVis").innerText = `${visitorLogs.length} زائر`;
+            document.getElementById("logsTbody").innerHTML = visitorLogs.map(l => `
+                <tr>
+                    <td>#${l.id}</td>
+                    <td style="color:#fff; font-weight:bold;">${l.name}</td>
+                    <td>${l.time}</td>
+                    <td><span style="color:var(--accent-green);">${l.role}</span></td>
+                </tr>
+            `).reverse().join("");
+            openModal("adminModal");
+        };
 
-                if ((user === "Badr1122" && pass === "Badr1122") || user.length > 2) {
-                    loginModal.style.display = "none";
-                    userBtnText.innerText = user;
-                } else {
-                    document.getElementById("loginErrorMsg").style.display = "block";
-                }
-            });
+        // القائمة الجانبية بالزر الدائري
+        const sideDrawer = document.getElementById("sideDrawer");
+        const drawerOverlay = document.getElementById("drawerOverlay");
 
-            // فلترة القائمة التكتيكية
-            const tabs = document.querySelectorAll(".tactical-tab");
-            tabs.forEach(tab => {
-                tab.addEventListener("click", function() {
-                    tabs.forEach(t => t.classList.remove("active-tab"));
-                    this.classList.add("active-tab");
-                    const target = this.getAttribute("data-target");
+        document.getElementById("menuToggle").onclick = () => {
+            sideDrawer.classList.add("open");
+            drawerOverlay.style.display = "block";
+        };
 
-                    document.querySelectorAll(".category-group").forEach(group => {
-                        group.style.display = (target === "all" || group.id === target) ? "block" : "none";
-                    });
+        function closeNavDrawer() {
+            sideDrawer.classList.remove("open");
+            drawerOverlay.style.display = "none";
+        }
+
+        document.getElementById("closeDrawer").onclick = closeNavDrawer;
+        drawerOverlay.onclick = closeNavDrawer;
+
+        // تسجيل الدخول وإضافة الزائر للسجل
+        document.getElementById("loginForm").onsubmit = function(e) {
+            e.preventDefault();
+            const u = document.getElementById("username").value.trim();
+            const p = document.getElementById("password").value.trim();
+
+            if (u === "Badr1122" && p === "Badr1122") {
+                document.getElementById("userLabel").innerText = "Badr1122";
+                closeModal("loginModal");
+                showToast("أهلاً بك يا مدير المتجر (Badr1122)");
+            } else if (u) {
+                document.getElementById("userLabel").innerText = u;
+                visitorLogs.push({
+                    id: visitorLogs.length + 1,
+                    name: u,
+                    time: new Date().toLocaleTimeString('ar-SA', {hour: '2-digit', minute:'2-digit'}),
+                    role: "عميل مسجل"
                 });
+                localStorage.setItem("techgear_final_logs", JSON.stringify(visitorLogs));
+                closeModal("loginModal");
+                showToast(`أهلاً بك يا ${u}`);
+            }
+        };
+
+        // البحث المباشر
+        document.getElementById("searchInput").oninput = function() {
+            const val = this.value.toLowerCase().trim();
+            document.querySelectorAll(".product-card").forEach(card => {
+                const title = card.getAttribute("data-title").toLowerCase();
+                card.style.display = title.includes(val) ? "flex" : "none";
             });
-        });
+        };
+
+        window.onclick = function(e) {
+            if (e.target.classList.contains("modal-overlay")) {
+                e.target.style.display = "none";
+            }
+        };
     </script>
 </body>
 </html>
