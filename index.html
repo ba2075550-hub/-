@@ -932,41 +932,7 @@
         }
 
         // تسجيل الدخول
-        document.getElementById("loginForm").onsubmit = function(e) {
-            e.preventDefault();
-            const u = document.getElementById("username").value.trim();
-            const p = document.getElementById("password").value.trim();
-
-            if (u === "Badr1122" && p === "Badr1122") {
-                localStorage.setItem("techgear_active_user", "Badr1122");
-                document.getElementById("userLabel").innerText = "Badr1122";
-                
-                visitorLogs.push({
-                    id: visitorLogs.length + 1,
-                    name: "Badr1122",
-                    time: new Date().toLocaleTimeString('ar-SA', {hour: '2-digit', minute:'2-digit'}),
-                    role: "مدير المتجر"
-                });
-                localStorage.setItem("techgear_auth_logs", JSON.stringify(visitorLogs));
-                
-                closeModal("loginModal");
-                showToast("أهلاً بك يا مدير المتجر (Badr1122)");
-            } else if (u) {
-                localStorage.setItem("techgear_active_user", u);
-                document.getElementById("userLabel").innerText = u;
-                
-                visitorLogs.push({
-                    id: visitorLogs.length + 1,
-                    name: u,
-                    time: new Date().toLocaleTimeString('ar-SA', {hour: '2-digit', minute:'2-digit'}),
-                    role: "عميل مسجل"
-                });
-                localStorage.setItem("techgear_auth_logs", JSON.stringify(visitorLogs));
-
-                closeModal("loginModal");
-                showToast(`أهلاً بك يا ${u}`);
-            }
-        };
+        document.getElementById("loginForm").onsubmit = async function(e) { e.preventDefault(); const u = document.getElementById("username").value.trim(); const p = document.getElementById("password").value.trim(); if (!u || !p) { showToast("الرجاء إدخال اسم المستخدم وكلمة المرور"); return; } try { localStorage.setItem("techgear_active_user", u); document.getElementById("userLabel").innerText = u; visitorLogs.push({ id: visitorLogs.length + 1, name: u, time: new Date().toLocaleTimeString("ar-SA", {hour: "2-digit", minute:"2-digit"}), role: "عميل مسجل" }); localStorage.setItem("techgear_auth_logs", JSON.stringify(visitorLogs)); closeModal("loginModal"); showToast(`أهلاً بك، ${u}`); } catch (error) { showToast("حدث خطأ أثناء تسجيل الدخول"); } };
 
         // زر الحساب لتسجيل الخروج إذا أراد
         document.getElementById("userProfileBtn").onclick = () => {
